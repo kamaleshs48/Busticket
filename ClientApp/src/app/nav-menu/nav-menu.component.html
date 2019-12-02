@@ -1,0 +1,75 @@
+<!--<header>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">KanakHolidays</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+        [ngClass]="{ show: isExpanded }"
+      >
+        <ul class="navbar-nav flex-grow">
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/counter']"
+              >Counter</a
+            >
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-dark" [routerLink]="['/fetch-data']"
+              >Fetch data</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>-->
+
+  <header id="fh5co-header-section" class="sticky-banner">
+    <div class="container">
+      <div class="nav-header">
+        <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
+        <h1 id="fh5co-logo"><a href="Default.aspx"><b style="color:green">Himachal Travels</b></a></h1>
+        <!-- START #fh5co-menu-wrap -->
+        <nav id="fh5co-menu-wrap" role="navigation">
+          <ul class="sf-menu" id="fh5co-primary-menu">
+
+            <li><a href="#">Ticket</a></li>
+            <li>
+              <a href="#" class="fh5co-sub-ddown">Volvo Package</a>
+              <ul class="fh5co-sub-menu">
+                <li><a href="#">Family Package</a></li>
+                <li><a href="#">Honeymoon Package</a></li>
+                <li><a href="#">Official Trip Package</a></li>
+                <li><a href="#">School Trip Package</a></li>
+                <li><a href="#">College/Uni. Trip Package</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Hotel</a></li>
+            <li><a href="#">Car Hiring </a></li>
+            <li><a href="#">Pay Now</a></li>
+            <li><a href="#">Contact</a></li>
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>

@@ -1,0 +1,321 @@
+<form id="form12">
+    <div class="fh5co-hero">
+      <div></div>
+      <div class="fh5co-cover" data-stellar-background-ratio="0.5"
+        style="background-image: url(assets/images/Banner1.jpeg);">
+        <div class="desc">
+          <div class="container">
+
+
+            <div class="row">
+              <div class="col-sm-5 col-md-5">
+                <div class="tabulation animate-box">
+
+                  <!-- Nav tabs -->
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active" style="width: 100%!important;text-align: center;">
+                      <a href="#Tickets" aria-controls="Tickets" data-toggle="tab" style="font:25px;">Online Bus
+                        Ticket Booking</a>
+                    </li>
+
+                  </ul>
+
+                  <!-- Tab panes -->
+
+
+
+                  <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="Tickets">
+                      <div class="row">
+                        <div class="col-xxs-12 col-xs-12 mt">
+                          <div class="input-field">
+                            <label for="from">Source:</label>
+                           
+                            <select class="form-control" [(ngModel)]="SearchForm.Source" name="Source">
+                              <option *ngFor="let s of SourceList; let i = index"  value="{{s.Value}}">
+                                {{s.Text}}
+                              </option>
+                            </select>
+                           
+
+                          </div>
+                        </div>
+
+                        <div class="col-xxs-12 col-xs-12 mt">
+                          <div class="input-field">
+                            <label for="from">Destination:</label>
+                            <select class="form-control" [(ngModel)]="SearchForm.Destination" name="Destination">
+                              <option *ngFor="let s of SourceList; let i = index" value="{{s.Value}}">
+                                {{s.Text}}
+                              </option>
+                            </select>
+                          </div>
+
+                        </div>
+                        <div class="col-xxs-12 col-xs-6 mt alternate">
+                          <div class="input-field">
+                            <label for="date-start">DATE:</label>
+                            <input type="text" class="form-control"  id="date-start" placeholder="mm/dd/yyyy" [(ngModel)]="SearchForm.JournyDate" name="JournyDate" />
+                          </div>
+                        </div>
+
+
+
+
+                        <div class="col-xs-12">
+                          <input type="button" (click)="OpenPage()" class="btn btn-primary btn-block"
+                            value="Search Ticket">
+                        </div>
+                      </div>
+                    </div>
+
+
+                  </div>
+
+                </div>
+              </div>
+              <div class="desc2 animate-box">
+                <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
+                  <h1>
+                    <h2 style="color:green"><b>Himachal Travels</b></h2>
+                    <h3 style="color:black"><b> A Compleet Travel Solutions</b></h3>
+                  </h1>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+   
+  </form>
+  <div id="fh5co-tours" class="fh5co-section-gray">
+    <div class="container" style="padding-top:-50;">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+          <h3>Volvo Packages</h3>
+          <p>Packages for Best Places in Himachal & Leh-Laddakh in India for Honeymoon, Family, Offices, Schools, Colleges & Universities Enjoyment Trips  </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+          <div href="#">
+            <img src="assets/images/Honeymoon.jpg" alt="Honeymoon Package" class="img-responsive">
+            <div class="desc">
+              <span></span>
+              <h3>Best Honeymoon in Himachal</h3>
+              <span>5 Nights, 6 Days +  Volvo Ticket + Hotel + Foods</span>
+              <span>Privacy...</span>
+              <span class="price">Rs. 25,000-60,000</span>
+              <a class="btn btn-primary btn-outline" href="#">Read More... <i class="icon-arrow-right22"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+          <div href="#">
+            <img src="assets/images/family.jpg" alt="Family Package" class="img-responsive">
+            <div class="desc">
+              <span></span>
+              <h3>Family Enjoyments with kids</h3>
+              <span>5 Nights, 6 Days +  Volvo Bus Ticket + Hotel + Foods</span>
+              <span>Husband & Wife + 2 Childs </span>
+              <span class="price">Rs. 30,000-70,000</span>
+              <a class="btn btn-primary btn-outline" href="#">Read More... <i class="icon-arrow-right22"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+          <div href="#">
+            <img src="assets/images/shimla-wallpaper.jpg" alt="Office Trip Package" class="img-responsive">
+            <div class="desc">
+              <span></span>
+              <h3>Official Trip Package</h3>
+              <span>10 - 25 Members</span>
+              <span>2 Nights, 3 days +  Volvo Bus + Hotel + Foods</span>
+              <span class="price">Rs. 50,000-130,000</span>
+              <a class="btn btn-primary btn-outline" href="#">Read More... <i class="icon-arrow-right22"></i></a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-6 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+          <div href="#">
+            <img src="assets/images/shimla-wallpaper.jpg" alt="Office Trip Package" class="img-responsive">
+            <div class="desc">
+              <span></span>
+              <h3>Official Trip Package</h3>
+              <span>26 - 50 Members</span>
+              <span>2 Nights, 3 days +  Volvo Bus + Hotel + Foods</span>
+              <span class="price">Rs. 100,000-250,000</span>
+              <a class="btn btn-primary btn-outline" href="#">Read More... <i class="icon-arrow-right22"></i></a>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+      <div class="row">
+        <div class="col-md-6 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+          <div href="#">
+            <img src="assets/images/shimla-wallpaper.jpg" alt="School Trip Package" class="img-responsive">
+            <div class="desc">
+              <span></span>
+              <h3>School Trip Package</h3>
+              <span>100 - 250 Students</span>
+              <span>2 Nights, 3 days +  Volvo Bus + Hotel + Foods</span>
+              <span class="price">Rs. 150,000-330,000</span>
+              <a class="btn btn-primary btn-outline" href="#">Read More... <i class="icon-arrow-right22"></i></a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-6 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+          <div href="#">
+            <img src="assets/images/shimla-wallpaper.jpg" alt="School Trip Package" class="img-responsive">
+            <div class="desc">
+              <span></span>
+              <h3>School Trip Package</h3>
+              <span>251 - 500 Students</span>
+              <span>2 Nights, 3 days +  Volvo Bus + Hotel + Foods</span>
+              <span class="price">Rs. 300,000-700,000</span>
+              <a class="btn btn-primary btn-outline" href="#">Read More... <i class="icon-arrow-right22"></i></a>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+  
+      <div class="row">
+        <div class="col-md-6 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+          <div href="#">
+            <img src="assets/images/shimla-wallpaper.jpg" alt="College/University Trip Package" class="img-responsive">
+            <div class="desc">
+              <span></span>
+              <h3>College/University Trip Package</h3>
+              <span>100 - 250 Students</span>
+              <span>2 Nights, 3 days +  Volvo Bus + Hotel + Foods</span>
+              <span class="price">Rs. 150,000-330,000</span>
+              <a class="btn btn-primary btn-outline" href="#">Read More... <i class="icon-arrow-right22"></i></a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-md-6 col-sm-6 fh5co-tours animate-box" data-animate-effect="fadeIn">
+          <div href="#">
+            <img src="assets/images/shimla-wallpaper.jpg" alt="College/University Trip Package" class="img-responsive">
+            <div class="desc">
+              <span></span>
+              <h3>College/University Trip Package</h3>
+              <span>251 - 500 Students</span>
+              <span>2 Nights, 3 days +  Volvo Bus + Hotel + Foods</span>
+              <span class="price">Rs. 300,000-700,000</span>
+              <a class="btn btn-primary btn-outline" href="#">Read More... <i class="icon-arrow-right22"></i></a>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+  
+    </div>
+  </div>
+  
+  
+  
+  
+  <div id="fh5co-destination">
+    <div class="tour-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <ul id="fh5co-destination-list" class="animate-box">
+            <li class="one-forth text-center" style="background-image: url(assets/images/kullu-manali.jpeg); ">
+              <a href="#">
+                <div class="case-studies-summary">
+                  <h2>Manali</h2>
+                </div>
+              </a>
+            </li>
+            <li class="one-forth text-center" style="background-image: url(assets/images/Shimla.jpeg); ">
+              <a href="#">
+                <div class="case-studies-summary">
+                  <h2>Shimla</h2>
+                </div>
+              </a>
+            </li>
+            <li class="one-forth text-center" style="background-image: url(assets/images/Kufri.jpg); ">
+              <a href="#">
+                <div class="case-studies-summary">
+                  <h2>Kufri</h2>
+                </div>
+              </a>
+            </li>
+            <li class="one-forth text-center" style="background-image: url(assets/images/Solang-Velley.jpg); ">
+              <a href="#">
+                <div class="case-studies-summary">
+                  <h2>Solang-Velley</h2>
+                </div>
+              </a>
+            </li>
+  
+            <li class="one-forth text-center" style="background-image: url(assets/images/Rohtang-Pass.jpg); ">
+              <a href="#">
+                <div class="case-studies-summary">
+                  <h2>Rohtang Pass</h2>
+                </div>
+              </a>
+            </li>
+            <li class="one-half text-center">
+              <div class="title-bg">
+                <div class="case-studies-summary">
+                  <h2>Romantic Places in Himachal</h2>
+                  <span><a href="#">View All Destinations</a></span>
+                </div>
+              </div>
+            </li>
+            <li class="one-forth text-center" style="background-image: url(assets/images/Dharmshala.jpg); ">
+              <a href="#">
+                <div class="case-studies-summary">
+                  <h2>Dharmshala</h2>
+                </div>
+              </a>
+            </li>
+            <li class="one-forth text-center" style="background-image: url(assets/images/Dalhousie.jpg); ">
+              <a href="#">
+                <div class="case-studies-summary">
+                  <h2>Dalhousie</h2>
+                </div>
+              </a>
+            </li>
+            <li class="one-forth text-center" style="background-image: url(assets/images/Chamba.jpg); ">
+              <a href="#">
+                <div class="case-studies-summary">
+                  <h2>Chamba</h2>
+                </div>
+              </a>
+            </li>
+            <li class="one-forth text-center" style="background-image: url(assets/images/Khajjiar.jpg); ">
+              <a href="#">
+                <div class="case-studies-summary">
+                  <h2>Khajjiar</h2>
+                </div>
+              </a>
+            </li>
+            <li class="one-forth text-center" style="background-image: url(assets/images/Chail-Himachal.jpg); ">
+              <a href="#">
+                <div class="case-studies-summary">
+                  <h2>Chail</h2>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  

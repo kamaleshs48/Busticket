@@ -1,0 +1,2859 @@
+.pickups
+{
+width: 30%!important;
+}
+.seats
+{
+    width: 67%!important;
+}
+.seat-wrap
+{
+    z-index: 100;
+}
+
+.form-control {
+  
+    height: calc(1.5em + 2.75rem + 2px);
+}
+
+
+.tooltip-class .tooltip-inner {
+    background-color: #eee;
+    font-size: 125%;
+    color: blue;
+    
+    padding: 5px;
+  }
+  .tooltip-class .arrow::before {
+    border-top-color:#eee;
+    color: blue;
+   
+    padding: 5px;
+  }
+
+
+    .PresetDateRangePicker_panel {
+        padding: 0 22px 11px
+    }
+    
+    .PresetDateRangePicker_button {
+        position: relative;
+        height: 100%;
+        text-align: center;
+        background: 0 0;
+        border: 2px solid #00a699;
+        color: #00a699;
+        padding: 4px 12px;
+        margin-right: 8px;
+        font: inherit;
+        font-weight: 700;
+        line-height: normal;
+        overflow: visible;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        cursor: pointer
+    }
+    
+    .PresetDateRangePicker_button:active {
+        outline: 0
+    }
+    
+    .PresetDateRangePicker_button__selected {
+        color: #fff;
+        background: #00a699
+    }
+    
+    .SingleDatePicker {
+        position: relative;
+        display: inline-block
+    }
+    
+    .SingleDatePicker__block {
+        display: block
+    }
+    
+    .SingleDatePicker_picker {
+        z-index: 1;
+        background-color: #fff;
+        position: absolute
+    }
+    
+    .SingleDatePicker_picker__rtl {
+        direction: rtl
+    }
+    
+    .SingleDatePicker_picker__directionLeft {
+        left: 0
+    }
+    
+    .SingleDatePicker_picker__directionRight {
+        right: 0
+    }
+    
+    .SingleDatePicker_picker__portal {
+        background-color: rgba(0, 0, 0, .3);
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%
+    }
+    
+    .SingleDatePicker_picker__fullScreenPortal {
+        background-color: #fff
+    }
+    
+    .SingleDatePicker_closeButton {
+        background: 0 0;
+        border: 0;
+        color: inherit;
+        font: inherit;
+        line-height: normal;
+        overflow: visible;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 15px;
+        z-index: 2
+    }
+    
+    .SingleDatePicker_closeButton:focus,
+    .SingleDatePicker_closeButton:hover {
+        color: darken(#cacccd, 10%);
+        text-decoration: none
+    }
+    
+    .SingleDatePicker_closeButton_svg {
+        height: 15px;
+        width: 15px;
+        fill: #cacccd
+    }
+    
+    .SingleDatePickerInput {
+        display: inline-block;
+        background-color: #fff
+    }
+    
+    .SingleDatePickerInput__withBorder {
+        border: 1px solid #dbdbdb
+    }
+    
+    .SingleDatePickerInput__rtl {
+        direction: rtl
+    }
+    
+    .SingleDatePickerInput__disabled {
+        background-color: #f2f2f2
+    }
+    
+    .SingleDatePickerInput__block {
+        display: block
+    }
+    
+    .SingleDatePickerInput__showClearDate {
+        padding-right: 30px
+    }
+    
+    .SingleDatePickerInput_clearDate {
+        background: 0 0;
+        border: 0;
+        color: inherit;
+        font: inherit;
+        line-height: normal;
+        overflow: visible;
+        cursor: pointer;
+        padding: 10px;
+        margin: 0 10px 0 5px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%)
+    }
+    
+    .SingleDatePickerInput_clearDate__default:focus,
+    .SingleDatePickerInput_clearDate__default:hover {
+        background: #dbdbdb;
+        border-radius: 50%
+    }
+    
+    .SingleDatePickerInput_clearDate__small {
+        padding: 6px
+    }
+    
+    .SingleDatePickerInput_clearDate__hide {
+        visibility: hidden
+    }
+    
+    .SingleDatePickerInput_clearDate_svg {
+        fill: #82888a;
+        height: 12px;
+        width: 15px;
+        vertical-align: middle
+    }
+    
+    .SingleDatePickerInput_clearDate_svg__small {
+        height: 9px
+    }
+    
+    .SingleDatePickerInput_calendarIcon {
+        background: 0 0;
+        border: 0;
+        color: inherit;
+        font: inherit;
+        line-height: normal;
+        overflow: visible;
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 10px;
+        margin: 0 5px 0 10px
+    }
+    
+    .SingleDatePickerInput_calendarIcon_svg {
+        fill: #82888a;
+        height: 15px;
+        width: 14px;
+        vertical-align: middle
+    }
+    
+    .DateRangePicker {
+        position: relative;
+        display: inline-block
+    }
+    
+    .DateRangePicker__block {
+        display: block
+    }
+    
+    .DateRangePicker_picker {
+        z-index: 1;
+        background-color: #fff;
+        position: absolute
+    }
+    
+    .DateRangePicker_picker__rtl {
+        direction: rtl
+    }
+    
+    .DateRangePicker_picker__directionLeft {
+        left: 0
+    }
+    
+    .DateRangePicker_picker__directionRight {
+        right: 0
+    }
+    
+    .DateRangePicker_picker__portal {
+        background-color: rgba(0, 0, 0, .3);
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%
+    }
+    
+    .DateRangePicker_picker__fullScreenPortal {
+        background-color: #fff
+    }
+    
+    .DateRangePicker_closeButton {
+        background: 0 0;
+        border: 0;
+        color: inherit;
+        font: inherit;
+        line-height: normal;
+        overflow: visible;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 15px;
+        z-index: 2
+    }
+    
+    .DateRangePicker_closeButton:focus,
+    .DateRangePicker_closeButton:hover {
+        color: darken(#cacccd, 10%);
+        text-decoration: none
+    }
+    
+    .DateRangePicker_closeButton_svg {
+        height: 15px;
+        width: 15px;
+        fill: #cacccd
+    }
+    
+    .DayPicker {
+        position: relative;
+        text-align: left
+    }
+    
+    .DayPicker,
+    .DayPicker__horizontal {
+        background: #fff
+    }
+    
+    .DayPicker__verticalScrollable {
+        height: 100%
+    }
+    
+    .DayPicker__hidden {
+        visibility: hidden
+    }
+    
+    .DayPicker__withBorder {
+        -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, .05), 0 0 0 1px rgba(0, 0, 0, .07);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, .05), 0 0 0 1px rgba(0, 0, 0, .07);
+        border-radius: 3px
+    }
+    
+    .DayPicker_portal__horizontal {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        position: absolute;
+        left: 50%;
+        top: 50%
+    }
+    
+    .DayPicker_portal__vertical {
+        position: static
+    }
+    
+    .DayPicker_focusRegion {
+        outline: 0
+    }
+    
+    .DayPicker_calendarInfo__horizontal,
+    .DayPicker_wrapper__horizontal {
+        display: inline-block;
+        vertical-align: top
+    }
+    
+    .DayPicker_weekHeaders {
+        position: relative
+    }
+    
+    .DayPicker_weekHeaders__horizontal {
+        margin-left: 9px
+    }
+    
+    .DayPicker_weekHeader {
+        color: #757575;
+        position: absolute;
+        top: 62px;
+        z-index: 2;
+        padding: 0 13px;
+        text-align: left
+    }
+    
+    .DayPicker_weekHeader__vertical {
+        left: 50%
+    }
+    
+    .DayPicker_weekHeader__verticalScrollable {
+        top: 0;
+        display: table-row;
+        border-bottom: 1px solid #dbdbdb;
+        background: #fff;
+        margin-left: 0;
+        left: 0;
+        width: 100%;
+        text-align: center
+    }
+    
+    .DayPicker_weekHeader_ul {
+        list-style: none;
+        margin: 1px 0;
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 12px;
+    }
+    
+    .DayPicker_weekHeader_li {
+        display: inline-block;
+        text-align: center
+    }
+    
+    .DayPicker_transitionContainer {
+        position: relative;
+        overflow: hidden;
+        border-radius: 3px
+    }
+    
+    .DayPicker_transitionContainer__horizontal {
+        -webkit-transition: height .2s ease-in-out;
+        -o-transition: height .2s ease-in-out;
+        transition: height .2s ease-in-out
+    }
+    
+    .DayPicker_transitionContainer__vertical {
+        width: 100%
+    }
+    
+    .DayPicker_transitionContainer__verticalScrollable {
+        padding-top: 20px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        overflow-y: scroll
+    }
+    
+    .DayPickerKeyboardShortcuts_buttonReset {
+        background: 0 0;
+        border: 0;
+        border-radius: 0;
+        color: inherit;
+        font: inherit;
+        line-height: normal;
+        overflow: visible;
+        padding: 0;
+        cursor: pointer;
+        font-size: 14px
+    }
+    
+    .DayPickerKeyboardShortcuts_buttonReset:active {
+        outline: 0
+    }
+    
+    .DayPickerKeyboardShortcuts_show {
+        width: 22px;
+        position: absolute;
+        z-index: 2
+    }
+    
+    .DayPickerKeyboardShortcuts_show__bottomRight {
+        border-top: 26px solid transparent;
+        border-right: 33px solid #00a699;
+        bottom: 0;
+        right: 0
+    }
+    
+    .DayPickerKeyboardShortcuts_show__bottomRight:hover {
+        border-right: 33px solid #008489
+    }
+    
+    .DayPickerKeyboardShortcuts_show__topRight {
+        border-bottom: 26px solid transparent;
+        border-right: 33px solid #00a699;
+        top: 0;
+        right: 0
+    }
+    
+    .DayPickerKeyboardShortcuts_show__topRight:hover {
+        border-right: 33px solid #008489
+    }
+    
+    .DayPickerKeyboardShortcuts_show__topLeft {
+        border-bottom: 26px solid transparent;
+        border-left: 33px solid #00a699;
+        top: 0;
+        left: 0
+    }
+    
+    .DayPickerKeyboardShortcuts_show__topLeft:hover {
+        border-left: 33px solid #008489
+    }
+    
+    .DayPickerKeyboardShortcuts_showSpan {
+        color: #fff;
+        position: absolute
+    }
+    
+    .DayPickerKeyboardShortcuts_showSpan__bottomRight {
+        bottom: 0;
+        right: -28px
+    }
+    
+    .DayPickerKeyboardShortcuts_showSpan__topRight {
+        top: 1px;
+        right: -28px
+    }
+    
+    .DayPickerKeyboardShortcuts_showSpan__topLeft {
+        top: 1px;
+        left: -28px
+    }
+    
+    .DayPickerKeyboardShortcuts_panel {
+        overflow: auto;
+        background: #fff;
+        border: 1px solid #dbdbdb;
+        border-radius: 2px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 2;
+        padding: 22px;
+        margin: 33px
+    }
+    
+    .DayPickerKeyboardShortcuts_title {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0
+    }
+    
+    .DayPickerKeyboardShortcuts_list {
+        list-style: none;
+        padding: 0;
+        font-size: 14px
+    }
+    
+    .DayPickerKeyboardShortcuts_close {
+        position: absolute;
+        right: 22px;
+        top: 22px;
+        z-index: 2
+    }
+    
+    .DayPickerKeyboardShortcuts_close:active {
+        outline: 0
+    }
+    
+    .DayPickerKeyboardShortcuts_closeSvg {
+        height: 15px;
+        width: 15px;
+        fill: #cacccd
+    }
+    
+    .DayPickerKeyboardShortcuts_closeSvg:focus,
+    .DayPickerKeyboardShortcuts_closeSvg:hover {
+        fill: #82888a
+    }
+    
+    .KeyboardShortcutRow {
+        list-style: none;
+        margin: 6px 0
+    }
+    
+    .KeyboardShortcutRow__block {
+        margin-bottom: 16px
+    }
+    
+    .KeyboardShortcutRow_keyContainer {
+        display: inline-block;
+        white-space: nowrap;
+        text-align: right;
+        margin-right: 6px
+    }
+    
+    .KeyboardShortcutRow_keyContainer__block {
+        text-align: left;
+        display: inline
+    }
+    
+    .KeyboardShortcutRow_key {
+        font-family: monospace;
+        font-size: 12px;
+        text-transform: uppercase;
+        background: #f2f2f2;
+        padding: 2px 6px
+    }
+    
+    .KeyboardShortcutRow_action {
+        display: inline;
+        word-break: break-word;
+        margin-left: 8px
+    }
+    
+    .DayPickerNavigation_container {
+        position: relative;
+        z-index: 2
+    }
+    
+    .DayPickerNavigation_container__vertical {
+        background: #fff;
+        -webkit-box-shadow: 0 0 5px 2px rgba(0, 0, 0, .1);
+        box-shadow: 0 0 5px 2px rgba(0, 0, 0, .1);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 52px;
+        width: 100%
+    }
+    
+    .DayPickerNavigation_container__verticalScrollable {
+        position: relative
+    }
+    
+    .DayPickerNavigation_button {
+        cursor: pointer;
+        line-height: .78;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none
+    }
+    
+    .DayPickerNavigation_button__default {
+        border: 1px solid #e4e7e7;
+        background-color: #fff;
+        color: #757575
+    }
+    
+    .DayPickerNavigation_button__default:focus,
+    .DayPickerNavigation_button__default:hover {
+        border: 1px solid #c4c4c4
+    }
+    
+    .DayPickerNavigation_button__default:active {
+        background: #f2f2f2
+    }
+    
+    .DayPickerNavigation_button__horizontal {
+        border-radius: 3px;
+        padding: 6px 9px;
+        top: 18px;
+        position: absolute
+    }
+    
+    .DayPickerNavigation_leftButton__horizontal {
+        left: 22px
+    }
+    
+    .DayPickerNavigation_rightButton__horizontal {
+        right: 22px
+    }
+    
+    .DayPickerNavigation_button__vertical {
+        display: inline-block;
+        position: relative;
+        height: 100%;
+        width: 50%
+    }
+    
+    .DayPickerNavigation_button__vertical__default {
+        padding: 5px
+    }
+    
+    .DayPickerNavigation_nextButton__vertical__default {
+        border-left: 0
+    }
+    
+    .DayPickerNavigation_nextButton__verticalScrollable {
+        width: 100%
+    }
+    
+    .DayPickerNavigation_svg__horizontal {
+        height: 19px;
+        width: 19px;
+        fill: #82888a
+    }
+    
+    .DayPickerNavigation_svg__vertical {
+        height: 42px;
+        width: 42px;
+        fill: #565a5c
+    }
+    
+    .CalendarMonthGrid {
+        background: #fff;
+        text-align: left;
+        z-index: 0
+    }
+    
+    .CalendarMonthGrid__animating {
+        z-index: 1
+    }
+    
+    .CalendarMonthGrid__horizontal {
+        position: absolute;
+        left: 9px
+    }
+    
+    .CalendarMonthGrid__vertical {
+        margin: 0 auto
+    }
+    
+    .CalendarMonthGrid__vertical_scrollable {
+        margin: 0 auto;
+        overflow-y: scroll
+    }
+    
+    .CalendarMonthGrid_month__horizontal {
+        display: inline-block;
+        vertical-align: top;
+        min-height: 100%
+    }
+    
+    .CalendarMonthGrid_month__hideForAnimation {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        pointer-events: none
+    }
+    
+    .CalendarMonthGrid_month__hidden {
+        visibility: hidden
+    }
+    
+    .CalendarMonth {
+        background: #fff;
+        text-align: center;
+        padding: 0 13px;
+        vertical-align: top;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none
+    }
+    
+    .CalendarMonth_table {
+        border-collapse: collapse;
+        border-spacing: 0
+    }
+    
+    .CalendarMonth_caption {
+        color: #565a5c;
+        font-size: 18px;
+        text-align: center;
+        padding-top: 22px;
+        padding-bottom: 37px;
+        caption-side: top
+    }
+    
+    .CalendarMonth_caption__verticalScrollable {
+        padding-top: 12px;
+        padding-bottom: 7px
+    }
+    
+    .CalendarDay {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        cursor: pointer;
+        font-size: 14px;
+        text-align: center
+    }
+    
+    .CalendarDay:active {
+        outline: 0
+    }
+    
+    .CalendarDay__defaultCursor {
+        cursor: default
+    }
+    
+    .CalendarDay__default {
+        border: 1px solid #e4e7e7;
+        color: #565a5c;
+        background: #fff
+    }
+    
+    .CalendarDay__default:hover {
+        background: #e4e7e7;
+        border: 1px double #e4e7e7;
+        color: inherit
+    }
+    
+    .CalendarDay__hovered_offset {
+        background: #f4f5f5;
+        border: 1px double #e4e7e7;
+        color: inherit
+    }
+    
+    .CalendarDay__outside {
+        border: 0;
+        background: #fff;
+        color: #565a5c
+    }
+    
+    .CalendarDay__blocked_minimum_nights {
+        background: #fff;
+        border: 1px solid #eceeee;
+        color: #cacccd
+    }
+    
+    .CalendarDay__blocked_minimum_nights:active,
+    .CalendarDay__blocked_minimum_nights:hover {
+        background: #fff;
+        color: #cacccd
+    }
+    
+    .CalendarDay__highlighted_calendar {
+        background: #ffe8bc;
+        color: #565a5c
+    }
+    
+    .CalendarDay__highlighted_calendar:active,
+    .CalendarDay__highlighted_calendar:hover {
+        background: #ffce71;
+        color: #565a5c
+    }
+    
+    .CalendarDay__selected_span {
+        background: #66e2da;
+        border: 1px solid #33dacd;
+        color: #fff
+    }
+    
+    .CalendarDay__selected_span:active,
+    .CalendarDay__selected_span:hover {
+        background: #33dacd;
+        border: 1px solid #33dacd;
+        color: #fff
+    }
+    
+    .CalendarDay__last_in_range {
+        border-right: #00a699
+    }
+    
+    .CalendarDay__selected,
+    .CalendarDay__selected:active,
+    .CalendarDay__selected:hover {
+        background: #00a699;
+        border: 1px solid #00a699;
+        color: #fff
+    }
+    
+    .CalendarDay__hovered_span,
+    .CalendarDay__hovered_span:hover {
+        background: #b2f1ec;
+        border: 1px solid #80e8e0;
+        color: #007a87
+    }
+    
+    .CalendarDay__hovered_span:active {
+        background: #80e8e0;
+        border: 1px solid #80e8e0;
+        color: #007a87
+    }
+    
+    .CalendarDay__blocked_calendar,
+    .CalendarDay__blocked_calendar:active,
+    .CalendarDay__blocked_calendar:hover {
+        background: #cacccd;
+        border: 1px solid #cacccd;
+        color: #82888a
+    }
+    
+    .CalendarDay__blocked_out_of_range,
+    .CalendarDay__blocked_out_of_range:active,
+    .CalendarDay__blocked_out_of_range:hover {
+        background: #fff;
+        border: 1px solid #e4e7e7;
+        color: #cacccd
+    }
+    
+    .DateRangePickerInput {
+        background-color: #fff;
+        display: inline-block
+    }
+    
+    .DateRangePickerInput__disabled {
+        background: #f2f2f2
+    }
+    
+    .DateRangePickerInput__withBorder {
+        border: 1px solid #cacccd
+    }
+    
+    .DateRangePickerInput__rtl {
+        direction: rtl
+    }
+    
+    .DateRangePickerInput__block {
+        display: block
+    }
+    
+    .DateRangePickerInput__showClearDates {
+        padding-right: 30px
+    }
+    
+    .DateRangePickerInput_arrow {
+        display: inline-block;
+        vertical-align: middle
+    }
+    
+    .DateRangePickerInput_arrow_svg {
+        vertical-align: middle;
+        fill: #565a5c;
+        height: 24px;
+        width: 24px
+    }
+    
+    .DateRangePickerInput_arrow_svg__small {
+        height: 19px;
+        width: 19px
+    }
+    
+    .DateRangePickerInput_clearDates {
+        background: 0 0;
+        border: 0;
+        color: inherit;
+        font: inherit;
+        line-height: normal;
+        overflow: visible;
+        cursor: pointer;
+        padding: 10px;
+        margin: 0 10px 0 5px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%)
+    }
+    
+    .DateRangePickerInput_clearDates__small {
+        padding: 6px
+    }
+    
+    .DateRangePickerInput_clearDates_default:focus,
+    .DateRangePickerInput_clearDates_default:hover {
+        background: #dbdbdb;
+        border-radius: 50%
+    }
+    
+    .DateRangePickerInput_clearDates__hide {
+        visibility: hidden
+    }
+    
+    .DateRangePickerInput_clearDates_svg {
+        fill: #82888a;
+        height: 12px;
+        width: 15px;
+        vertical-align: middle
+    }
+    
+    .DateRangePickerInput_clearDates_svg__small {
+        height: 9px
+    }
+    
+    .DateRangePickerInput_calendarIcon {
+        background: 0 0;
+        border: 0;
+        color: inherit;
+        font: inherit;
+        line-height: normal;
+        overflow: visible;
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: middle;
+        padding: 10px;
+        margin: 0 5px 0 10px
+    }
+    
+    .DateRangePickerInput_calendarIcon_svg {
+        fill: #82888a;
+        height: 15px;
+        width: 14px;
+        vertical-align: middle
+    }
+    
+    .DateInput {
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        position: relative;
+        display: inline-block;
+        width: 130px;
+        vertical-align: middle
+    }
+    
+    .DateInput__small {
+        width: 90px
+    }
+    
+    .DateInput__block {
+        width: 100%
+    }
+    
+    .DateInput__disabled {
+        background: #f2f2f2;
+        color: #dbdbdb
+    }
+    
+    .DateInput_input {
+        font-weight: 200;
+        font-size: 18px;
+        line-height: 24px;
+        color: #565a5c;
+        background-color: #fff;
+        width: 100%;
+        padding: 13px 12px 11px;
+        border: 0;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 2px solid transparent;
+        border-left: 0
+    }
+    
+    .DateInput_input__small {
+        font-size: 14px;
+        line-height: 18px;
+        padding: 8px 8px 6px
+    }
+    
+    .DateInput_input__regular {
+        font-weight: auto
+    }
+    
+    .DateInput_input__readOnly {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none
+    }
+    
+    .DateInput_input__focused {
+        outline: 0;
+        background: #fff;
+        border: 0;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 2px solid #008489;
+        border-left: 0
+    }
+    
+    .DateInput_input__disabled {
+        background: #f2f2f2;
+        font-style: italic
+    }
+    
+    .DateInput_screenReaderMessage {
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px
+    }
+    
+    .DateInput_fang {
+        position: absolute;
+        width: 20px;
+        height: 10px;
+        left: 22px;
+        z-index: 2
+    }
+    
+    .DateInput_fangShape {
+        fill: #fff
+    }
+    
+    .DateInput_fangStroke {
+        stroke: #dbdbdb;
+        fill: transparent
+    }
+    
+    .atc {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 100%;
+        background: #fff;
+        color: #444;
+        border: 1px solid #ddd;
+        border-width: 0 1px 1px;
+        max-height: 250px;
+        overflow: auto;
+        -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+        z-index: 1
+    }
+    
+    .atc>div {
+        padding: 10px 15px;
+        cursor: pointer;
+        border-bottom: 1px solid #eee
+    }
+    
+    .atc>div:last-child {
+        border: 0
+    }
+    
+    .atc>div:hover {
+        background: #e5e5e5
+    }
+    
+    .mo-inp {
+        position: relative;
+        width: 20%;
+        border-right: 1px solid #ddd
+    }
+    
+    .mo-inp.err {
+        background: rgba(255, 0, 0, .2)
+    }
+    
+    .mo-inp .DateInput__block,
+    .mo-inp .SingleDatePickerInput {
+        background: transparent
+    }
+    
+    .mo-inp .mod-clear.dt {
+        position: absolute;
+        right: 10px;
+        top: 15px;
+        color: #444
+    }
+    
+    .mo-inp .DateInput_input {
+        font-size: 12px;
+        color: #444;
+        font-weight: 300;
+        border: 0;
+        padding: 15px;
+        line-height: 1.15;
+        background: transparent
+    }
+    
+    .mo-inp .DateInput_input__focused {
+        border: 0
+    }
+    
+    .mo-inp .DateInput_fang.DateInput_fang_1 {
+        display: none
+    }
+    
+    .mo-inp .SingleDatePicker_picker {
+        top: 46px!important;
+        left: auto!important;
+        right: 0
+    }
+    
+    .mo-inp .CalendarDay__default {
+        border: 0
+    }
+    
+    .mo-inp .DayPickerNavigation_button__horizontal {
+        border-radius: 0;
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        top: 25px;
+        border-color: transparent transparent #aaa #aaa;
+        outline: 0
+    }
+    
+    .mo-inp .DayPickerNavigation_button__horizontal svg {
+        display: none
+    }
+    
+    .mo-inp .DayPickerNavigation_button__horizontal.DayPickerNavigation_leftButton__horizontal {
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg)
+    }
+    
+    .mo-inp .DayPickerNavigation_button__horizontal.DayPickerNavigation_rightButton__horizontal {
+        -webkit-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+        transform: rotate(-135deg)
+    }
+    
+    .mo-inp .CalendarDay__selected,
+    .mo-inp .CalendarDay__selected:active,
+    .mo-inp .CalendarDay__selected:hover {
+        background: #ff1e71;
+        border-color: #ff1e71
+    }
+    
+    .swap-ico {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: absolute;
+        background: #fff;
+        width: 30px;
+        height: 30px;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        top: 8px;
+        left: calc(25% - 15px);
+        cursor: pointer;
+        z-index: 1
+    }
+    
+    .swap-ico span {
+        position: relative;
+        width: 15px;
+        height: 1px;
+        background: #aaa;
+        margin: 1px 0
+    }
+    
+    .swap-ico span:before {
+        content: " ";
+        position: absolute;
+        right: 0;
+        top: -2px;
+        width: 7px;
+        height: 1px;
+        background: #aaa;
+        -webkit-transform: rotate(30deg);
+        -ms-transform: rotate(30deg);
+        transform: rotate(30deg)
+    }
+    
+    .swap-ico span:last-child:before {
+        left: 0;
+        top: 2px
+    }
+    
+    .mod-down {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        padding: 15px 0 0;
+        font-size: 12px;
+
+    }
+    
+    .mod-down>div:last-child {
+        margin-left: auto
+    }
+    
+    .mod-down>div:last-child span {
+        cursor: pointer
+    }
+    
+    .mod-down>div:last-child span:first-child {
+        margin-right: 10px
+    }
+    
+    .mod-down>div:last-child span:last-child {
+        margin-left: 10px
+    }
+    
+    .sort-bar {
+        padding: 10px 6%;
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        background: #fff;
+    font-size: 12px;
+        -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+        box-shadow: 0 0 5px rgba(0, 0, 0, .3)
+    }
+    
+    .sort-bar>div {
+        position: relative;
+        margin-right: 30px;
+        padding-right: 15px;
+        cursor: pointer
+    }
+    
+    .sort-bar>div.sort-typ {
+        margin-left: auto;
+        margin-right: 0
+    }
+    
+    .sort-bar>div.sort-typ .down-arr {
+        top: 4px
+    }
+    
+    .sort-bar>div.sort-typ .up-arr {
+        top: -1px
+    }
+    
+    .sort-bar>div img {
+        width: 25px
+    }
+    
+    .sort-bar>div .down-arr {
+        position: absolute;
+        top: 9px;
+        right: 0
+    }
+    
+    .sort-bar>div .up-arr {
+        position: absolute;
+        top: 4px;
+        right: 0
+    }
+    
+    .sort-bar>div .show-sort {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        top: calc(100% + 10px);
+        background: #fff;
+        padding: 15px 25px;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+        box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+        min-width: 170px;
+        line-height: 2;
+        z-index: 10
+    }
+    
+    .sort-bar>div .show-sort.sorter {
+        left: auto;
+        right: 0;
+        padding: 0
+    }
+    
+    .sort-bar>div .show-sort.sorter div {
+        padding: 10px 25px;
+        border-bottom: 1px solid #ddd;
+       font-size: 12px;
+        min-width: 250px
+    }
+    
+    .sort-bar>div .show-sort.sorter div.active,
+    .sort-bar>div .show-sort.sorter div:hover {
+        background: #eee
+    }
+    
+    .sort-bar>div .show-sort .reset-sort {
+        text-align: center;
+        padding-bottom: 10px;
+        font-size: 12px
+    }
+    
+    .sort-bar>div .show-sort .time-sort {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        min-width: 500px
+    }
+    
+    .sort-bar>div .show-sort .time-sort>div {
+        width: 25%;
+        padding-left: 25px;
+        border-right: 1px solid #ddd
+    }
+    
+    .sort-bar>div .show-sort .time-sort>div:last-child {
+        border: 0
+    }
+    
+    .sort-bar>div .show-sort .time-sort>div.active {
+        color: #554da1
+    }
+    
+    .sort-bar>div .show-sort label {
+        display: block;
+        padding: 3px 0;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none
+    }
+    
+    .sort-bar>div .show-sort label input {
+        margin-right: 10px
+    }
+    
+    .srch-card {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        width: 88%;
+        margin: 10px auto;
+        background: #fff;
+        line-height: 1.55;
+        -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+        box-shadow: 0 1px 2px rgba(0, 0, 0, .2)
+    }
+    
+    .srch-card img {
+        width: 25px
+    }
+    
+    .srch-card .srch-names {
+        width: 30%;
+        padding: 25px 0 25px 25px
+    }
+    
+    .srch-card .srch-names>div {
+       font-size: 12px;
+        text-transform: capitalize
+    }
+    
+    .srch-card .srch-names>div:first-child {
+         font-size: 12px;
+        font-weight: 400
+    }
+    
+    .srch-card .srch-names>div:first-child,
+    .srch-card .srch-names>div:nth-child(2) {
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap
+    }
+    
+    .srch-card .srch-names>div:last-child {
+        margin-top: 10px
+    }
+    
+    .srch-card .srch-names .tooltip {
+        position: relative;
+        display: inline-block
+    }
+    
+    .srch-card .srch-names .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 140px;
+        background-color: #fff;
+        color: #444;
+        text-align: center;
+        border-radius: 3px;
+        padding: 5px 0;
+        position: absolute!important;
+        z-index: 1;
+        bottom: 150%;
+        left: 50%;
+        margin-left: -60px;
+        padding: 8px;
+        -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+        box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3)
+    }
+    
+    .srch-card .srch-names .tooltip .tooltiptext:after {
+        content: "";
+        position: absolute;
+        top: 85%;
+        left: 49%;
+        -webkit-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+        border: 5px solid #fff;
+        -webkit-box-shadow: -1px -1px 0 0 rgba(0, 0, 0, .3);
+        box-shadow: -1px -1px 0 0 rgba(0, 0, 0, .3)
+    }
+    
+    .srch-card .srch-names .tooltip:hover .tooltiptext {
+        visibility: visible
+    }
+    
+    .srch-card .srch-times {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        width: 50%;
+        padding: 25px 5%
+    }
+    
+    .srch-card .srch-times>div {
+        font-size: 12px
+    }
+    
+    .srch-card .srch-times>div>:first-child {
+         font-size: 12px;
+        font-weight: 400
+    }
+    
+    .srch-card .srch-times>div.dur div {
+        color: #444;
+        font-weight: 300;
+        letter-spacing: .05rem;
+        font-size: 12px
+    }
+    
+    .srch-card .srch-times>div.dur div:last-child {
+        position: relative
+    }
+    
+    .srch-card .srch-times>div.dur div:last-child:before {
+        content: " ";
+        position: absolute;
+        top: 10px;
+        left: 20%;
+        width: 60%;
+        height: 1px;
+        background: #aaa
+    }
+    
+    .srch-card .srch-times>div.dur div:last-child:after {
+        content: " ";
+        position: absolute;
+        top: 7px;
+        right: 20%;
+        width: 7px;
+        height: 7px;
+        border: 1px solid #aaa;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        border-width: 1px 1px 0 0
+    }
+    
+    .srch-card .srch-seats {
+        width: 10%;
+        width: calc(20% - 110px);
+       font-size: 12px;
+        padding: 25px 0
+    }
+    
+    .srch-card .srch-seats>:first-child {
+         font-size: 12px;
+        font-weight: 400
+    }
+    
+    .srch-card .srch-fares {
+        width: 110px;
+       font-size: 12px;
+        padding: 25px 25px 25px 0
+    }
+    
+    .srch-card .srch-fares>:first-child {
+         font-size: 12px;
+        font-weight: 400
+    }
+    
+    .srch-card .srch-fares>:nth-child(2) {
+        text-decoration: line-through
+    }
+    
+    .srch-card .srch-fares .discountTag {
+        color: #1eb24b;
+        font-weight: 700
+    }
+    
+    .srch-card .srch-fares div:last-child {
+       font-size: 12px;
+        font-weight: 400;
+        margin-top: 5px;
+        text-align: center;
+        padding: 9px 0;
+        border-radius: 3px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer
+    }
+    
+    .srch-card .srch-names span,
+    .srch-card .srch-times div {
+        position: relative
+    }
+    
+    .srch-card .srch-names span .list-pick,
+    .srch-card .srch-times div .list-pick {
+        position: absolute;
+        left: 100%;
+        left: calc(100% + 10px);
+        margin: 0!important;
+        padding: 15px;
+        min-width: 300px;
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        background: #fff;
+         font-size: 12px;
+        color: #444;
+        font-weight: 300;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        z-index: 10
+    }
+    
+    .srch-card .srch-names span .list-pick:before,
+    .srch-card .srch-times div .list-pick:before {
+        content: " ";
+        position: absolute;
+        left: -5px;
+        top: 50%;
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, .1);
+        border-width: 0 0 1px 1px;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg)
+    }
+    
+    .srch-card .srch-names span .list-pick>div,
+    .srch-card .srch-times div .list-pick>div {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        padding: 5px 0
+    }
+    
+    .srch-card .srch-names span .list-pick>div:first-child,
+    .srch-card .srch-times div .list-pick>div:first-child {
+        font-size: .85rem;
+        font-weight: 400
+    }
+    
+    .srch-card .srch-names span .list-pick>div div:first-child,
+    .srch-card .srch-times div .list-pick>div div:first-child {
+        padding-right: 10px
+    }
+    
+    .srch-card .srch-names span .list-pick>div div:last-child,
+    .srch-card .srch-times div .list-pick>div div:last-child {
+        text-align: right
+    }
+    
+    .srch-card .seatchart {
+        position: relative;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        background: #eee;
+        padding: 25px
+    }
+    
+    .srch-card .seatchart,
+    .srch-card .seatchart .seat-wrap {
+        display: -ms-flexbox;
+        display: flex
+    }
+    
+    .srch-card .seatchart .seat-wrap .seats {
+        width: 55%
+    }
+    
+    .srch-card .seatchart .seat-wrap .seats img {
+        position: absolute;
+        top: 15px;
+        left: 20px
+    }
+    
+    .srch-card .seatchart .seat-wrap .pickups {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        width: 42%;
+        margin-left: auto;
+        background: #fff;
+        padding: 15px 4%;
+        -webkit-box-shadow: rgba(0, 0, 0, .3) 0 0 2px;
+        box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+        border-radius: 3px
+    }
+    
+    .srch-card .seatchart .seat-wrap .pickups .points {
+        padding-bottom: 15px
+    }
+    
+    .srch-card .seatchart .seat-wrap .pickups .points .point-inp {
+        position: relative;
+        padding: 25px 0 5px;
+        border-bottom: 1px solid #ddd;
+        cursor: pointer
+    }
+    
+    .srch-card .seatchart .seat-wrap .pickups .points .point-inp span {
+        position: absolute;
+        right: 0;
+        bottom: 2px;
+        border: 7px solid #ddd;
+        border-color: #999 transparent transparent
+    }
+    
+    .srch-card .seatchart .seat-wrap .pickups .point-opt {
+        position: absolute;
+        top: 15px;
+        left: 25px;
+        width: calc(100% - 50px);
+        visibility: hidden;
+        overflow: hidden;
+        opacity: 0;
+        height: 0;
+        background: #fff
+    }
+    
+    .srch-card .seatchart .seat-wrap .pickups .point-opt.active {
+        visibility: visible;
+        opacity: 1;
+        height: calc(100% - 30px);
+        border: 1px solid #ddd;
+        line-height: 1.8;
+        overflow: auto;
+        -webkit-transition: .3s ease;
+        -o-transition: .3s ease;
+        transition: .3s ease
+    }
+    
+    .srch-card .seatchart .seat-wrap .pickups .point-opt.active>div {
+        display: -ms-flexbox;
+        display: flex;
+        font-size: .85rem;
+        padding: 10px 15px
+    }
+    
+    .srch-card .seatchart .seat-wrap .pickups .point-opt.active>div:first-child {
+        position: relative;
+        border-bottom: 1px double #ddd
+    }
+    
+    .srch-card .seatchart .seat-wrap .pickups .point-opt.active>div:first-child:hover {
+        background: #fff;
+        cursor: default
+    }
+    
+    .srch-card .seatchart .seat-wrap .pickups .point-opt.active>div:first-child:before {
+        content: " ";
+        position: absolute;
+        right: 10px;
+        top: 13px;
+        border: 7px solid #ddd;
+        border-color: transparent transparent #999
+    }
+    
+    .srch-card .seatchart .seat-wrap .pickups .point-opt.active>div:hover {
+        background: #eee;
+        cursor: pointer
+    }
+    
+    .srch-card .seatchart .seat-wrap .pickups .point-opt.active>div div:first-child {
+        min-width: 85px
+    }
+    
+    .srch-card .seatchart .legend {
+        display: -ms-flexbox;
+        display: flex;
+        padding: 10px 0;
+        font-size: 12px
+    }
+    
+    .srch-card .seatchart .legend>div {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-right: 25px
+    }
+    
+    .srch-card .seatchart .legend>div span {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #fff;
+        margin-right: 5px
+    }
+    
+    .srch-card .seatchart .legend>div span.st-legend {
+        position: relative;
+        border-radius: 0;
+        width: 12px;
+        height: 12px;
+        border: 1px solid #1fb34b
+    }
+    
+    .srch-card .seatchart .legend>div span.st-legend:before {
+        content: " ";
+        position: absolute;
+        right: 0;
+        top: 2px;
+        width: 3px;
+        height: 6px;
+        background: #1fb34b
+    }
+    
+    .srch-card .seatchart .legend>div span.st-legend.sl {
+        width: 15px
+    }
+    
+    .seatchart-label {
+        position: absolute;
+        left: 42px;
+        top: 50px;
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+        -webkit-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+        transform-origin: 0 0;
+        font-size: 12px
+    }
+    
+    .seatchart-label.up {
+        top: 20%
+    }
+    
+    .dashed {
+        text-decoration: line-through;
+        color: #444;
+        font-weight: 300
+    }
+    
+    .checkout-wrapper {
+        display: -ms-flexbox;
+        display: flex;
+        padding: 15px 6%;
+        -ms-flex-pack: justify;
+        justify-content: space-between
+    }
+    
+    .checkout-wrapper>div:first-child {
+        width: 55%
+    }
+    
+    .checkout-wrapper>div:last-child {
+        width: 45%;
+        padding-left: 3%
+    }
+    
+    .checkout-wrapper>div .card {
+        background: #fff;
+        margin-bottom: 20px;
+        padding: 4% 6%;
+        font-size: .85rem;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, .2);
+        box-shadow: 0 0 3px 1px rgba(0, 0, 0, .2)
+    }
+    
+    .checkout-wrapper>div .card h6 {
+        margin: 0;
+        padding: 5px 0;
+        font-size: .85rem;
+        font-weight: 500
+    }
+    
+    .checkout-wrapper>div .card>div {
+        padding: 5px 0
+    }
+    
+    .checkout-wrapper>div .card>div.pass-info {
+        padding: 15px 0
+    }
+    
+    .checkout-wrapper>div .card>div.pass-info,
+    .checkout-wrapper>div .card>div.pass-info .mob-info {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -ms-flex-align: end;
+        align-items: flex-end
+    }
+    
+    .checkout-wrapper>div .card>div.pass-info .mob-info {
+        position: relative;
+        width: 85px;
+        padding-bottom: 3px;
+        border-bottom: 1px solid #ddd
+    }
+    
+    .checkout-wrapper>div .card>div.pass-info .mob-info img {
+        width: 20px
+    }
+    
+    .checkout-wrapper>div .card>div.pass-info .mob-info input {
+        border: 0!important
+    }
+    
+    .checkout-wrapper>div .card>div.pay-opts {
+        margin: 25px 0;
+        padding: 0;
+        border-bottom: 1px solid #ddd
+    }
+    
+    .checkout-wrapper>div .card>div.pay-opts>div {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap
+    }
+    
+    .checkout-wrapper>div .card>div.pay-opts>div>div {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 20px;
+        width: 50%;
+        border: 1px solid #ddd;
+        border-width: 1px 1px 0
+    }
+    
+    .checkout-wrapper>div .card>div.pay-opts>div>div:nth-child(2n) {
+        border-width: 1px 1px 0 0
+    }
+    
+    .checkout-wrapper>div .card .viewCoupon {
+        width: 100%;
+        color: #fff;
+        text-align: center;
+        border-radius: 0 0 3px 3px;
+        padding: 2%;
+        cursor: pointer
+    }
+    
+    .checkout-wrapper>div .card .viewCoupon img {
+        position: relative;
+        top: -1px
+    }
+    
+    .checkout-wrapper>div .card .couponInputBox {
+        width: 100%;
+        padding: 2% 6%
+    }
+    
+    .checkout-wrapper>div .card .couponInputBox .coupon-input {
+        width: calc(100% - 80px);
+        padding: 1%;
+        border: 0
+    }
+    
+    .checkout-wrapper>div .card .couponInputBox .coupon-input:focus {
+        outline: 0!important
+    }
+    
+    .checkout-wrapper>div .card .couponInputBox .coupon-button {
+        width: 80px;
+        padding: 1%;
+        float: right;
+        color: #fff;
+        text-align: center;
+        border-radius: 3px;
+        cursor: pointer
+    }
+    
+    .checkout-wrapper>div .OTP-container {
+        font-size: .85rem
+    }
+    
+    .checkout-wrapper>div .OTP-container .resentOTP {
+        float: right;
+        cursor: pointer
+    }
+    
+    .checkout-wrapper>div .OTP-container .OTP-wrapper {
+        margin: 5px 0;
+        background: #fff;
+        padding: 1% 6%
+    }
+    
+    .checkout-wrapper>div .OTP-container .OTP-wrapper .OTP-input {
+        padding: 1%;
+        border: 0;
+        width: calc(100% - 80px)
+    }
+    
+    .checkout-wrapper>div .OTP-container .OTP-wrapper .OTP-input:focus {
+        outline: none
+    }
+    
+    .checkout-wrapper>div .OTP-container .OTP-wrapper .OTP-button {
+        width: 80px;
+        padding: 1%;
+        float: right;
+        text-align: center;
+        color: #fff;
+        border-radius: 3px;
+        cursor: pointer
+    }
+    
+    .checkout-wrapper>div .OTP-container .bottom-text {
+        line-height: 22px;
+        word-spacing: 1px
+    }
+    
+    .checkout-wrapper>div .side-info {
+        padding: 4% 0;
+        font-size: .85rem;
+        border-bottom: 1px solid #ddd;
+        line-height: 1.6
+    }
+    
+    .checkout-wrapper>div .side-info h6 {
+        margin: 0;
+        padding: 5px 0 10px;
+        font-size: .85rem;
+        font-weight: 500
+    }
+    
+    .checkout-wrapper>div .side-info .side-det {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: justify;
+        justify-content: space-between
+    }
+    
+    .checkout-wrapper>div .side-info.pass .side-det {
+        line-height: 2
+    }
+    
+    .checkout-wrapper>div .side-info.pass .side-det>div {
+        width: 14.28571%
+    }
+    
+    .checkout-wrapper>div .side-info.pass .side-det>div:nth-child(5) {
+        text-align: center
+    }
+    
+    .checkout-wrapper>div .side-info.pass .side-det>div:last-child {
+        text-align: right
+    }
+    
+    .checkout-wrapper>div .side-info.fare .side-det {
+        line-height: 2
+    }
+    
+    .checkout-wrapper>div .total-fare {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        font-weight: 500;
+        padding: 4% 0
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        background-color: rgba(0, 0, 0, .5);
+        z-index: 4
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container {
+        position: absolute;
+        left: 25%;
+        right: 25%;
+        top: 5%;
+        bottom: 5%;
+        margin: auto;
+        background: #eee;
+        font-size: .85rem;
+        -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, .2);
+        box-shadow: 0 0 3px 1px rgba(0, 0, 0, .2);
+        border-radius: 3px
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-header {
+        height: 40px;
+        color: #fff;
+        padding: .8em 6%;
+        border-radius: 3px 3px 0 0
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-header .close-button {
+        float: right
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-types {
+        width: 100%;
+        height: calc(100% - 80px);
+        overflow: auto;
+        padding: 2% 6%;
+        font-size: .85rem
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-types .coupontype1-header,
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-types .coupontype2-header {
+        padding-bottom: 1%
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-types .box-container {
+        background: #fff;
+        padding: 2% 6%;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 0 3px 1px rgba(0, 0, 0, .2);
+        box-shadow: 0 0 3px 1px rgba(0, 0, 0, .2);
+        font-size: .85rem
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-types .box-container .couponBox,
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-types .box-container .couponBox .coupon-details {
+        padding: 2% 0
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-types .box-container .couponBox .coupon-details .coupon-name {
+        padding: 1%
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-types .box-container .couponBox .coupon-details .coupon-balance {
+        color: #1db24b;
+        padding-left: 15px
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-types .box-container .couponBox .coupon-details .arrow-icon {
+        float: right;
+        padding-right: 15px;
+        cursor: pointer
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-types .box-container .couponBox .coupon-details .arrow-icon span {
+        position: relative;
+        left: 5px
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-types .box-container .couponBox .coupon-details .arrow-icon .arrow {
+        border: solid #000;
+        border-width: 0 1px 1px 0;
+        display: inline-block;
+        padding: 3px
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-types .box-container .couponBox .coupon-details .arrow-icon .up {
+        -ms-transform: rotate(-135deg);
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+        top: 0
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-types .box-container .couponBox .coupon-details .arrow-icon .down {
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        top: -3px
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .coupon-types .box-container .couponBox .couponType {
+        padding-left: 30px
+    }
+    
+    .checkout-wrapper>div .coupon-wrapper .coupon-container .redeemCoupon {
+        z-index: 3;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        width: 100%;
+        height: 40px;
+        text-align: center;
+        color: #fff;
+        padding-top: .8em;
+        cursor: pointer
+    }
+    
+    .checkout-wrapper .ins-check {
+        position: relative;
+        cursor: pointer
+    }
+    
+    .checkout-wrapper .ins-check.extra {
+        border: 1px solid;
+        border-radius: 50%;
+        font-size: .6rem;
+        display: -ms-flexbox;
+        display: flex;
+        height: 15px;
+        width: 15px;
+        -ms-flex-align: center;
+        align-items: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding-top: 2px;
+        font-weight: 600
+    }
+    
+    .checkout-wrapper .ins-check:hover .ins-hover {
+        visibility: visible;
+        opacity: 1;
+         font-size: 12px;
+        font-weight: 300
+    }
+    
+    .checkout-wrapper .ins-check:hover.extra .ins-hover {
+        left: -135px
+    }
+    
+    .checkout-wrapper .ins-check .ins-hover {
+        position: absolute;
+        left: -100px;
+        bottom: 20px;
+        width: 300px;
+        padding: 15px;
+        border-radius: 5px;
+        background: #fff;
+        color: #444;
+        -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        opacity: 0;
+        line-height: 1.4;
+        visibility: hidden
+    }
+    
+    .checkout-wrapper .pick-label:hover .pick-hover {
+        visibility: visible;
+        opacity: 1;
+         font-size: 12px;
+        font-weight: 300
+    }
+    
+    .checkout-wrapper .pick-label .pick-hover {
+        position: absolute;
+        right: 110%;
+        top: -25px;
+        width: 250px;
+        padding: 15px;
+        border-radius: 5px;
+        background: #fff;
+        color: #444;
+        -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        opacity: 0;
+        line-height: 1.4;
+        visibility: hidden
+    }
+    
+    .checkout-wrapper .pick-label {
+        position: relative;
+        cursor: pointer
+    }
+    
+    .checkout-wrapper .pick-label:hover .discount-hover {
+        visibility: visible;
+        opacity: 1;
+         font-size: 12px;
+        font-weight: 300
+    }
+    
+    .checkout-wrapper .pick-label .discount-hover {
+        position: absolute;
+        right: 0;
+        top: -60px;
+        left: 110%;
+        width: 250px;
+        padding: 15px;
+        border-radius: 5px;
+        background: #fff;
+        color: #444;
+        -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+        opacity: 0;
+        line-height: 1.4;
+        visibility: hidden
+    }
+    
+    
+    /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+    
+    html {
+        line-height: 1.15;
+        -webkit-text-size-adjust: 100%
+    }
+    
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: #eee;
+        color: #444;
+         font-size: 12px;
+        font-weight: 300;
+        letter-spacing: .03em
+    }
+    
+    h1 {
+        font-size: 2em;
+        margin: .67em 0
+    }
+    
+    hr {
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible
+    }
+    
+    pre {
+        font-family: monospace, monospace;
+        font-size: 1em
+    }
+    
+    a {
+        background-color: transparent;
+        text-decoration: none;
+        color: inherit
+    }
+    
+    abbr[title] {
+        border-bottom: none;
+        text-decoration: underline;
+        -webkit-text-decoration: underline dotted;
+        text-decoration: underline dotted
+    }
+    
+    b,
+    strong {
+        font-weight: bolder
+    }
+    
+    code,
+    kbd,
+    samp {
+        font-family: monospace, monospace;
+        font-size: 1em
+    }
+    
+    small {
+        font-size: 80%
+    }
+    
+    sub,
+    sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline
+    }
+    
+    sub {
+        bottom: -.25em
+    }
+    
+    sup {
+        top: -.5em
+    }
+    
+    img {
+        border-style: none;
+        vertical-align: middle
+    }
+    
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: 1.15;
+        margin: 0
+    }
+    
+    button,
+    input {
+        overflow: visible
+    }
+    
+    button,
+    select {
+        text-transform: none
+    }
+    
+    [type=button],
+    [type=reset],
+    [type=submit],
+    button {
+        -webkit-appearance: button
+    }
+    
+    [type=button]::-moz-focus-inner,
+    [type=reset]::-moz-focus-inner,
+    [type=submit]::-moz-focus-inner,
+    button::-moz-focus-inner {
+        border-style: none;
+        padding: 0
+    }
+    
+    [type=button]:-moz-focusring,
+    [type=reset]:-moz-focusring,
+    [type=submit]:-moz-focusring,
+    button:-moz-focusring {
+        outline: 1px dotted ButtonText
+    }
+    
+    textarea {
+        overflow: auto
+    }
+    
+    [type=checkbox],
+    [type=radio] {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0
+    }
+    
+    [type=number]::-webkit-inner-spin-button,
+    [type=number]::-webkit-outer-spin-button {
+        height: auto
+    }
+    
+    *,
+    :after,
+    :before {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+    }
+    
+    .hide {
+        display: none!important
+    }
+    
+    .hidden {
+        visibility: hidden
+    }
+    
+    .container {
+        display: block;
+        width: 88%;
+        margin: auto
+    }
+    
+    .down-arr {
+        border: 5px solid #aaa;
+        border-color: #aaa transparent transparent
+    }
+    
+    .up-arr {
+        border: 5px solid #aaa;
+        border-color: transparent transparent #aaa
+    }
+    
+    input.checkbox {
+        position: relative;
+        visibility: hidden;
+        margin: 0;
+        width: 15px;
+        height: 15px;
+        cursor: pointer
+    }
+    
+    input.checkbox:before {
+        content: " ";
+        visibility: visible;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 15px;
+        height: 15px;
+        border: 1px solid #554da1;
+        z-index: 1
+    }
+    
+    input.checkbox.checked:before {
+        background: #554da1
+    }
+    
+    input.checkbox.disabled {
+        cursor: not-allowed
+    }
+    
+    input.checkbox.checked.disabled:before {
+        background: #94b0be;
+        border-color: #94b0be
+    }
+    
+    input.checkbox.checked:after {
+        content: " ";
+        visibility: visible;
+        position: absolute;
+        left: 4px;
+        top: 0;
+        width: 6px;
+        height: 11px;
+        border: 1px solid #fff;
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+        z-index: 2
+    }
+    
+    input.radio {
+        visibility: hidden;
+        position: relative;
+        width: 16px;
+        height: 16px;
+        cursor: pointer
+    }
+    
+    input.radio:before {
+        left: 0;
+        top: 0;
+        width: 16px;
+        height: 16px;
+        border: 2px solid #554da1;
+        border-radius: 50%
+    }
+    
+    input.radio:before,
+    input.radio:checked:after {
+        content: " ";
+        visibility: visible;
+        position: absolute
+    }
+    
+    input.radio:checked:after {
+        left: 5px;
+        top: 5px;
+        width: 6px;
+        height: 6px;
+        background: #554da1;
+        border-radius: 50%
+    }
+
+/*Common CSS */
+
+.abc {
+    width: 0px !important;
+    border-left: none !important;
+    border-top: 1px solid #cccccc !important;
+    border-bottom: 1px solid #cccccc !important;
+}
+
+.mobile {
+    border-left: none !important;
+    padding-left: 0em !important;
+}
+
+
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 89 !important;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.srch-card {
+    width: 100%;
+}
+
+
+
+.SeatBirthLocation {
+    position: absolute;
+    right: 0px;
+    top: 3px;
+    bottom: 3px;
+    left: initial;
+    width: 5px;
+    height: initial;
+    background: rgb(30, 178, 75);
+}
+
+
+
+.BookSeat {
+    background: rgb(30, 178, 75) !important;
+}
+
+.required {
+    border-color: red !important;
+}
+.One_SeatBirth {
+    position: absolute;
+    left: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 5px;
+    border: 1px solid rgb(30, 178, 75);
+    background: rgb(255, 255, 255);
+    color: rgb(68, 68, 68);
+    opacity: 1;
+    user-select: none;
+    cursor: pointer;
+}
+.Two_SeatBirth {
+    position: absolute;
+    left: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 5px;
+    border: 1px solid rgb(30, 178, 75);
+    background: rgb(255, 255, 255);
+    color: rgb(68, 68, 68);
+    opacity: 1;
+    user-select: none;
+    cursor: pointer;
+}
+.Three_SeatBirth {
+    position: absolute;
+    left: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 5px;
+    border: 1px solid rgb(178, 226, 192);
+    background: rgb(255, 255, 255);
+    color: rgb(68, 68, 68);
+    opacity: 1;
+    user-select: none;
+    cursor: pointer;
+}
+.Four_SeatBirth {
+    position: absolute;
+    left: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 5px;
+    border: 1px solid rgb(30, 178, 75);
+    background: rgb(255, 255, 255);
+    color: rgb(68, 68, 68);
+    opacity: 1;
+    user-select: none;
+    cursor: pointer;
+}
+.Five_SeatBirth {
+    position: absolute;
+    left: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 5px;
+    border: 1px solid rgb(30, 178, 75);
+    background: rgb(255, 255, 255);
+    color: rgb(68, 68, 68);
+    opacity: 1;
+    user-select: none;
+    cursor: pointer;
+}
+.Six_SeatBirth {
+    position: absolute;
+    left: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 5px;
+    border: 1px solid rgb(30, 178, 75);
+    background: rgb(255, 255, 255);
+    color: rgb(68, 68, 68);
+    opacity: 1;
+    user-select: none;
+    cursor: pointer;
+}
+.Seven_SeatBirth {
+    position: absolute;
+    left: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 5px;
+    border: 1px solid rgb(30, 178, 75);
+    background: rgb(255, 255, 255);
+    color: rgb(68, 68, 68);
+    opacity: 1;
+    user-select: none;
+    cursor: pointer;
+}
+.Eight_SeatBirth {
+    position: absolute;
+    left: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 5px;
+    border: 1px solid rgb(30, 178, 75);
+    background: rgb(255, 255, 255);
+    color: rgb(68, 68, 68);
+    opacity: 1;
+    user-select: none;
+    cursor: pointer;
+}
+.One_SeatHold {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 0px;
+    border: 1px solid rgb(221, 221, 221);
+    background: rgb(221, 221, 221);
+    color: rgb(255, 255, 255);
+    opacity: 1;
+    user-select: none;
+    cursor: not-allowed;
+}
+.Two_SeatHold {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 0px;
+    border: 1px solid rgb(221, 221, 221);
+    background: rgb(221, 221, 221);
+    color: rgb(255, 255, 255);
+    opacity: 1;
+    user-select: none;
+    cursor: not-allowed;
+}
+.Three_SeatHold {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 0px;
+    border: 1px solid rgb(221, 221, 221);
+    background: rgb(221, 221, 221);
+    color: rgb(255, 255, 255);
+    opacity: 1;
+    user-select: none;
+    cursor: not-allowed;
+}
+.Four_SeatHold {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 0px;
+    border: 1px solid rgb(221, 221, 221);
+    background: rgb(221, 221, 221);
+    color: rgb(255, 255, 255);
+    opacity: 1;
+    user-select: none;
+    cursor: not-allowed;
+}
+.Five_SeatHold {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 0px;
+    border: 1px solid rgb(221, 221, 221);
+    background: rgb(221, 221, 221);
+    color: rgb(255, 255, 255);
+    opacity: 1;
+    user-select: none;
+    cursor: not-allowed;
+}
+.Six_SeatHold {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 0px;
+    border: 1px solid rgb(221, 221, 221);
+    background: rgb(221, 221, 221);
+    color: rgb(255, 255, 255);
+    opacity: 1;
+    user-select: none;
+    cursor: not-allowed;
+}
+.Seven_SeatHold {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 0px;
+    border: 1px solid rgb(221, 221, 221);
+    background: rgb(221, 221, 221);
+    color: rgb(255, 255, 255);
+    opacity: 1;
+    user-select: none;
+    cursor: not-allowed;
+}
+.Eight_SeatHold {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 0px;
+    border: 1px solid rgb(221, 221, 221);
+    background: rgb(221, 221, 221);
+    color: rgb(255, 255, 255);
+    opacity: 1;
+    user-select: none;
+    cursor: not-allowed;
+}
+.AC_SeatBirth {
+    position: absolute;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    margin: 5px;
+    font-size: 12px;
+    padding-right: 5px;
+    border: 1px solid rgb(30, 178, 75);
+    background: rgb(255, 255, 255);
+    color: rgb(68, 68, 68);
+    opacity: 1;
+    user-select: none;
+    cursor: pointer;
+}
