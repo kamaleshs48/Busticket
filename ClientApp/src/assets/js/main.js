@@ -47,6 +47,17 @@
 	};
 
 
+
+/* Mobile No Validation*/
+function isNumber(evt) {
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
+
+
+
 	// Offcanvas and cloning of the main menu
 	var offcanvas = function() {
 
@@ -145,6 +156,23 @@
 		}
 	}; 
 
+	function CheckValueIsFillOrNot() {
+        var Contain = "";
+        $("#divpassengerDetails :text").each(function () {
+            console.clear();
+            console.log($(this).val());
+            // Contain += $(this).val() + "$";
+            if ($(this).val() == '') {
+                $(this).addClass('required')
+
+            }
+            else {
+                $(this).removeClass('required')
+            }
+        });
+    }
+
+
 	// Document on load.
 	$(function(){
 		mainMenu();
@@ -153,6 +181,13 @@
 		mobileMenuOutsideClick();
 		contentWayPoint();
 		stickyBanner();
+		
+
+
+
+			$('#divpassengerDetails :text').on('blur change', CheckValueIsFillOrNot);
+	
+	
 	});
 
 

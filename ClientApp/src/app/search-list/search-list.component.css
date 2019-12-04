@@ -11,9 +11,16 @@ width: 30%!important;
     z-index: 100;
 }
 
+
+span
+{
+    font-size: 12px!important;
+}
+
 .form-control {
   
-    height: calc(1.5em + 2.75rem + 2px);
+    height: calc(1.3em + 2rem + 2px);
+    font-size: 13px;
 }
 
 

@@ -15,6 +15,9 @@ export class SearchListComponent implements OnInit {
   SelectedSeat: any = [];
   PickUPPointList = [];
   DropPointList = [];
+  SourceID: any = 6;
+  DestinationID: any = 13;
+  JournyDate: any;
 
   SeatList = [];
   BusSeatList = [];
@@ -32,13 +35,13 @@ export class SearchListComponent implements OnInit {
   PickUpPoint: any;
   DropPoint: any;
   TravelInsurancerance: any = 0;
-  SeatTempate :any="Two"
+  SeatTempate: any = "Two"
   constructor(private router: Router, private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
     http.get<any>(baseUrl + 'api/GetBusList?SourceID=6&DestinationID=13&JourneyDate=11/11/2020').subscribe(result => {
       // console.log(result);
       this.SourceList = result.SourceList;
       this.BusList = result.BusList;
-      console.log(this.SourceList );
+      console.log(this.SourceList);
       //console.clear();
       //alert(JSON.stringify(result.SeatList))
       this.BusSeatList = result.SeatList;
@@ -57,14 +60,20 @@ export class SearchListComponent implements OnInit {
   OpenSeat(a, b, c) {
     //alert(a);
 
-    this.http.get<any>(this.baseUrl + 'api/GetBusSeatList?RouteID=' + this.BusList[a].RouteID + '&DestinationID=13&JourneyDate=11/11/2020&SourceID=6&SeatTempate='+this.SeatTempate).subscribe(result => {
+    this.http.get<any>(this.baseUrl + 'api/GetBusSeatList?RouteID=' + this.BusList[a].RouteID + '&DestinationID=13&JourneyDate=11/11/2020&SourceID=6&SeatTempate=' + this.SeatTempate).subscribe(result => {
       console.log(result);
       this.IsBindSeat = true;
+
       this.BusSeatList = result.SeatList;
-
       this.BusList[a].IsOpenSeatChart = true;
+      console.log(result.models.PickUpPointList);
+      this.PickUPPointList = result.models.PickUpPointList;
+      this.DropPointList = result.models.DropPointList;
 
-      console.log(this.BusSeatList);
+
+
+
+
     }, error => console.error(error));
   }
   SelectSeat(seat, index) {
@@ -116,12 +125,29 @@ export class SearchListComponent implements OnInit {
 
     $("#divPersonalDetails").show();
 
-    //$('#divPersonalDetails').on('blur change', CheckValueIsFillOrNot);
+    $('#divPersonalDetails').on('blur change', this.CheckValueIsFillOrNot);
 
 
 
     //$("#divPersonalDetails").show();
   }
+
+   CheckValueIsFillOrNot() {
+    var Contain = "";
+    $("#divpassengerDetails :text").each(function () {
+        console.clear();
+        console.log($(this).val());
+        // Contain += $(this).val() + "$";
+        if ($(this).val() == '') {
+            $(this).addClass('required')
+
+        }
+        else {
+            $(this).removeClass('required')
+        }
+    });
+}
+
 
   Cancel() {
     $('body').removeClass('stop-scrolling')
@@ -166,8 +192,8 @@ export class SearchListComponent implements OnInit {
     // return;
 
     const config = new HttpHeaders().set('Content-Type', 'application/json')
-    .set('Access-Control-Allow-Origin','*')
-    
+      .set('Access-Control-Allow-Origin', '*')
+
 
 
     this.frm = {};
@@ -217,7 +243,7 @@ export class SearchListComponent implements OnInit {
 
     this.http.post<any>(this.baseUrl + "api/SaveTicket", this.frm, { headers: config }).subscribe(r => {
       //console.log(r);
-        $("#btnPay").click();
+      $("#btnPay").click();
     }
     );
 
@@ -240,13 +266,11 @@ export class SearchListComponent implements OnInit {
       });
     }, 1000);
   }
-  Swap()
-  {
+  Swap() {
 
   }
-  Modify()
-  {
-    
+  Modify() {
+
   }
 
 

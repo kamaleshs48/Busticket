@@ -33,7 +33,7 @@
                                 <div class="DateInput DateInput_1 DateInput__block DateInput__block_2">
                                     <div class="input-group">
                                         <input class="form-control" placeholder="yyyy-mm-dd"
-                                               name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()">
+                                               name="dp" [(ngModel)]="JournyDate" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()">
                                         
                                       </div>
         
@@ -763,10 +763,14 @@
                             <div class="point-inp">
                                 <div style="position: absolute; top: 0px; left: 0px; color: rgb(85, 77, 161);">Pickup Point</div>
 
-                                <!-- <select class="form-control" id="PickUpPoint" ng-model="PickUpPoint">
-                                    <option ng-repeat="o in PickUPPointList"  value="{{o.Value}}">{{o.Text}}</option>
+                               
+                                <select class="form-control" [(ngModel)]="PickUpPoint" name="PickUpPoint">
+                                        <option>Select</option>
+                                    <option *ngFor="let s of PickUPPointList; let i = index"  value="{{s.Value}}">
+                                      {{s.Text}}
+                                    </option>
+                                  </select>
 
-                                </select> -->
 
                             </div>
 
@@ -775,19 +779,21 @@
                             <div class="point-inp">
                                 <div style="position: absolute; top: 0px; color: rgb(85, 77, 161);">Dropping Point</div>
 
-                                <!-- <select class="form-control" id="DropPoint" ng-model="DropPoint">
-                                    <option ng-repeat="o in DropPointList" value="{{o.Value}}">{{o.Text}}</option>
-                                </select> -->
+                                <select class="form-control" [(ngModel)]="DropPoint" name="DropPoint">
+                                    <option>Select</option>
+                                    <option *ngFor="let s of DropPointList; let i = index"  value="{{s.Value}}">
+                                      {{s.Text}}
+                                    </option>
+                                  </select>
                             </div>
-
                         </div>
-                        <div style="display: flex; justify-content: space-between; font-size: 0.8rem;">
+                        <div style="display: flex; justify-content: space-between; font-size: 12px;">
                             <div>
                                 <div>Selected Seats</div>
                                 <div style="color: rgb(0, 0, 0); font-weight: 500;">Total</div>
                             </div>
                             <div style="text-align: right;">
-                                <div>{{SelectedSeat}}</div>
+                                <div>{{SelectedSeat1}}</div>
                                 <div style="color: rgb(0, 0, 0); font-weight: 500;"><span class="dashed">₹3897</span>  <span>₹{{TSeatPrice}}</span></div>
                             </div>
                         </div>
@@ -826,7 +832,7 @@
 
             <div class="card-body">
                 <div class="row">
-                    <input type="button" class="btn btn-primary" value=">" ng-click="Cancel()" style="border:none;background-color:wheat;color:blue;height:35px" />
+                    <input type="button" class="btn btn-primary" value=">" (click)="Cancel()" style="border:none;background-color:wheat;color:blue;height:35px" />
                     <h5 class="card-title">Passenger Details</h5>
                 </div>
 
@@ -855,11 +861,11 @@
 
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" ng-model="k.Name" placeholder="Name" id="{{j}}_Name">
+                                    <input type="text" class="form-control" [(ngModel)]="k.Name" placeholder="Name" id="{{j}}_Name">
                                 </div>
                                 <div class="form-group col-md-3">
 
-                                    <select class="form-control" ng-model="k.Gender" id="{{j}}_Gender">
+                                    <select class="form-control" [(ngModel)]="k.Gender" id="{{j}}_Gender">
                                         <option>Male</option>
                                         <option>Female</option>
                                     </select>
@@ -867,7 +873,7 @@
                                 </div>
                                 <div class="form-group col-md-2">
 
-                                    <input type="text" maxlength="2" class="form-control" ng-model="k.Age" placeholder="Age" id="{{j}}_Age" onkeypress="return isNumber(event);">
+                                    <input type="text" maxlength="2" class="form-control" [(ngModel)]="k.Age" placeholder="Age" id="{{j}}_Age" onkeypress="return isNumber(event);">
                                 </div>
                             </div>
                         </div>
