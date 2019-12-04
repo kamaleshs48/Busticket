@@ -10,6 +10,7 @@ namespace KanakHolidays.Models
     {
         public string SourceID { get; set; }
         public string TicketNo { get { return Repository.CommonFunction.GetTicketNo(); } }
+       
         public string DestinationID { get; set; }
         public string JourneyDate { get; set; }
         public string ReturnDate { get; set; }
@@ -27,6 +28,7 @@ namespace KanakHolidays.Models
     public class BusModels
 
     {
+        public string SeatTempate { get; set; }
         public int RouteID { get; set; }
         public string BusName { get; set; }
         public string Source { get; set; }

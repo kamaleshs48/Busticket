@@ -24,7 +24,7 @@ using System.Xml;
 using System.Data.SqlClient;
 using System.Collections;
 using System.Configuration;
-
+using Microsoft.Extensions.Configuration;
 
 namespace KanakHolidays.Repository
 {
@@ -38,7 +38,15 @@ namespace KanakHolidays.Repository
 
         //Since this class provides only static methods, make the default constructor private to prevent 
         //instances from being created with "new SqlHelper()".
-        private SqlHelper() { }
+       // private SqlHelper() { }
+
+
+        private   IConfiguration configuration;
+
+        public  SqlHelper(IConfiguration config)
+        {
+            configuration = config;
+        }
 
 
 
@@ -145,7 +153,8 @@ namespace KanakHolidays.Repository
         {
             //return ConfigurationManager.ConnectionStrings["Con_Str"].ConnectionString.ToString();
             // return "Data Source=.; database=Kanak;user id=sa; password=priyanka;";
-            return "Data Source=43.255.152.26; database=MegaMind_KanakHolidays;user id=MegaMind_KanakHolidays; password=KanakHolidays@2019BSPVT;";
+            //return configuration.GetConnectionString("DefaultConnection");
+           return "Data Source=43.255.152.26; database=MegaMind_KanakHolidays;user id=MegaMind_KanakHolidays; password=KanakHolidays@2019BSPVT;";
         }
         #endregion
 

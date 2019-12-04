@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 
+
+import { StorageServiceModule} from 'angular-webstorage-service'
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -14,8 +16,10 @@ import { SearchComponent } from './search/search.component';
 import { SearchListComponent } from './search-list/search-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { LayoutComponent } from './shared/layout/layout.component';
-
+import {TicketPrintComponent} from './ticket-print/ticket-print.component'
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {TermsConditionsComponent} from './terms-conditions/terms-conditions.component'
+import { from } from 'rxjs';
 const routes: Routes = [
   {
 
@@ -33,6 +37,9 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: 'search-list', component: SearchListComponent },
+      { path: 'ticket-print', component: TicketPrintComponent},
+      {path:'terms-conditions',component:TermsConditionsComponent}
+
     ]
   },
   { path: '**', redirectTo: '' }
@@ -56,6 +63,8 @@ const config: ExtraOptions = {
     SearchListComponent,
     FooterComponent,
     LayoutComponent,
+    TicketPrintComponent,
+    TermsConditionsComponent
   
   ],
   imports: [
@@ -63,7 +72,7 @@ const config: ExtraOptions = {
     HttpClientModule,
     FormsModule,
     NgbModule,
-
+    StorageServiceModule,
 
 
     RouterModule.forRoot(

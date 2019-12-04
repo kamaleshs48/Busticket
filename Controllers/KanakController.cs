@@ -62,12 +62,20 @@ namespace KanakHolidays.Controllers
         public IActionResult SaveTicket(TicketBookingModels models)
         {
 
-            //var obj = _TicketBooking.SaveTicket(models);
-            
-
-            return Ok("Success");
+            var obj = _TicketBooking.SaveTicket(models);
+            return Ok(obj);
         }
+        [Route("PrintTicket")]
+        [HttpGet]
+        public IActionResult PrintTicket(string TicketNo)
+        {
+           
 
+            PrintTicketModels models = new PrintTicketModels();
+
+            models = _TicketBooking.BindTicketForPrint(TicketNo);
+            return Ok(models);
+        }
 
     }
 }

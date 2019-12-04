@@ -14,7 +14,7 @@
 body {
   font-family: "Open Sans", Arial, sans-serif;
   line-height: 1.6;
-  font-size: 16px;
+  font-size: 16px!important;
   background: #fff;
   color: #848484;
   font-weight: 300;
@@ -597,7 +597,7 @@ figure {
   padding: 30px;
 }
 .tab-content .btn {
-  border: 1px solid red !important;
+  /*border: 1px solid red !important;*/
 }
 
 .nav-tabs {

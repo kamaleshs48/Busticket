@@ -55,7 +55,12 @@
                         <div class="col-xxs-12 col-xs-6 mt alternate">
                           <div class="input-field">
                             <label for="date-start">DATE:</label>
-                            <input type="text" class="form-control"  id="date-start" placeholder="mm/dd/yyyy" [(ngModel)]="SearchForm.JournyDate" name="JournyDate" />
+                            
+                         
+                            <input class="form-control" placeholder="DD/MM/YYYY"
+                                               name="dp" [(ngModel)]="SearchForm.JournyDate" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()">
+                                        
+                         
                           </div>
                         </div>
 
@@ -75,7 +80,7 @@
                 </div>
               </div>
               <div class="desc2 animate-box">
-                <div class="col-sm-7 col-sm-push-1 col-md-7 col-md-push-1">
+                <div class="">
                   <h1>
                     <h2 style="color:green"><b>Himachal Travels</b></h2>
                     <h3 style="color:black"><b> A Compleet Travel Solutions</b></h3>

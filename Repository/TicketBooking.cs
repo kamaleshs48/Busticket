@@ -33,18 +33,18 @@ namespace KanakHolidays.Repository
                 {
 
                 });
-                for (int i = 1; i <= 42; i++)
-                {
-                    _List.Add(new SeatModel
-                    {
-                        isFemale = false,
-                        IsSold = false,
-                        CssClass = "SeatBirth",
-                        SeatNo = i.ToString(),
-                        SeatPrice = "9000",
-                        SeatDiscount = "50"
-                    });
-                }
+                ////for (int i = 1; i <= 42; i++)
+                ////{
+                ////    _List.Add(new SeatModel
+                ////    {
+                ////        isFemale = false,
+                ////        IsSold = false,
+                ////        CssClass = "SeatBirth",
+                ////        SeatNo = i.ToString(),
+                ////        SeatPrice = "9000",
+                ////        SeatDiscount = "50"
+                ////    });
+                ////}
 
 
 
@@ -67,6 +67,7 @@ namespace KanakHolidays.Repository
                             SeatLeft = "38",
                             Total_Fare = dr["TicketPrice"].ToString(),
                             Discount = dr["Discount"].ToString(),
+                            SeatTempate= dr["SeatTempate"].ToString(),
                             SeatList = _List,
                             Lower_SeatList_R1 = _List,
                             Lower_SeatList_R2 = _List,
