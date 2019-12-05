@@ -20,6 +20,7 @@ import {TicketPrintComponent} from './ticket-print/ticket-print.component'
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TermsConditionsComponent} from './terms-conditions/terms-conditions.component'
 import { from } from 'rxjs';
+import { NgbDateCustomParserFormatter } from './dateformat';
 const routes: Routes = [
   {
 
@@ -82,7 +83,7 @@ const config: ExtraOptions = {
 
     )
   ],
-  providers: [],
+  providers: [{ provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
