@@ -1,0 +1,2063 @@
+<div class="row">
+  <div class="form-group">
+    <div class="col-md-4">
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control">
+    </div>
+    <div class="col-md-4">
+      <input type="text" class="form-control">
+    </div>
+  </div>
+</div>
+<div class="row" *ngFor="let l of BusList; let i = index">
+  <div class="col-md-12">
+    <div class="srch-card" style="width:100%">
+      <div class="srch-names">
+        <div>kanak holidays</div>
+        <div>{{l.BusName}}</div>
+        <div>
+          <span style="position: relative; color: rgb(85, 77, 161); cursor: pointer;">Policy</span>&nbsp;&nbsp;
+          <div class="tooltip">
+            <img src="assets/Images/Central TV.svg" alt="Central TV" class="tooltip-on"><span class="tooltiptext">Central TV</span>
+          </div>
+          <div class="tooltip">
+            <img src="assets//Images/Water Bottle.svg" alt="Water Bottle"
+                 class="tooltip-on"><span class="tooltiptext">Water Bottle</span>
+          </div>
+          <div class="tooltip">
+            <img src="assets/Images/Charging Point.svg" alt="Charging Point"
+                 class="tooltip-on"><span class="tooltiptext">Charging Point</span>
+          </div>
+          <div class="tooltip">
+            <img src="assets/Images/Blanket.svg" alt="Blanket" class="tooltip-on"><span class="tooltiptext">Blanket</span>
+          </div>
+        </div>
+      </div>
+      <div class="srch-times">
+        <div>
+          <div>{{l.Start_Time}}</div>
+          <div style="position: relative; color: rgb(85, 77, 161); cursor: pointer;">Pickup</div>
+        </div>
+        <div class="dur">
+          <div>{{l.Travel_Time}}</div>
+          <div></div>
+        </div>
+        <div>
+          <div>{{l.End_Time}}</div>
+          <div style="position: relative; color: rgb(85, 77, 161); cursor: pointer;">Dropoff</div>
+        </div>
+      </div>
+      <div class="srch-seats">
+        <div>{{l.SeatLeft}}</div>
+        <div>Seats Left </div>
+      </div>
+      <div class="srch-fares">
+        <div>₹{{l.Total_Fare}}</div>
+        <div>₹{{Total_Fare-l.Discount}}</div>
+        <div class="discountTag">₹{{l.Discount}} Off</div>
+        <button style="background: rgb(241, 90, 34); border: 1px solid; color: rgb(255, 255, 255);"
+                (click)="OpenSeat(i,'','','')" [disabled]="IsOpenSeatChart" class="btn btn-primary">
+          SELECT
+        </button>
+
+      </div>
+
+      <div class="seatchart" *ngIf="l.IsOpenSeatChart==true">
+        <span style="position: absolute; right: 25px; top: 25px; cursor: pointer; font-size: 1.1rem;" value="X"
+              (click)="CloseBusSeatDetails(i)">X</span>
+        <span>&nbsp;</span>
+        <div *ngIf="IsBindSeat==true">
+          <div style="display: flex; padding: 5px 0px;">
+            <div style="border-bottom: 2px solid rgb(85, 77, 161); border-top-color: rgb(85, 77, 161); border-right-color: rgb(85, 77, 161); border-left-color: rgb(85, 77, 161); color: rgb(0, 0, 0); padding: 5px 10px; cursor: pointer;">
+              All
+            </div>
+
+          </div>
+
+
+
+          <div class="seat-wrap">
+            <div class="seats" *ngIf="SeatTempate=='One'">
+              <div style="position: relative; display: flex; flex-direction: column-reverse; background: rgb(255, 255, 255); padding: 10px 5px 10px 60px; margin-bottom: 10px; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 2px; border-radius: 3px; overflow: auto;">
+
+                <span class="seatchart-label">Driver</span><img src="assets/Images/operator.svg"
+                                                                alt="driver">
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 4 Row -->
+                  <div class="One_SeatHold" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="One_SeatHold" style="left: 62px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="One_SeatHold" style="left: 124px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div ngbTooltip="Seat N 16 | ₹{{BusSeatList[16].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[16].CssClass"
+                       style="left: 186px" (click)="SelectSeat('16',i)" id="{{i}}_S16">
+                    <span class="SeatBirthLocation"></span>16
+                  </div>
+                  <div ngbTooltip="Seat N 20 | ₹{{BusSeatList[20].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[20].CssClass"
+                       style="left: 248px" (click)="SelectSeat('20',i)" id="{{i}}_S20">
+                    <span class="SeatBirthLocation"></span>20
+                  </div>
+                  <div ngbTooltip="Seat N 24 | ₹{{BusSeatList[24].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[24].CssClass"
+                       style="left: 310px" (click)="SelectSeat('24',i)" id="{{i}}_S24">
+                    <span class="SeatBirthLocation"></span>24
+                  </div>
+                  <div ngbTooltip="Seat N 28 | ₹{{BusSeatList[28].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[28].CssClass"
+                       style="left: 372px" (click)="SelectSeat('28',i)" id="{{i}}_S28">
+                    <span class="SeatBirthLocation"></span>28
+                  </div>
+                  <div ngbTooltip="Seat N 32 | ₹{{BusSeatList[32].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[32].CssClass"
+                       style="left: 434px" (click)="SelectSeat('32',i)" id="{{i}}_S32">
+                    <span class="SeatBirthLocation"></span>32
+                  </div>
+                  <div ngbTooltip="Seat N 36 | ₹{{BusSeatList[36].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[36].CssClass"
+                       style="left: 496px" (click)="SelectSeat('36',i)" id="{{i}}_S36">
+                    <span class="SeatBirthLocation"></span>36
+                  </div>
+                  <div ngbTooltip="Seat N 41 | ₹{{BusSeatList[41].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[41].CssClass"
+                       style="left: 558px" (click)="SelectSeat('41',i)" id="{{i}}_S41">
+                    <span class="SeatBirthLocation"></span>41
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 3 Row -->
+                  <div class="One_SeatHold" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="One_SeatHold" style="left: 62px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="One_SeatHold" style="left: 124px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div ngbTooltip="Seat N 15 | ₹{{BusSeatList[15].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[15].CssClass"
+                       style="left: 186px" (click)="SelectSeat('15',i)" id="{{i}}_S16">
+                    <span class="SeatBirthLocation"></span>15
+                  </div>
+                  <div ngbTooltip="Seat N 19 | ₹{{BusSeatList[19].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[19].CssClass"
+                       style="left: 248px" (click)="SelectSeat('19',i)" id="{{i}}_S20">
+                    <span class="SeatBirthLocation"></span>19
+                  </div>
+                  <div ngbTooltip="Seat N 23 | ₹{{BusSeatList[23].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[23].CssClass"
+                       style="left: 310px" (click)="SelectSeat('23',i)" id="{{i}}_S24">
+                    <span class="SeatBirthLocation"></span>21
+                  </div>
+                  <div ngbTooltip="Seat N 27 | ₹{{BusSeatList[27].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[27].CssClass"
+                       style="left: 372px" (click)="SelectSeat('27',i)" id="{{i}}_S28">
+                    <span class="SeatBirthLocation"></span>27
+                  </div>
+                  <div ngbTooltip="Seat N 31 | ₹{{BusSeatList[31].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[31].CssClass"
+                       style="left: 434px" (click)="SelectSeat('31',i)" id="{{i}}_S32">
+                    <span class="SeatBirthLocation"></span>31
+                  </div>
+                  <div ngbTooltip="Seat N 35 | ₹{{BusSeatList[35].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[35].CssClass"
+                       style="left: 496px" (click)="SelectSeat('35',i)" id="{{i}}_S36">
+                    <span class="SeatBirthLocation"></span>35
+                  </div>
+                  <div ngbTooltip="Seat N 40 | ₹{{BusSeatList[40].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[40].CssClass"
+                       style="left: 558px" (click)="SelectSeat('40',i)" id="{{i}}_S41">
+                    <span class="SeatBirthLocation"></span>40
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div ngbTooltip="Seat N 39 | ₹{{BusSeatList[39].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[39].CssClass"
+                       style="left: 558px" (click)="SelectSeat('39',i)" id="{{i}}_S39">
+                    39<span class="SeatBirthLocation"></span>
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 2 Row -->
+                  <div class="One_SeatHold" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="One_SeatHold" style="left: 62px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="One_SeatHold" style="left: 124px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div ngbTooltip="Seat N 14 | ₹{{BusSeatList[14].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[14].CssClass"
+                       style="left: 186px" (click)="SelectSeat('14',i)" id="{{i}}_S14">
+                    <span class="SeatBirthLocation"></span>14
+                  </div>
+                  <div ngbTooltip="Seat N 18 | ₹{{BusSeatList[18].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[18].CssClass"
+                       style="left: 248px" (click)="SelectSeat('18',i)" id="{{i}}_S18">
+                    <span class="SeatBirthLocation"></span>18
+                  </div>
+                  <div ngbTooltip="Seat N 22 | ₹{{BusSeatList[22].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[22].CssClass"
+                       style="left: 310px" (click)="SelectSeat('22',i)" id="{{i}}_S22">
+                    <span class="SeatBirthLocation"></span>22
+                  </div>
+                  <div ngbTooltip="Seat N 26 | ₹{{BusSeatList[26].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[26].CssClass"
+                       style="left: 372px" (click)="SelectSeat('26',i)" id="{{i}}_S26">
+                    <span class="SeatBirthLocation"></span>26
+                  </div>
+                  <div ngbTooltip="Seat N 30 | ₹{{BusSeatList[30].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[30].CssClass"
+                       style="left: 434px" (click)="SelectSeat('30',i)" id="{{i}}_S30">
+                    <span class="SeatBirthLocation"></span>30
+                  </div>
+                  <div ngbTooltip="Seat N 34 | ₹{{BusSeatList[34].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[34].CssClass"
+                       style="left: 496px" (click)="SelectSeat('34',i)" id="{{i}}_S34">
+                    <span class="SeatBirthLocation"></span>34
+                  </div>
+                  <div ngbTooltip="Seat N 39 | ₹{{BusSeatList[39].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[39].CssClass"
+                       style="left: 558px" (click)="SelectSeat('39',i)" id="{{i}}_S39">
+                    <span class="SeatBirthLocation"></span>39
+                  </div>
+                </div>
+
+
+
+
+
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 1 Row -->
+                  <div class="One_SeatHold" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="One_SeatHold" style="left: 62px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="One_SeatHold" style="left: 124px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div ngbTooltip="Seat N 13 | ₹{{BusSeatList[13].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[13].CssClass"
+                       style="left: 186px" (click)="SelectSeat('13',i)" id="{{i}}_S13">
+                    <span class="SeatBirthLocation"></span>13
+                  </div>
+                  <div ngbTooltip="Seat N 17 | ₹{{BusSeatList[17].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[17].CssClass"
+                       style="left: 248px" (click)="SelectSeat('17',i)" id="{{i}}_S17">
+                    <span class="SeatBirthLocation"></span>17
+                  </div>
+                  <div ngbTooltip="Seat N 21 | ₹{{BusSeatList[21].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[21].CssClass"
+                       style="left: 310px" (click)="SelectSeat('21',i)" id="{{i}}_S21">
+                    <span class="SeatBirthLocation"></span>21
+                  </div>
+                  <div ngbTooltip="Seat N 25 | ₹{{BusSeatList[25].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[25].CssClass"
+                       style="left: 372px" (click)="SelectSeat('25',i)" id="{{i}}_S25">
+                    <span class="SeatBirthLocation"></span>25
+                  </div>
+                  <div ngbTooltip="Seat N 29 | ₹{{BusSeatList[29].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[29].CssClass"
+                       style="left: 434px" (click)="SelectSeat('29',i)" id="{{i}}_S29">
+                    <span class="SeatBirthLocation"></span>29
+                  </div>
+                  <div ngbTooltip="Seat N 33 | ₹{{BusSeatList[33].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[33].CssClass"
+                       style="left: 496px" (click)="SelectSeat('33',i)" id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>33
+                  </div>
+                  <div ngbTooltip="Seat N 37 | ₹{{BusSeatList[37].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[37].CssClass"
+                       style="left: 558px" (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>37
+                  </div>
+
+                </div>
+                <div style="height: 20px;"></div>
+              </div>
+            </div>
+            <div class="seats" *ngIf="SeatTempate=='Two'">
+              <div style="position: relative; display: flex; flex-direction: column-reverse; background: rgb(255, 255, 255); padding: 10px 5px 10px 60px; margin-bottom: 10px; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 2px; border-radius: 3px; overflow: auto;">
+
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 5 Row -->
+                  <div class="One_SeatHold" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="One_SeatHold" style="left: 62px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="One_SeatHold" style="left: 124px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div ngbTooltip="Seat N 16 | ₹{{BusSeatList[16].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[16].CssClass"
+                       style="left: 186px" (click)="SelectSeat('16',i)" id="{{i}}_S16">
+                    <span class="SeatBirthLocation"></span>16
+                  </div>
+                  <div ngbTooltip="Seat N 20 | ₹{{BusSeatList[20].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[20].CssClass"
+                       style="left: 248px" (click)="SelectSeat('20',i)" id="{{i}}_S20">
+                    <span class="SeatBirthLocation"></span>20
+                  </div>
+                  <div ngbTooltip="Seat N 24 | ₹{{BusSeatList[24].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[24].CssClass"
+                       style="left: 310px" (click)="SelectSeat('24',i)" id="{{i}}_S24">
+                    <span class="SeatBirthLocation"></span>24
+                  </div>
+                  <div ngbTooltip="Seat N 28 | ₹{{BusSeatList[28].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[28].CssClass"
+                       style="left: 372px" (click)="SelectSeat('28',i)" id="{{i}}_S28">
+                    <span class="SeatBirthLocation"></span>28
+                  </div>
+                  <div ngbTooltip="Seat N 32 | ₹{{BusSeatList[32].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[32].CssClass"
+                       style="left: 434px" (click)="SelectSeat('32',i)" id="{{i}}_S32">
+                    <span class="SeatBirthLocation"></span>32
+                  </div>
+                  <div ngbTooltip="Seat N 36 | ₹{{BusSeatList[36].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[36].CssClass"
+                       style="left: 496px" (click)="SelectSeat('36',i)" id="{{i}}_S36">
+                    <span class="SeatBirthLocation"></span>36
+                  </div>
+                  <div ngbTooltip="Seat N 40 | ₹{{BusSeatList[40].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[40].CssClass"
+                       style="left: 558px" (click)="SelectSeat('40',i)" id="{{i}}_S40">
+                    <span class="SeatBirthLocation"></span>40
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 4 Row -->
+                  <div class="One_SeatHold" style="left: 0px">Booked</div>
+                  <div class="One_SeatHold" style="left: 62px">Booked</div>
+                  <div class="One_SeatHold" style="left: 124px">Booked</div>
+                  <div ngbTooltip="Seat N 15 | ₹{{BusSeatList[15].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[15].CssClass"
+                       style="left: 186px" (click)="SelectSeat('15', i)" id="{{i}}_S15">
+                    15<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 19 | ₹{{BusSeatList[19].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[19].CssClass"
+                       style="left: 248px" (click)="SelectSeat('19',i)" id="{{i}}_S19">
+                    19<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 23 | ₹{{BusSeatList[23].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[23].CssClass"
+                       style="left: 310px" (click)="SelectSeat('23',i)" id="{{i}}_S23">
+                    23<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 27 | ₹{{BusSeatList[27].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[27].CssClass"
+                       style="left: 372px" (click)="SelectSeat('27',i)" id="{{i}}_S27">
+                    27<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 31 | ₹{{BusSeatList[31].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[31].CssClass"
+                       style="left: 434px" (click)="SelectSeat('31',i)" id="{{i}}_S31">
+                    31<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 35 | ₹{{BusSeatList[35].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[35].CssClass"
+                       style="left: 496px" (click)="SelectSeat('35',i)" id="{{i}}_S35">
+                    35<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 39 | ₹{{BusSeatList[39].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[39].CssClass"
+                       style="left: 558px" (click)="SelectSeat('39',i)" id="{{i}}_S39">
+                    39<span class="SeatBirthLocation"></span>
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div ngbTooltip="Seat N 41 | ₹{{BusSeatList[41].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[41].CssClass"
+                       style="left: 558px" (click)="SelectSeat('41',i)" id="{{i}}_S41">
+                    41<span class="SeatBirthLocation"></span>
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 2 Row -->
+                  <div class="One_SeatHold" style="left: 0px">Booked</div>
+                  <div class="One_SeatHold" style="left: 62px">Booked</div>
+                  <div class="One_SeatHold" style="left: 124px">Booked</div>
+                  <div ngbTooltip="Seat N 13 | ₹{{BusSeatList[13].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[13].CssClass"
+                       style="left: 186px" (click)="SelectSeat('13',i)" id="{{i}}_S13">
+                    13<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 17 | 14" tooltipClass="tooltip-class"
+                       [ngClass]="BusSeatList[17].CssClass" style="left: 248px"
+                       (click)="SelectSeat('17',i)" id="{{i}}_S17">
+                    17<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 21 | ₹{{BusSeatList[21].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[21].CssClass"
+                       style="left: 310px" (click)="SelectSeat('21',i)" id="{{i}}_S21">
+                    21<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 25 | ₹{{BusSeatList[25].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[25].CssClass"
+                       style="left: 372px" (click)="SelectSeat('25',i)" id="{{i}}_S25">
+                    25<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 29 | ₹{{BusSeatList[29].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[29].CssClass"
+                       style="left: 434px" (click)="SelectSeat('29',i)" id="{{i}}_S29">
+                    29<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 33 | ₹{{BusSeatList[33].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[33].CssClass"
+                       style="left: 496px" (click)="SelectSeat('33',i)" id="{{i}}_S33">
+                    33<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 37 | ₹{{BusSeatList[37].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[37].CssClass"
+                       style="left: 558px" (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    37<span class="SeatBirthLocation"></span>
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 1 Row -->
+                  <div class="One_SeatHold" style="left: 0px">Booked</div>
+                  <div class="One_SeatHold" style="left: 62px">Booked</div>
+                  <div class="One_SeatHold" style="left: 124px">Booked</div>
+                  <div ngbTooltip="Seat N 14 | ₹{{BusSeatList[14].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[14].CssClass"
+                       style="left: 186px" (click)="SelectSeat('14',i)" id="{{i}}_S14">
+                    14<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 18 | ₹{{BusSeatList[18].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[18].CssClass"
+                       style="left: 248px" (click)="SelectSeat('18',i)" id="{{i}}_S18">
+                    18<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 22 | ₹{{BusSeatList[22].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[22].CssClass"
+                       style="left: 310px" (click)="SelectSeat('22',i)" id="{{i}}_S22">
+                    22<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 26 | ₹{{BusSeatList[26].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[26].CssClass"
+                       style="left: 372px" (click)="SelectSeat('26',i)" id="{{i}}_S26">
+                    26<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 30 | ₹{{BusSeatList[30].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[30].CssClass"
+                       style="left: 434px" (click)="SelectSeat('30',i)" id="{{i}}_S30">
+                    30<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 34 | ₹{{BusSeatList[34].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[34].CssClass"
+                       style="left: 496px" (click)="SelectSeat('34',i)" id="{{i}}_S34">
+                    34<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div ngbTooltip="Seat N 38 | ₹{{BusSeatList[38].SeatPrice}}"
+                       tooltipClass="tooltip-class" [ngClass]="BusSeatList[38].CssClass"
+                       style="left: 558px" (click)="SelectSeat('38',i)" id="{{i}}_S38">
+                    38<span class="SeatBirthLocation"></span>
+                  </div>
+
+                </div>
+                <div style="height: 20px;">
+                  <span class="seatchart-label">Driver</span><img src="assets/Images/operator.svg"
+                                                                  alt="driver">
+                </div>
+
+
+              </div>
+            </div>
+            <div class="seats" *ngIf="SeatTempate=='Three'">
+              <div style="position: relative; display: flex; flex-direction: column-reverse; background: rgb(255, 255, 255); padding: 10px 5px 10px 60px; margin-bottom: 10px; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 2px; border-radius: 3px; overflow: auto;">
+                <span class="seatchart-label">Driver</span><img src="assets/Images/operator.svg"
+                                                                alt="driver">
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div class="Three_SeatHold" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Three_SeatHold" style="left: 52px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Three_SeatHold" style="left: 104px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div [ngClass]="BusSeatList[13].CssClass" style="left: 156px"
+                       (click)="SelectSeat('13',i)" id="{{i}}_S13">
+                    <span class="SeatBirthLocation"></span>₹
+                    {{BusSeatList[13].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[17].CssClass" style="left: 208px"
+                       (click)="SelectSeat('17',i)" id="{{i}}_S17">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[17].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[21].CssClass" style="left: 260px"
+                       (click)="SelectSeat('21',i)" id="{{i}}_S21">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[21].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[25].CssClass" style="left: 312px"
+                       (click)="SelectSeat('25',i)" id="{{i}}_S25">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[25].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[29].CssClass" style="left: 364px"
+                       (click)="SelectSeat('29',i)" id="{{i}}_S29">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[29].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[33].CssClass" style="left: 416px"
+                       (click)="SelectSeat('33',i)" id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 468px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 520px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div class="Three_SeatHold" style="left: 0px">Booked</div>
+                  <div class="Three_SeatHold" style="left: 52px">Booked</div>
+                  <div class="Three_SeatHold" style="left: 104px">Booked</div>
+                  <div [ngClass]="BusSeatList[14].CssClass" style="left: 156px"
+                       (click)="SelectSeat('14', i)" id="{{i}}_S14">
+                    ₹ K
+                    <span>{{ BusSeatList[13].SeatPrice }}</span><span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[18].CssClass" style="left: 208px"
+                       (click)="SelectSeat('18',i)" id="{{i}}_S18">
+                    ₹{{BusSeatList[18].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[22].CssClass" style="left: 260px"
+                       (click)="SelectSeat('22',i)" id="{{i}}_S22">
+                    ₹{{BusSeatList[22].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[26].CssClass" style="left: 312px"
+                       (click)="SelectSeat('26',i)" id="{{i}}_S26">
+                    ₹{{BusSeatList[26].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[30].CssClass" style="left: 364px"
+                       (click)="SelectSeat('30',i)" id="{{i}}_S30">
+                    ₹{{BusSeatList[30].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[34].CssClass" style="left: 416px"
+                       (click)="SelectSeat('34',i)" id="{{i}}_S34">
+                    ₹{{BusSeatList[34].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[38].CssClass" style="left: 468px"
+                       (click)="SelectSeat('38',i)" id="{{i}}_S38">
+                    ₹{{BusSeatList[38].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 520px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div [ngClass]="BusSeatList[39].CssClass" style="left: 520px"
+                       (click)="SelectSeat('39',i)" id="{{i}}_S39">
+                    ₹{{BusSeatList[39].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div class="Three_SeatHold" style="left: 0px">Booked</div>
+                  <div class="Three_SeatHold" style="left: 52px">Booked</div>
+                  <div class="Three_SeatHold" style="left: 104px">Booked</div>
+                  <div [ngClass]="BusSeatList[15].CssClass" style="left: 156px"
+                       (click)="SelectSeat('15',i)" id="{{i}}_S15">
+                    ₹{{BusSeatList[15].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[19].CssClass" style="left: 208px"
+                       (click)="SelectSeat('19',i)" id="{{i}}_S19">
+                    ₹{{BusSeatList[19].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[23].CssClass" style="left: 260px"
+                       (click)="SelectSeat('23',i)" id="{{i}}_S23">
+                    ₹{{BusSeatList[23].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[27].CssClass" style="left: 312px"
+                       (click)="SelectSeat('27',i)" id="{{i}}_S27">
+                    ₹{{BusSeatList[27].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[31].CssClass" style="left: 364px"
+                       (click)="SelectSeat('31',i)" id="{{i}}_S31">
+                    ₹{{BusSeatList[31].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[35].CssClass" style="left: 416px"
+                       (click)="SelectSeat('35',i)" id="{{i}}_S35">
+                    ₹{{BusSeatList[35].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[40].CssClass" style="left: 468px"
+                       (click)="SelectSeat('40',i)" id="{{i}}_S40">
+                    ₹{{BusSeatList[40].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 520px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div class="Three_SeatHold" style="left: 0px">Booked</div>
+                  <div class="Three_SeatHold" style="left: 52px">Booked</div>
+                  <div class="Three_SeatHold" style="left: 104px">Booked</div>
+                  <div [ngClass]="BusSeatList[16].CssClass" style="left: 156px"
+                       (click)="SelectSeat('16',i)" id="{{i}}_S16">
+                    ₹{{BusSeatList[17].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[20].CssClass" style="left: 208px"
+                       (click)="SelectSeat('20',i)" id="{{i}}_S20">
+                    ₹{{BusSeatList[17].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[24].CssClass" style="left: 260px"
+                       (click)="SelectSeat('24',i)" id="{{i}}_S24">
+                    ₹{{BusSeatList[17].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[28].CssClass" style="left: 312px"
+                       (click)="SelectSeat('28',i)" id="{{i}}_S28">
+                    ₹{{BusSeatList[17].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[32].CssClass" style="left: 364px"
+                       (click)="SelectSeat('32',i)" id="{{i}}_S32">
+                    ₹{{BusSeatList[17].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[36].CssClass" style="left: 416px"
+                       (click)="SelectSeat('36',i)" id="{{i}}_S36">
+                    ₹{{BusSeatList[17].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[41].CssClass" style="left: 468px"
+                       (click)="SelectSeat('41',i)" id="{{i}}_S41">
+                    ₹{{BusSeatList[17].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 520px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="seats" *ngIf="SeatTempate=='Four'">
+              <div style="position: relative; display: flex; flex-direction: column-reverse; background: rgb(255, 255, 255); padding: 10px 5px 10px 60px; margin-bottom: 10px; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 2px; border-radius: 3px; overflow: auto;">
+                <span class="seatchart-label">Driver</span><img src="assets/Images/operator.svg"
+                                                                alt="driver">
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div class="Four_SeatHold" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Four_SeatHold" style="left: 42px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Four_SeatHold" style="left: 84px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div [ngClass]="BusSeatList[13].CssClass" style="left: 126px"
+                       (click)="SelectSeat('13',i)" id="{{i}}_S13">
+                    <span class="SeatBirthLocation"></span>₹
+                    {{BusSeatList[13].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[17].CssClass" style="left: 168px"
+                       (click)="SelectSeat('17',i)" id="{{i}}_S17">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[17].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[21].CssClass" style="left: 210px"
+                       (click)="SelectSeat('21',i)" id="{{i}}_S21">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[21].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[25].CssClass" style="left: 252px"
+                       (click)="SelectSeat('25',i)" id="{{i}}_S25">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[25].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[29].CssClass" style="left: 294px"
+                       (click)="SelectSeat('29',i)" id="{{i}}_S29">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[29].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[33].CssClass" style="left: 336px"
+                       (click)="SelectSeat('33',i)" id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 378px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 420px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 462px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div class="Four_SeatHold" style="left: 0px">Booked</div>
+                  <div class="Four_SeatHold" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Four_SeatHold" style="left: 42px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Four_SeatHold" style="left: 84px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div [ngClass]="BusSeatList[13].CssClass" style="left: 126px"
+                       (click)="SelectSeat('13',i)" id="{{i}}_S13">
+                    <span class="SeatBirthLocation"></span>₹
+                    {{BusSeatList[13].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[17].CssClass" style="left: 168px"
+                       (click)="SelectSeat('17',i)" id="{{i}}_S17">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[17].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[21].CssClass" style="left: 210px"
+                       (click)="SelectSeat('21',i)" id="{{i}}_S21">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[21].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[25].CssClass" style="left: 252px"
+                       (click)="SelectSeat('25',i)" id="{{i}}_S25">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[25].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[29].CssClass" style="left: 294px"
+                       (click)="SelectSeat('29',i)" id="{{i}}_S29">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[29].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[33].CssClass" style="left: 336px"
+                       (click)="SelectSeat('33',i)" id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 378px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 420px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 462px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div [ngClass]="BusSeatList[39].CssClass" style="left: 462px"
+                       (click)="SelectSeat('39',i)" id="{{i}}_S39">
+                    ₹{{BusSeatList[39].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div class="Four_SeatHold" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Four_SeatHold" style="left: 42px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Four_SeatHold" style="left: 84px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div [ngClass]="BusSeatList[13].CssClass" style="left: 126px"
+                       (click)="SelectSeat('13',i)" id="{{i}}_S13">
+                    <span class="SeatBirthLocation"></span>₹
+                    {{BusSeatList[13].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[17].CssClass" style="left: 168px"
+                       (click)="SelectSeat('17',i)" id="{{i}}_S17">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[17].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[21].CssClass" style="left: 210px"
+                       (click)="SelectSeat('21',i)" id="{{i}}_S21">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[21].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[25].CssClass" style="left: 252px"
+                       (click)="SelectSeat('25',i)" id="{{i}}_S25">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[25].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[29].CssClass" style="left: 294px"
+                       (click)="SelectSeat('29',i)" id="{{i}}_S29">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[29].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[33].CssClass" style="left: 336px"
+                       (click)="SelectSeat('33',i)" id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 378px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 420px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 462px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div class="Four_SeatHold" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Four_SeatHold" style="left: 42px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Four_SeatHold" style="left: 84px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div [ngClass]="BusSeatList[13].CssClass" style="left: 126px"
+                       (click)="SelectSeat('13',i)" id="{{i}}_S13">
+                    <span class="SeatBirthLocation"></span>₹
+                    {{BusSeatList[13].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[17].CssClass" style="left: 168px"
+                       (click)="SelectSeat('17',i)" id="{{i}}_S17">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[17].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[21].CssClass" style="left: 210px"
+                       (click)="SelectSeat('21',i)" id="{{i}}_S21">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[21].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[25].CssClass" style="left: 252px"
+                       (click)="SelectSeat('25',i)" id="{{i}}_S25">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[25].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[29].CssClass" style="left: 294px"
+                       (click)="SelectSeat('29',i)" id="{{i}}_S29">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[29].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[33].CssClass" style="left: 336px"
+                       (click)="SelectSeat('33',i)" id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 378px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 420px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 462px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="seats" *ngIf="SeatTempate=='Five'">
+              <div style="position: relative; display: flex; flex-direction: column-reverse; background: rgb(255, 255, 255); padding: 10px 5px 10px 60px; margin-bottom: 10px; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 2px; border-radius: 3px; overflow: auto;">
+                <span class="seatchart-label">Driver</span><img src="assets/Images/operator.svg"
+                                                                alt="driver">
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div class="Five_SeatHold" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Five_SeatHold" style="left: 42px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Five_SeatHold" style="left: 84px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div [ngClass]="BusSeatList[13].CssClass" style="left: 126px"
+                       (click)="SelectSeat('13',i)" id="{{i}}_S13">
+                    <span class="SeatBirthLocation"></span>₹
+                    {{BusSeatList[13].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[17].CssClass" style="left: 168px"
+                       (click)="SelectSeat('17',i)" id="{{i}}_S17">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[17].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[21].CssClass" style="left: 210px"
+                       (click)="SelectSeat('21',i)" id="{{i}}_S21">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[21].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[25].CssClass" style="left: 252px"
+                       (click)="SelectSeat('25',i)" id="{{i}}_S25">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[25].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[29].CssClass" style="left: 294px"
+                       (click)="SelectSeat('29',i)" id="{{i}}_S29">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[29].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[33].CssClass" style="left: 336px"
+                       (click)="SelectSeat('33',i)" id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 378px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 420px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 462px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 504px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div class="Five_SeatHold" style="left: 0px">Booked</div>
+                  <div class="Five_SeatHold" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Five_SeatHold" style="left: 42px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Five_SeatHold" style="left: 84px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div [ngClass]="BusSeatList[13].CssClass" style="left: 126px"
+                       (click)="SelectSeat('13',i)" id="{{i}}_S13">
+                    <span class="SeatBirthLocation"></span>₹
+                    {{BusSeatList[13].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[17].CssClass" style="left: 168px"
+                       (click)="SelectSeat('17',i)" id="{{i}}_S17">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[17].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[21].CssClass" style="left: 210px"
+                       (click)="SelectSeat('21',i)" id="{{i}}_S21">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[21].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[25].CssClass" style="left: 252px"
+                       (click)="SelectSeat('25',i)" id="{{i}}_S25">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[25].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[29].CssClass" style="left: 294px"
+                       (click)="SelectSeat('29',i)" id="{{i}}_S29">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[29].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[33].CssClass" style="left: 336px"
+                       (click)="SelectSeat('33',i)" id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 378px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 420px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 462px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 504px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div [ngClass]="BusSeatList[39].CssClass" style="left: 504px"
+                       (click)="SelectSeat('39',i)" id="{{i}}_S39">
+                    ₹{{BusSeatList[39].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div class="Five_SeatHold" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Five_SeatHold" style="left: 42px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Five_SeatHold" style="left: 84px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div [ngClass]="BusSeatList[13].CssClass" style="left: 126px"
+                       (click)="SelectSeat('13',i)" id="{{i}}_S13">
+                    <span class="SeatBirthLocation"></span>₹
+                    {{BusSeatList[13].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[17].CssClass" style="left: 168px"
+                       (click)="SelectSeat('17',i)" id="{{i}}_S17">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[17].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[21].CssClass" style="left: 210px"
+                       (click)="SelectSeat('21',i)" id="{{i}}_S21">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[21].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[25].CssClass" style="left: 252px"
+                       (click)="SelectSeat('25',i)" id="{{i}}_S25">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[25].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[29].CssClass" style="left: 294px"
+                       (click)="SelectSeat('29',i)" id="{{i}}_S29">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[29].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[33].CssClass" style="left: 336px"
+                       (click)="SelectSeat('33',i)" id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 378px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 420px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 462px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 504px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div class="Five_SeatHold" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Five_SeatHold" style="left: 42px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="Five_SeatHold" style="left: 84px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div [ngClass]="BusSeatList[13].CssClass" style="left: 126px"
+                       (click)="SelectSeat('13',i)" id="{{i}}_S13">
+                    <span class="SeatBirthLocation"></span>₹
+                    {{BusSeatList[13].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[17].CssClass" style="left: 168px"
+                       (click)="SelectSeat('17',i)" id="{{i}}_S17">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[17].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[21].CssClass" style="left: 210px"
+                       (click)="SelectSeat('21',i)" id="{{i}}_S21">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[21].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[25].CssClass" style="left: 252px"
+                       (click)="SelectSeat('25',i)" id="{{i}}_S25">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[25].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[29].CssClass" style="left: 294px"
+                       (click)="SelectSeat('29',i)" id="{{i}}_S29">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[29].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[33].CssClass" style="left: 336px"
+                       (click)="SelectSeat('33',i)" id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 378px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 420px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 462px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                  <div [ngClass]="BusSeatList[37].CssClass" style="left: 504px"
+                       (click)="SelectSeat('37',i)" id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="seats" *ngIf="SeatTempate=='Six'">
+              <div style="position: relative; display: flex; flex-direction: column-reverse; background: rgb(255, 255, 255); padding: 10px 5px 10px 60px; margin-bottom: 10px; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 2px; border-radius: 3px; overflow: auto;">
+                <span class="seatchart-label">Driver</span><img src="assets/Images/operator.svg"
+                                                                alt="driver">
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 6 Row -->
+                  <div class="AC_SeatBirth" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 104px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 206px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 308px" (click)="SelectSeat('13',i)"
+                       id="{{i}}_S13"><span class="SeatBirthLocation"></span>1</div>
+
+                  <div class="AC_SeatBirth" style="left: 410px" (click)="SelectSeat('33',i)"
+                       id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('37',i)"
+                       id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+
+                <div style="position: relative; display: flex; height: 20px;">
+
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 5 Row -->
+                  <div class="AC_SeatBirth" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 104px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 206px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 308px" (click)="SelectSeat('13',i)"
+                       id="{{i}}_S13"><span class="SeatBirthLocation"></span>1</div>
+
+                  <div class="AC_SeatBirth" style="left: 410px" (click)="SelectSeat('33',i)"
+                       id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('37',i)"
+                       id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+
+
+
+
+
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 4 Row -->
+                  <div class="AC_SeatBirth" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 104px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 206px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 308px" (click)="SelectSeat('13',i)"
+                       id="{{i}}_S13"><span class="SeatBirthLocation"></span>1</div>
+
+                  <div class="AC_SeatBirth" style="left: 410px" (click)="SelectSeat('33',i)"
+                       id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('37',i)"
+                       id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+
+                </div>
+
+
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 3 Row -->
+                  <div class="AC_SeatBirth" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 104px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 206px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 308px" (click)="SelectSeat('13',i)"
+                       id="{{i}}_S13"><span class="SeatBirthLocation"></span>1</div>
+
+                  <div class="AC_SeatBirth" style="left: 410px" (click)="SelectSeat('33',i)"
+                       id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('37',i)"
+                       id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+
+                <div style="position: relative; display: flex; height: 20px;">
+
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 2 Row -->
+                  <div class="Six_SeatHold" style="left: 0px">Booked</div>
+                  <div class="Six_SeatHold" style="left: 52px">Booked</div>
+                  <div class="Six_SeatHold" style="left: 104px">Booked</div>
+                  <div [ngClass]="BusSeatList[15].CssClass" style="left: 156px"
+                       (click)="SelectSeat('15',i)" id="{{i}}_S15">
+                    ₹{{BusSeatList[15].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[19].CssClass" style="left: 208px"
+                       (click)="SelectSeat('19',i)" id="{{i}}_S19">
+                    ₹{{BusSeatList[19].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[23].CssClass" style="left: 260px"
+                       (click)="SelectSeat('23',i)" id="{{i}}_S23">
+                    ₹{{BusSeatList[23].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[27].CssClass" style="left: 312px"
+                       (click)="SelectSeat('27',i)" id="{{i}}_S27">
+                    ₹{{BusSeatList[27].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[31].CssClass" style="left: 364px"
+                       (click)="SelectSeat('31',i)" id="{{i}}_S31">
+                    ₹{{BusSeatList[31].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 416px" (click)="SelectSeat('35',i)"
+                       id="{{i}}_S35">
+                    ₹{{BusSeatList[35].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('40',i)"
+                       id="{{i}}_S40">
+                    ₹{{BusSeatList[40].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                </div>
+
+
+
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 1 Row -->
+                  <div class="Six_SeatHold" style="left: 0px">Booked</div>
+                  <div class="Six_SeatHold" style="left: 52px">Booked</div>
+                  <div class="Six_SeatHold" style="left: 104px">Booked</div>
+                  <div [ngClass]="BusSeatList[15].CssClass" style="left: 156px"
+                       (click)="SelectSeat('15',i)" id="{{i}}_S15">
+                    ₹{{BusSeatList[15].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[19].CssClass" style="left: 208px"
+                       (click)="SelectSeat('19',i)" id="{{i}}_S19">
+                    ₹{{BusSeatList[19].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[23].CssClass" style="left: 260px"
+                       (click)="SelectSeat('23',i)" id="{{i}}_S23">
+                    ₹{{BusSeatList[23].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[27].CssClass" style="left: 312px"
+                       (click)="SelectSeat('27',i)" id="{{i}}_S27">
+                    ₹{{BusSeatList[27].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[31].CssClass" style="left: 364px"
+                       (click)="SelectSeat('31',i)" id="{{i}}_S31">
+                    ₹{{BusSeatList[31].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 416px" (click)="SelectSeat('35',i)"
+                       id="{{i}}_S35">
+                    ₹{{BusSeatList[35].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('40',i)"
+                       id="{{i}}_S40">
+                    ₹{{BusSeatList[40].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="seats" *ngIf="SeatTempate=='Seven'">
+              <div style="position: relative; display: flex; flex-direction: column-reverse; background: rgb(255, 255, 255); padding: 10px 5px 10px 60px; margin-bottom: 10px; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 2px; border-radius: 3px; overflow: auto;">
+                <span class="seatchart-label">Driver</span><img src="assets/Images/operator.svg"
+                                                                alt="driver">
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 6 Row -->
+                  <div class="AC_SeatBirth" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 104px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 206px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 308px" (click)="SelectSeat('13',i)"
+                       id="{{i}}_S13"><span class="SeatBirthLocation"></span>1</div>
+
+                  <div class="AC_SeatBirth" style="left: 410px" (click)="SelectSeat('33',i)"
+                       id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('37',i)"
+                       id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+
+                <div style="position: relative; display: flex; height: 20px;">
+
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 5 Row -->
+                  <div class="AC_SeatBirth" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 104px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 206px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 308px" (click)="SelectSeat('13',i)"
+                       id="{{i}}_S13"><span class="SeatBirthLocation"></span>1</div>
+
+                  <div class="AC_SeatBirth" style="left: 410px" (click)="SelectSeat('33',i)"
+                       id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('37',i)"
+                       id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+
+
+
+
+
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 4 Row -->
+                  <div class="AC_SeatBirth" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 104px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 206px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 308px" (click)="SelectSeat('13',i)"
+                       id="{{i}}_S13"><span class="SeatBirthLocation"></span>1</div>
+
+                  <div class="AC_SeatBirth" style="left: 410px" (click)="SelectSeat('33',i)"
+                       id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('37',i)"
+                       id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+
+                </div>
+
+
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 3 Row -->
+                  <div class="AC_SeatBirth" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 104px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 206px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 308px" (click)="SelectSeat('13',i)"
+                       id="{{i}}_S13"><span class="SeatBirthLocation"></span>1</div>
+
+                  <div class="AC_SeatBirth" style="left: 410px" (click)="SelectSeat('33',i)"
+                       id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('37',i)"
+                       id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+
+                <div style="position: relative; display: flex; height: 20px;">
+
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 2 Row -->
+                  <div [ngClass]="BusSeatList[15].CssClass" style="left: 0px" (click)="SelectSeat('15',i)"
+                       id="{{i}}_S15">
+                    ₹{{BusSeatList[15].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[19].CssClass" style="left: 52px"
+                       (click)="SelectSeat('19',i)" id="{{i}}_S19">
+                    ₹{{BusSeatList[19].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[23].CssClass" style="left: 104px"
+                       (click)="SelectSeat('23',i)" id="{{i}}_S23">
+                    ₹{{BusSeatList[23].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[27].CssClass" style="left: 156px"
+                       (click)="SelectSeat('27',i)" id="{{i}}_S27">
+                    ₹{{BusSeatList[27].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+
+                  <div class="AC_SeatBirth" style="left: 208px" (click)="SelectSeat('35',i)"
+                       id="{{i}}_S35">
+                    ₹{{BusSeatList[35].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 312px" (click)="SelectSeat('40',i)"
+                       id="{{i}}_S40">
+                    ₹{{BusSeatList[40].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 416px" (click)="SelectSeat('35',i)"
+                       id="{{i}}_S35">
+                    ₹{{BusSeatList[35].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 520px" (click)="SelectSeat('40',i)"
+                       id="{{i}}_S40">
+                    ₹{{BusSeatList[40].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                </div>
+
+
+
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 1 Row -->
+
+                  <div [ngClass]="BusSeatList[15].CssClass" style="left: 0px" (click)="SelectSeat('15',i)"
+                       id="{{i}}_S15">
+                    ₹{{BusSeatList[15].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[19].CssClass" style="left: 52px"
+                       (click)="SelectSeat('19',i)" id="{{i}}_S19">
+                    ₹{{BusSeatList[19].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[23].CssClass" style="left: 104px"
+                       (click)="SelectSeat('23',i)" id="{{i}}_S23">
+                    ₹{{BusSeatList[23].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[27].CssClass" style="left: 156px"
+                       (click)="SelectSeat('27',i)" id="{{i}}_S27">
+                    ₹{{BusSeatList[27].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+
+                  <div class="AC_SeatBirth" style="left: 208px" (click)="SelectSeat('35',i)"
+                       id="{{i}}_S35">
+                    ₹{{BusSeatList[35].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 312px" (click)="SelectSeat('40',i)"
+                       id="{{i}}_S40">
+                    ₹{{BusSeatList[40].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 416px" (click)="SelectSeat('35',i)"
+                       id="{{i}}_S35">
+                    ₹{{BusSeatList[35].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 520px" (click)="SelectSeat('40',i)"
+                       id="{{i}}_S40">
+                    ₹{{BusSeatList[40].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="seats" *ngIf="SeatTempate=='Eight'">
+              <div style="position: relative; display: flex; flex-direction: column-reverse; background: rgb(255, 255, 255); padding: 10px 5px 10px 60px; margin-bottom: 10px; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 2px; border-radius: 3px; overflow: auto;">
+                <span class="seatchart-label">Driver</span><img src="assets/Images/operator.svg"
+                                                                alt="driver">
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 6 Row -->
+                  <div class="AC_SeatBirth" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 104px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 206px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 308px" (click)="SelectSeat('13',i)"
+                       id="{{i}}_S13"><span class="SeatBirthLocation"></span>1</div>
+
+                  <div class="AC_SeatBirth" style="left: 410px" (click)="SelectSeat('33',i)"
+                       id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('37',i)"
+                       id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 5 Row -->
+                  <div class="AC_SeatBirth" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 104px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 206px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 308px" (click)="SelectSeat('13',i)"
+                       id="{{i}}_S13"><span class="SeatBirthLocation"></span>1</div>
+
+                  <div class="AC_SeatBirth" style="left: 410px" (click)="SelectSeat('33',i)"
+                       id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('37',i)"
+                       id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 20px;">
+
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 4 Row -->
+                  <div class="AC_SeatBirth" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 104px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 206px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 308px" (click)="SelectSeat('13',i)"
+                       id="{{i}}_S13"><span class="SeatBirthLocation"></span>1</div>
+
+                  <div class="AC_SeatBirth" style="left: 410px" (click)="SelectSeat('33',i)"
+                       id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('37',i)"
+                       id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+
+
+
+
+
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 3 Row -->
+                  <div class="AC_SeatBirth" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 104px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 206px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 308px" (click)="SelectSeat('13',i)"
+                       id="{{i}}_S13"><span class="SeatBirthLocation"></span>1</div>
+
+                  <div class="AC_SeatBirth" style="left: 410px" (click)="SelectSeat('33',i)"
+                       id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('37',i)"
+                       id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+                <div style="position: relative; display: flex; height: 20px;">
+
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <div class="AC_SeatBirth" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 104px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 206px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 308px" (click)="SelectSeat('13',i)"
+                       id="{{i}}_S13"><span class="SeatBirthLocation"></span>1</div>
+
+                  <div class="AC_SeatBirth" style="left: 410px" (click)="SelectSeat('33',i)"
+                       id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('37',i)"
+                       id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+
+
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 3 Row -->
+                  <div class="AC_SeatBirth" style="left: 0px;">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 104px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 206px">
+                    <span class="SeatBirthLocation"></span>Booked
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 308px" (click)="SelectSeat('13',i)"
+                       id="{{i}}_S13"><span class="SeatBirthLocation"></span>1</div>
+
+                  <div class="AC_SeatBirth" style="left: 410px" (click)="SelectSeat('33',i)"
+                       id="{{i}}_S33">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[33].SeatPrice}}
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 518px" (click)="SelectSeat('37',i)"
+                       id="{{i}}_S37">
+                    <span class="SeatBirthLocation"></span>₹{{BusSeatList[37].SeatPrice}}
+                  </div>
+                </div>
+
+                <div style="position: relative; display: flex; height: 20px;">
+
+                </div>
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 2 Row -->
+                  <div [ngClass]="BusSeatList[15].CssClass" style="left: 0px" (click)="SelectSeat('15',i)"
+                       id="{{i}}_S15">
+                    ₹{{BusSeatList[15].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[19].CssClass" style="left: 42px"
+                       (click)="SelectSeat('19',i)" id="{{i}}_S19">
+                    ₹{{BusSeatList[19].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[23].CssClass" style="left: 84px"
+                       (click)="SelectSeat('23',i)" id="{{i}}_S23">
+                    ₹{{BusSeatList[23].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[27].CssClass" style="left: 126px"
+                       (click)="SelectSeat('27',i)" id="{{i}}_S27">
+                    ₹{{BusSeatList[27].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[27].CssClass" style="left: 168px"
+                       (click)="SelectSeat('27',i)" id="{{i}}_S27">
+                    ₹{{BusSeatList[27].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[27].CssClass" style="left: 210px"
+                       (click)="SelectSeat('27',i)" id="{{i}}_S27">
+                    ₹{{BusSeatList[27].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+
+
+                  <div class="AC_SeatBirth" style="left: 252px" (click)="SelectSeat('40',i)"
+                       id="{{i}}_S40">
+                    ₹{{BusSeatList[40].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 372px" (click)="SelectSeat('35',i)"
+                       id="{{i}}_S35">
+                    ₹{{BusSeatList[35].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 492px" (click)="SelectSeat('40',i)"
+                       id="{{i}}_S40">
+                    ₹{{BusSeatList[40].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                </div>
+
+
+
+                <div style="position: relative; display: flex; height: 40px;">
+                  <!-- 1 Row -->
+
+                  <div [ngClass]="BusSeatList[15].CssClass" style="left: 0px" (click)="SelectSeat('15',i)"
+                       id="{{i}}_S15">
+                    ₹{{BusSeatList[15].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[19].CssClass" style="left: 42px"
+                       (click)="SelectSeat('19',i)" id="{{i}}_S19">
+                    ₹{{BusSeatList[19].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[23].CssClass" style="left: 84px"
+                       (click)="SelectSeat('23',i)" id="{{i}}_S23">
+                    ₹{{BusSeatList[23].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[27].CssClass" style="left: 126px"
+                       (click)="SelectSeat('27',i)" id="{{i}}_S27">
+                    ₹{{BusSeatList[27].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[27].CssClass" style="left: 168px"
+                       (click)="SelectSeat('27',i)" id="{{i}}_S27">
+                    ₹{{BusSeatList[27].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div [ngClass]="BusSeatList[27].CssClass" style="left: 210px"
+                       (click)="SelectSeat('27',i)" id="{{i}}_S27">
+                    ₹{{BusSeatList[27].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+
+
+                  <div class="AC_SeatBirth" style="left: 252px" (click)="SelectSeat('40',i)"
+                       id="{{i}}_S40">
+                    ₹{{BusSeatList[40].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 372px" (click)="SelectSeat('35',i)"
+                       id="{{i}}_S35">
+                    ₹{{BusSeatList[35].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                  <div class="AC_SeatBirth" style="left: 492px" (click)="SelectSeat('40',i)"
+                       id="{{i}}_S40">
+                    ₹{{BusSeatList[40].SeatPrice}}<span class="SeatBirthLocation"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="pickups">
+              <div class="points">
+                <div class="point-inp">
+                  <div style="position: absolute; top: 0px; left: 0px; color: rgb(85, 77, 161);">
+                    Pickup
+                    Point
+                  </div>
+
+
+                  <select class="form-control" [(ngModel)]="PickUpPoint" name="PickUpPoint">
+                    <option value="0">Select</option>
+                    <option *ngFor="let s of PickUPPointList; let i = index" value="{{s.Value}}">
+                      {{s.Text}}
+                    </option>
+                  </select>
+
+
+                </div>
+
+              </div>
+              <div class="points">
+                <div class="point-inp">
+                  <div style="position: absolute; top: 0px; color: rgb(85, 77, 161);">Dropping Point</div>
+
+                  <select class="form-control" [(ngModel)]="DropPoint" name="DropPoint">
+                    <option value="0"> Select</option>
+                    <option *ngFor="let s of DropPointList; let i = index" value="{{s.Value}}">
+                      {{s.Text}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 12px;">
+                <div>
+                  <div>Selected Seats</div>
+                  <div style="color: rgb(0, 0, 0); font-weight: 500;">Total</div>
+                </div>
+                <div style="text-align: right;">
+                  <div>{{SelectedSeat1}}</div>
+                  <div style="color: rgb(0, 0, 0); font-weight: 500;">
+                    <span class="dashed">₹3897</span>
+                    <span>₹{{TSeatPrice}}</span>
+                  </div>
+                </div>
+              </div>
+
+
+              <button [disabled]="SelectedSeat.length<1"
+                      style="padding: 15px 0px; text-align: center; color: rgb(255, 255, 255); background: rgb(241, 90, 34); margin-top: 15px; border-radius: 3px; cursor: pointer;"
+                      (click)="OpenPersonalDetails()">
+                PROVIDE PASSENGER DETAILS
+              </button>
+              <div class="point-opt"></div>
+            </div>
+          </div>
+
+
+
+          <div class="legend">
+            <div><span style="background: rgb(31, 179, 75);"></span>General</div>
+            <div><span style="background: rgb(221, 221, 221);"></span>Selected</div>
+            <div><span style="background: rgb(2, 149, 210);"></span>Male</div>
+            <div><span style="background: rgb(236, 18, 135);"></span>Female</div>
+            <div><span class="st-legend"></span>Seater</div>
+          </div>
+        </div>
+        <div *ngIf="IsBindSeat==false">
+
+          <h2>Please wait</h2>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="divPersonalDetails" *ngIf="isShowPersonalDetails">
+  <div style="width:550px;height:100%;right:0px!important;background-color:#eeeeee;position:fixed;top:0px!important;z-index:21!important">
+
+
+
+    <div class="card">
+
+      <div class="card-body">
+        <div class="row">
+
+          <button type="button" class="btn btn-primary" value=">" (click)="Cancel()"
+                  style="border:none;color:blue;background-color: inherit;">
+            <i class="right" style="font-size: 30px;"></i>
+
+          </button>
+          <h3 class="card-title" style="padding-left: 20%;">Passenger Details</h3>
+        </div>
+
+
+      </div>
+    </div>
+
+
+    <div class="panel panel-default" style="height:80%;overflow-y:scroll;padding:10px">
+
+      <div class="panel-body" id="divpassengerDetails">
+        <strong>Passenger Information</strong>
+        <div class="card">
+
+          <div class="card-body">
+
+            <div *ngFor="let k of SeatList; let j= index">
+
+
+              <div class="form-row">
+                <div class="form-group col-md-1">
+
+
+                  <div style="position: relative; width: 35px; height: 35px; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; padding-bottom: 4px; border: 1px solid rgb(30, 178, 75);">
+                    {{k.SeatNo}}<span style="position: absolute; bottom: 0px; left: 5px; width: 23px; height: 4px; background: rgb(30, 178, 75);"></span>
+                  </div>
+
+
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="text" class="form-control" [(ngModel)]="k.Name" placeholder="Name"
+                         id="{{j}}_Name">
+                </div>
+                <div class="form-group col-md-3">
+
+                  <select class="form-control" [(ngModel)]="k.Gender" id="{{j}}_Gender">
+                    <option>Male</option>
+                    <option>Female</option>
+                  </select>
+
+                </div>
+                <div class="form-group col-md-2">
+
+                  <input type="text" maxlength="2" class="form-control" [(ngModel)]="k.Age"
+                         placeholder="Age" id="{{j}}_Age" onkeypress="return isNumber(event);">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+        <div class="card">
+
+          <div class="card-body">
+            <h3 class="card-title" style="padding-left: 20%;">
+
+              Contact Details
+            </h3>
+            <hr />
+
+            <div>
+              <div class="form-group col-md-12">
+                <label for="email">Email address:</label>
+                <input type="email" class="form-control" placeholder="Enter email" id="txtEmail">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="pwd">Mobile Number:</label>
+                <input type="text" class="form-control" placeholder="Mobile No" id="MobileNo">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="pwd">Alternate Mobile Number:</label>
+                <input type="text" class="form-control" placeholder="Mobile No" id="MobileNo1">
+              </div>
+
+
+            </div>
+
+
+
+          </div>
+
+
+          <div class="card-body">
+            <h3 class="card-title">Fare Details</h3>
+
+            <div class="form-row">
+
+
+              <div class="col-md-10">
+                <label for="exampleInputPassword1">Onward trip fare:</label>
+
+              </div>
+              <div class="col-md-2">
+                <label for="exampleInputPassword1" style="text-align:right">{{TSeatPrice}}</label>
+
+
+              </div>
+            </div>
+            <div class="form-row">
+
+
+              <div class="col-md-10">
+                <label for="exampleInputPassword1">GST & Service Charge:</label>
+
+              </div>
+              <div class="col-md-2">
+                <label for="exampleInputPassword1" style="text-align:right">{{TSeatPrice*5/100}}</label>
+
+
+              </div>
+            </div>
+            <div class="form-row">
+
+
+              <div class="col-md-10">
+                <label for="exampleInputPassword1">Discount:</label>
+
+              </div>
+              <div class="col-md-2">
+                <label for="exampleInputPassword1" style="text-align:right">{{TDiscount}}</label>
+
+
+              </div>
+            </div>
+
+            <div class="form-row">
+
+
+              <div class="col-md-10">
+                <label style="padding: 1px 5px; position: relative;">
+                  <input type="checkbox" ng-click="checkTravelIinsurance()" id="chkTravelinsurance">
+                  I would like to purchase a Travel Insurance
+                  for this purchase (Charge Rs. 20 per person)
+                </label>
+
+
+
+              </div>
+              <div class="col-md-2">
+                <label for="exampleInputPassword1" style="text-align:right">{{TravelInsurance}}</label>
+
+
+              </div>
+            </div>
+            <div class="form-row">
+
+
+              <div class="col-md-10">
+                <label for="exampleInputPassword1">Total Fare:</label>
+
+              </div>
+              <div class="col-md-2">
+                <label for="exampleInputPassword1" style="text-align:right">{{TotalFare}}</label>
+
+
+              </div>
+            </div>
+
+            By clicking on "Make Payment" below, I agree to the Terms and Conditions
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-8">
+            <h3>Total Amount : {{TotalFare}} </h3>
+          </div>
+          <div class="col-md-4 pull-right text-right">
+            <input type="button" class="btn btn-primary" value="Continue to Pay" (click)="submitForm()" />
+          </div>
+          <input type="button" id="btnPay" value="Pay" style="width: 0px;height: 0px;" onclick="OpenPaymentPopUP()" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row" style=" padding-bottom:10px;">
+    <div class="card">
+      <div class="card-body">
+        <div class="col-md-12 animate-box fadeInUp animated">
+          <div class="col-md-4">
+            <h3>kanak holidays</h3>
+            <span class="price">{{l.BusName}}</span>
+            <span class="price">Policy</span>
+            <span class="price">$250<small> / mos.</small></span>
+            <span class="price">$350<small> Total (Tax incl.)</small></span>
+          </div>
+          <div class="col-md-4">
+            <h3>{{l.Start_Time}}</h3>
+            <span class="price">$100<small> / day</small></span>
+            <span class="price">$200<small> / week</small></span>
+            <span class="price">$250<small> / mos.</small></span>
+            <span class="price">$350<small> Total (Tax incl.)</small></span>
+          </div>
+          <div class="col-md-2">
+            <h3>Economy</h3>
+            <span class="price">$100<small> / day</small></span>
+            <span class="price">$200<small> / week</small></span>
+            <span class="price">$250<small> / mos.</small></span>
+            <span class="price">$350<small> Total (Tax incl.)</small></span>
+          
+          </div>
+          <div class="co-md-1">
+            <input type="button" class="btn btn-primary" value="Show Seats" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+    
+  </div>
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <div class="col-md-12 animate-box fadeInUp animated">
+
+
+          <div class="col-md-4">
+            <h3>Economy</h3>
+            <span class="price">$100<small> / day</small></span>
+            <span class="price">$200<small> / week</small></span>
+            <span class="price">$250<small> / mos.</small></span>
+            <span class="price">$350<small> Total (Tax incl.)</small></span>
+          </div>
+          <div class="col-md-4">
+            <h3>Economy</h3>
+            <span class="price">$100<small> / day</small></span>
+            <span class="price">$200<small> / week</small></span>
+            <span class="price">$250<small> / mos.</small></span>
+            <span class="price">$350<small> Total (Tax incl.)</small></span>
+          </div>
+          <div class="col-md-4">
+            <h3>Economy</h3>
+            <span class="price">$100<small> / day</small></span>
+            <span class="price">$200<small> / week</small></span>
+            <span class="price">$250<small> / mos.</small></span>
+            <span class="price">$350<small> Total (Tax incl.)</small></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+    
+
+  </div>
+
+
+

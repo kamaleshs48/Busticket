@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatCardModule } from '@angular/material';
 
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -17,10 +18,13 @@ import { SearchListComponent } from './search-list/search-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { LayoutComponent } from './shared/layout/layout.component';
 import {TicketPrintComponent} from './ticket-print/ticket-print.component'
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {TermsConditionsComponent} from './terms-conditions/terms-conditions.component'
+import {NgbModule, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
+import {TermsConditionsComponent} from './terms-conditions/terms-conditions.component';
+import {SearchResultComponent} from './search-result/search-result.component'
+
 import { from } from 'rxjs';
 import { NgbDateCustomParserFormatter } from './dateformat';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const routes: Routes = [
   {
 
@@ -39,11 +43,13 @@ const routes: Routes = [
     children: [
       { path: 'search-list', component: SearchListComponent },
       { path: 'ticket-print', component: TicketPrintComponent},
-      {path:'terms-conditions',component:TermsConditionsComponent}
+      {path:'terms-conditions',component:TermsConditionsComponent},
+      {path:'search-result',component:SearchResultComponent}
+
 
     ]
   },
-  { path: '**', redirectTo: '' }
+ /*  { path: '**', redirectTo: '' } */
 ];
 
 const config: ExtraOptions = {
@@ -65,7 +71,8 @@ const config: ExtraOptions = {
     FooterComponent,
     LayoutComponent,
     TicketPrintComponent,
-    TermsConditionsComponent
+    TermsConditionsComponent,
+    SearchResultComponent
   
   ],
   imports: [
@@ -74,6 +81,7 @@ const config: ExtraOptions = {
     FormsModule,
     NgbModule,
     StorageServiceModule,
+    MatCardModule,
 
 
     RouterModule.forRoot(
@@ -81,7 +89,10 @@ const config: ExtraOptions = {
       routes, config
 
 
-    )
+    ),
+
+
+    BrowserAnimationsModule
   ],
   providers: [{ provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter }],
   bootstrap: [AppComponent]
