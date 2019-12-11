@@ -1,0 +1,14 @@
+.SeatsArea
+{
+    position: relative; width: 30px; height: 30px;  display: flex; align-items: center; justify-content: center; 
+    padding-bottom: 2px; border: 1px solid rgb(30, 178, 75);
+}
+.Seats
+{
+    position: absolute;  right: 0px; width: 4px; height: 15px; background: rgb(30, 178, 75);
+}
+td {
+    padding-left: 10px;
+    padding-bottom: 5px;
+    vertical-align: inherit;
+  }

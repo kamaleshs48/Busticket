@@ -67,7 +67,7 @@ namespace KanakHolidays.Repository
                             SeatLeft = "38",
                             Total_Fare = dr["TicketPrice"].ToString(),
                             Discount = dr["Discount"].ToString(),
-                            SeatTempate= dr["SeatTempate"].ToString(),
+                            SeatTempate = dr["SeatTempate"].ToString(),
                             SeatList = _List,
                             Lower_SeatList_R1 = _List,
                             Lower_SeatList_R2 = _List,
@@ -88,7 +88,7 @@ namespace KanakHolidays.Repository
 
 
         }
-        public SearchListModels GetBusSeat(int RouteID, string JourneyDate, string SourceID, string DestinationID,string SeatTempate)
+        public SearchListModels GetBusSeat(int RouteID, string JourneyDate, string SourceID, string DestinationID, string SeatTempate)
         {
             SearchListModels models = new SearchListModels();
 
@@ -125,7 +125,7 @@ namespace KanakHolidays.Repository
                     });
 
 
-                    for (int i = 0; i < 43; i++)
+                    for (int i = 0; i < 55; i++)
                     {
 
                         _SModel = CheckSeatStatus((i + 1).ToString(), ds);
@@ -133,7 +133,7 @@ namespace KanakHolidays.Repository
                         _List.Add(new SeatModel
                         {
                             isFemale = false,
-                            CssClass = _SModel.IsSold == true ? SeatTempate+"_SeatHold" : SeatTempate +"_SeatBirth",
+                            CssClass = _SModel.IsSold == true ? SeatTempate + "_SeatHold" : SeatTempate + "_SeatBirth",
                             IsSold = _SModel.IsSold,
                             SeatNo = i.ToString(),
                             SeatPrice = TicketFare,
@@ -148,7 +148,7 @@ namespace KanakHolidays.Repository
                     });
 
                     // Add Pickup Point
-                    if (ds != null && ds.Tables[2].Rows.Count > 0)
+                    if (ds != null && ds.Tables[3].Rows.Count > 0)
                     {
                         if (!string.IsNullOrEmpty(ds.Tables[2].Rows[0]["Point1"].ToString()))
                         {
@@ -178,7 +178,7 @@ namespace KanakHolidays.Repository
 
 
                     // Add Drop Point
-                    if (ds != null && ds.Tables[3].Rows.Count > 0)
+                    if (ds != null && ds.Tables[4].Rows.Count > 0)
                     {
                         if (!string.IsNullOrEmpty(ds.Tables[3].Rows[0]["Point1"].ToString()))
                         {
@@ -233,8 +233,9 @@ namespace KanakHolidays.Repository
             SeatModel models = new SeatModel();
 
             DataRow[] dr = ds.Tables[1].Select("SeatNo=" + SeatNo);
+            DataRow[] dr1 = ds.Tables[2].Select("SeatNo=" + SeatNo);
 
-            if (dr.Length > 0)
+            if (dr.Length > 0 || dr1.Length > 0)
             {
                 models.IsSold = true;
 
@@ -429,19 +430,19 @@ tbl_PickUP_DropPointMaster RM ON RM.ID=RMS.SourceID  WHERE RMS.Route_ID=" + Rout
                     models.Destination = ds.Tables[0].Rows[0]["DestinationPoint"].ToString();
                     models.JournyStartDate = ds.Tables[0].Rows[0]["JDate"].ToString();
 
-                  //  models.JournyStartTime = ds.Tables[1].Rows[0]["" + PickUpPoint].ToString();
+                    //  models.JournyStartTime = ds.Tables[1].Rows[0]["" + PickUpPoint].ToString();
 
                     models.PickUPPoint = ds.Tables[1].Rows[0]["Point" + PickUpPoint].ToString();
-                    models.PickUPPoint_LendMark= ds.Tables[1].Rows[0]["Point" + PickUpPoint + "_LendMark"].ToString();
+                    models.PickUPPoint_LendMark = ds.Tables[1].Rows[0]["Point" + PickUpPoint + "_LendMark"].ToString();
                     models.PickUPPoint_Address = ds.Tables[1].Rows[0]["Point" + PickUpPoint + "_Address"].ToString();
-                   
+
 
 
                     models.DropPoint = ds.Tables[2].Rows[0]["Point" + DropPoint].ToString();
                     models.DropPoint_LendMark = ds.Tables[2].Rows[0]["Point" + DropPoint + "_LendMark"].ToString();
                     models.DropPoint_Address = ds.Tables[2].Rows[0]["Point" + DropPoint + "_Address"].ToString();
 
-                    models.JournyStartTime = ds.Tables[3].Rows[0]["PickUp_Point"+ PickUpPoint +"_Time"].ToString();
+                    models.JournyStartTime = ds.Tables[3].Rows[0]["PickUp_Point" + PickUpPoint + "_Time"].ToString();
 
 
 
@@ -450,13 +451,13 @@ tbl_PickUP_DropPointMaster RM ON RM.ID=RMS.SourceID  WHERE RMS.Route_ID=" + Rout
                     models.TotalFare = ds.Tables[0].Rows[0]["TotalPayableAmount"].ToString();
 
 
-                    foreach(DataRow dr in ds.Tables[5].Rows)
+                    foreach (DataRow dr in ds.Tables[5].Rows)
                     {
 
 
                         models.PassengerList.Add(new PassengerDetails
                         {
-                            Name=dr["Name"].ToString(),
+                            Name = dr["Name"].ToString(),
                             Age = dr["Age"].ToString(),
                             SeatNo = dr["SeatNo"].ToString(),
                             Gender = dr["Gender"].ToString(),
@@ -480,7 +481,7 @@ tbl_PickUP_DropPointMaster RM ON RM.ID=RMS.SourceID  WHERE RMS.Route_ID=" + Rout
 
 
 
-        public  TicketBookingModels GetTicketBookingList()
+        public TicketBookingModels GetTicketBookingList()
         {
             TicketBookingModels models = new TicketBookingModels();
 
@@ -499,22 +500,22 @@ Inner Join tbl_PickUP_DropPointMaster PD1 ON PD1.ID=TB.DestinationID
                 {
 
 
-                    foreach(DataRow dr in ds.Tables[0].Rows)
+                    foreach (DataRow dr in ds.Tables[0].Rows)
                     {
                         models.TicketList.Add(new TicketBookingModels
-                            {
-                                Source = dr["Source"].ToString(),
-                                Destination = dr["Destination"].ToString(),
-                                TicketNo = dr["TicketNo"].ToString(),
-                                Name = dr["Name"].ToString(),
-                                MobileNo = dr["MobileNo"].ToString(),
-                                Email = dr["Email"].ToString(),
-                                TotalPayableAmount = dr["TotalPayableAmount"].ToString(),
-                                PaymentID = dr["PaymentID"].ToString(),
-                               
+                        {
+                            Source = dr["Source"].ToString(),
+                            Destination = dr["Destination"].ToString(),
+                            TicketNo = dr["TicketNo"].ToString(),
+                            Name = dr["Name"].ToString(),
+                            MobileNo = dr["MobileNo"].ToString(),
+                            Email = dr["Email"].ToString(),
+                            TotalPayableAmount = dr["TotalPayableAmount"].ToString(),
+                            PaymentID = dr["PaymentID"].ToString(),
 
 
-                            });
+
+                        });
                     }
                 }
             }

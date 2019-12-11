@@ -62,7 +62,7 @@ export class SearchResultComponent implements OnInit {
 
 
 
-    http.get<any>(baseUrl + 'api/GetBusList?SourceID='+this.SourceID+'&DestinationID='+this.DestinationID+'&JourneyDate='+ this.JournyDate).subscribe(result => {
+   /*  http.get<any>(baseUrl + 'api/GetBusList?SourceID='+this.SourceID+'&DestinationID='+this.DestinationID+'&JourneyDate='+ this.JournyDate).subscribe(result => {
       // console.log(result);
       this.SourceList = result.SourceList;
       this.BusList = result.BusList;
@@ -72,7 +72,7 @@ export class SearchResultComponent implements OnInit {
       this.BusSeatList = result.SeatList;
 
       console.log(this.BusList);
-    }, error => console.error(error));
+    }, error => console.error(error)); */
   }
   ngOnInit() {
 
