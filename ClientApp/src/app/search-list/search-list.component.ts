@@ -110,7 +110,7 @@ export class SearchListComponent implements OnInit {
   SelectSeat(seat, index) {
 
 
-    if ($("#" + index + "_S" + seat).hasClass('SeatHold')) {
+    if ($("#" + index + "_S" + seat).hasClass(this.SeatTempate+ '_SeatHold')) {
       return false;
     }
 

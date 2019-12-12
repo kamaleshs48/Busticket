@@ -73,7 +73,7 @@
 </section>
 
 <div class="container" *ngFor="let l of BusList; let i = index">
-<div class="srch-card" style="width:100%">
+    <div class="srch-card" style="width:100%">
         <div class="srch-names">
             <div>kanak holidays</div>
             <div>{{l.BusName}}</div>
@@ -306,12 +306,16 @@
 
                             <div style="position: relative; display: flex; height: 40px;">
                                 <!-- 5 Row -->
-                                <div class="One_SeatHold" style="left: 0px;"><span
-                                        class="SeatBirthLocation"></span>Booked</div>
-                                <div class="One_SeatHold" style="left: 62px"><span
-                                        class="SeatBirthLocation"></span>Booked</div>
-                                <div class="One_SeatHold" style="left: 124px"><span
-                                        class="SeatBirthLocation"></span>Booked</div>
+                                <div ngbTooltip="Seat N 4 | ₹{{BusSeatList[4].SeatPrice}}" tooltipClass="tooltip-class"
+                                    [ngClass]="BusSeatList[4].CssClass" style="left: 0px" (click)="SelectSeat('4',i)"
+                                    id="{{i}}_S4"><span class="SeatBirthLocation"></span>4</div>
+                                <div ngbTooltip="Seat N 8 | ₹{{BusSeatList[8].SeatPrice}}" tooltipClass="tooltip-class"
+                                    [ngClass]="BusSeatList[8].CssClass" style="left: 62px" (click)="SelectSeat('8',i)"
+                                    id="{{i}}_S8"><span class="SeatBirthLocation"></span>8</div>
+                                <div ngbTooltip="Seat N 12 | ₹{{BusSeatList[12].SeatPrice}}"
+                                    tooltipClass="tooltip-class" [ngClass]="BusSeatList[16].CssClass"
+                                    style="left: 124px" (click)="SelectSeat('12',i)" id="{{i}}_S12"><span
+                                        class="SeatBirthLocation"></span>12</div>
                                 <div ngbTooltip="Seat N 16 | ₹{{BusSeatList[16].SeatPrice}}"
                                     tooltipClass="tooltip-class" [ngClass]="BusSeatList[16].CssClass"
                                     style="left: 186px" (click)="SelectSeat('16',i)" id="{{i}}_S16"><span
@@ -343,9 +347,16 @@
                             </div>
                             <div style="position: relative; display: flex; height: 40px;">
                                 <!-- 4 Row -->
-                                <div class="One_SeatHold" style="left: 0px">Booked</div>
-                                <div class="One_SeatHold" style="left: 62px">Booked</div>
-                                <div class="One_SeatHold" style="left: 124px">Booked</div>
+                                <div ngbTooltip="Seat N 3 | ₹{{BusSeatList[3].SeatPrice}}" tooltipClass="tooltip-class"
+                                    [ngClass]="BusSeatList[3].CssClass" style="left: 0px" (click)="SelectSeat('3', i)"
+                                    id="{{i}}_S3">3<span class="SeatBirthLocation"></span></div>
+                                <div ngbTooltip="Seat N 7 | ₹{{BusSeatList[7].SeatPrice}}" tooltipClass="tooltip-class"
+                                    [ngClass]="BusSeatList[7].CssClass" style="left: 62px" (click)="SelectSeat('7', i)"
+                                    id="{{i}}_S7">7<span class="SeatBirthLocation"></span></div>
+                                <div ngbTooltip="Seat N 11 | ₹{{BusSeatList[11].SeatPrice}}"
+                                    tooltipClass="tooltip-class" [ngClass]="BusSeatList[11].CssClass"
+                                    style="left: 124px" (click)="SelectSeat('11', i)" id="{{i}}_S11">11<span
+                                        class="SeatBirthLocation"></span></div>
                                 <div ngbTooltip="Seat N 15 | ₹{{BusSeatList[15].SeatPrice}}"
                                     tooltipClass="tooltip-class" [ngClass]="BusSeatList[15].CssClass"
                                     style="left: 186px" (click)="SelectSeat('15', i)" id="{{i}}_S15">15<span
@@ -383,9 +394,17 @@
                             </div>
                             <div style="position: relative; display: flex; height: 40px;">
                                 <!-- 2 Row -->
-                                <div class="One_SeatHold" style="left: 0px">Booked</div>
-                                <div class="One_SeatHold" style="left: 62px">Booked</div>
-                                <div class="One_SeatHold" style="left: 124px">Booked</div>
+                                <div ngbTooltip="Seat N 1 | ₹{{BusSeatList[1].SeatPrice}}" tooltipClass="tooltip-class"
+                                    [ngClass]="BusSeatList[1].CssClass" style="left: 0px" (click)="SelectSeat('1',i)"
+                                    id="{{i}}_S1">1<span class="SeatBirthLocation"></span></div>
+                                <div ngbTooltip="Seat N 5 | ₹{{BusSeatList[5].SeatPrice}}" tooltipClass="tooltip-class"
+                                    [ngClass]="BusSeatList[5].CssClass" style="left: 62px" (click)="SelectSeat('5',i)"
+                                    id="{{i}}_S5">5<span class="SeatBirthLocation"></span></div>
+                                <div ngbTooltip="Seat N 9 | ₹{{BusSeatList[9].SeatPrice}}" tooltipClass="tooltip-class"
+                                    [ngClass]="BusSeatList[9].CssClass" style="left: 124px" (click)="SelectSeat('9',i)"
+                                    id="{{i}}_S9">9<span class="SeatBirthLocation"></span></div>
+
+
                                 <div ngbTooltip="Seat N 13 | ₹{{BusSeatList[13].SeatPrice}}"
                                     tooltipClass="tooltip-class" [ngClass]="BusSeatList[13].CssClass"
                                     style="left: 186px" (click)="SelectSeat('13',i)" id="{{i}}_S13">13<span
@@ -417,9 +436,16 @@
                             </div>
                             <div style="position: relative; display: flex; height: 40px;">
                                 <!-- 1 Row -->
-                                <div class="One_SeatHold" style="left: 0px">Booked</div>
-                                <div class="One_SeatHold" style="left: 62px">Booked</div>
-                                <div class="One_SeatHold" style="left: 124px">Booked</div>
+                                <div ngbTooltip="Seat N 2 | ₹{{BusSeatList[2].SeatPrice}}" tooltipClass="tooltip-class"
+                                    [ngClass]="BusSeatList[2].CssClass" style="left: 0px" (click)="SelectSeat('2',i)"
+                                    id="{{i}}_S2">2<span class="SeatBirthLocation"></span></div>
+                                <div ngbTooltip="Seat N 6 | ₹{{BusSeatList[6].SeatPrice}}" tooltipClass="tooltip-class"
+                                    [ngClass]="BusSeatList[6].CssClass" style="left: 62px" (click)="SelectSeat('6',i)"
+                                    id="{{i}}_S6">6<span class="SeatBirthLocation"></span></div>
+                                <div ngbTooltip="Seat N 10 | ₹{{BusSeatList[10].SeatPrice}}"
+                                    tooltipClass="tooltip-class" [ngClass]="BusSeatList[10].CssClass"
+                                    style="left: 124px" (click)="SelectSeat('10',i)" id="{{i}}_S10">10<span
+                                        class="SeatBirthLocation"></span></div>
                                 <div ngbTooltip="Seat N 14 | ₹{{BusSeatList[14].SeatPrice}}"
                                     tooltipClass="tooltip-class" [ngClass]="BusSeatList[14].CssClass"
                                     style="left: 186px" (click)="SelectSeat('14',i)" id="{{i}}_S14">14<span
@@ -1504,11 +1530,11 @@
 
             <div class="card-body">
                 <div class="row">
-                       
+
                     <button type="button" class="btn btn-primary" value=">" (click)="Cancel()"
-                        style="border:none;color:blue;background-color: inherit;" >
+                        style="border:none;color:blue;background-color: inherit;">
                         <i class="right" style="font-size: 30px;"></i>
-                        
+
                     </button>
                     <h3 class="card-title" style="padding-left: 20%;">Passenger Details</h3>
                 </div>
@@ -1521,7 +1547,7 @@
         <div class="panel panel-default" style="height:80%;overflow-y:scroll;padding:10px">
 
             <div class="panel-body" id="divpassengerDetails">
-                    <strong>Passenger Information</strong>
+                <strong>Passenger Information</strong>
                 <div class="card">
 
                     <div class="card-body">
@@ -1572,29 +1598,29 @@
 
                     <div class="card-body">
                         <h3 class="card-title" style="padding-left: 20%;">
-                            
+
                             Contact Details</h3>
-<hr/>
+                        <hr />
 
                         <div>
                             <div class="form-group col-md-12">
-                              <label for="email">Email address:</label>
-                              <input type="email" class="form-control" placeholder="Enter email" id="txtEmail">
+                                <label for="email">Email address:</label>
+                                <input type="email" class="form-control" placeholder="Enter email" id="txtEmail">
                             </div>
                             <div class="form-group col-md-6">
-                              <label for="pwd">Mobile Number:</label>
-                              <input type="text" class="form-control" placeholder="Mobile No" id="MobileNo">
+                                <label for="pwd">Mobile Number:</label>
+                                <input type="text" class="form-control" placeholder="Mobile No" id="MobileNo">
                             </div>
                             <div class="form-group col-md-6">
-                                    <label for="pwd">Alternate Mobile Number:</label>
-                                    <input type="text" class="form-control" placeholder="Mobile No" id="MobileNo1">
-                                  </div>
-                          
-                            
+                                <label for="pwd">Alternate Mobile Number:</label>
+                                <input type="text" class="form-control" placeholder="Mobile No" id="MobileNo1">
+                            </div>
+
+
                         </div>
 
 
-                       
+
                     </div>
 
 
@@ -1689,16 +1715,17 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-8">
-                       <h3>Total Amount : {{TotalFare}} </h3>
+                        <h3>Total Amount : {{TotalFare}} </h3>
                     </div>
                     <div class="col-md-4 pull-right text-right">
                         <input type="button" class="btn btn-primary" value="Continue to Pay" (click)="submitForm()" />
                     </div>
-                    <input type="button" id="btnPay"  value="Pay" style="width: 0px;height: 0px;" onclick="OpenPaymentPopUP()" />
+                    <input type="button" id="btnPay" value="Pay" style="width: 0px;height: 0px;"
+                        onclick="OpenPaymentPopUP()" />
                 </div>
             </div>
         </div>
 
     </div>
 </div>
-<a  id="GoToPrintTicket" [routerLink]="['/ticket-print']"></a>
+<a id="GoToPrintTicket" [routerLink]="['/ticket-print']"></a>
