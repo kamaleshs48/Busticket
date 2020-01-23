@@ -58,10 +58,6 @@ export class SearchListComponent implements OnInit {
 
       // console.log('JournyDate  ' +this.JournyDate.spilt('/')[2]);
     });
-
-
-
-
     http.get<any>(baseUrl + 'api/GetBusList?SourceID='+this.SourceID+'&DestinationID='+this.DestinationID+'&JourneyDate='+ this.JournyDate).subscribe(result => {
       // console.log(result);
       this.SourceList = result.SourceList;
@@ -70,7 +66,6 @@ export class SearchListComponent implements OnInit {
       //console.clear();
       //alert(JSON.stringify(result.SeatList))
       this.BusSeatList = result.SeatList;
-
       console.log(this.BusList);
     }, error => console.error(error));
   }

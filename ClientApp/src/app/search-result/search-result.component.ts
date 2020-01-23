@@ -62,7 +62,7 @@ export class SearchResultComponent implements OnInit {
 
 
 
-   /*  http.get<any>(baseUrl + 'api/GetBusList?SourceID='+this.SourceID+'&DestinationID='+this.DestinationID+'&JourneyDate='+ this.JournyDate).subscribe(result => {
+    http.get<any>(baseUrl + 'api/GetBusList?SourceID='+this.SourceID+'&DestinationID='+this.DestinationID+'&JourneyDate='+ this.JournyDate).subscribe(result => {
       // console.log(result);
       this.SourceList = result.SourceList;
       this.BusList = result.BusList;
@@ -72,7 +72,7 @@ export class SearchResultComponent implements OnInit {
       this.BusSeatList = result.SeatList;
 
       console.log(this.BusList);
-    }, error => console.error(error)); */
+    }, error => console.error(error));
   }
   ngOnInit() {
 
@@ -84,7 +84,7 @@ export class SearchResultComponent implements OnInit {
   }
 
   OpenSeat(a, b, c) {
-    //alert(a);
+   // alert(a+ "" +b+ ""+c);
     this.RouteID = this.BusList[a].RouteID;
     this.SeatTempate=this.BusList[a].SeatTempate;
     this.http.get<any>(this.baseUrl + 'api/GetBusSeatList?RouteID=' + this.BusList[a].RouteID + '&DestinationID=' + this.DestinationID + '&JourneyDate=' + this.JournyDate +
@@ -110,7 +110,7 @@ export class SearchResultComponent implements OnInit {
   SelectSeat(seat, index) {
 
 
-    if ($("#" + index + "_S" + seat).hasClass('SeatHold')) {
+    if ($("#" + index + "_S" + seat).hasClass(this.SeatTempate+ '_SeatHold')) {
       return false;
     }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router ,NavigationEnd } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { NgbDate, NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 const now = new Date();
@@ -28,6 +28,16 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     // this. Source.push('AAA')
+
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+     
+  });
+
+
     this.SearchForm.JournyDate = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate()+1 };
   }
   OpenPage() {

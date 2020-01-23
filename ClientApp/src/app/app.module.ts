@@ -25,6 +25,13 @@ import {SearchResultComponent} from './search-result/search-result.component'
 import { from } from 'rxjs';
 import { NgbDateCustomParserFormatter } from './dateformat';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FamilyPackageComponent } from './package/family-package/family-package.component';
+import { HoneymoonPackageComponent } from './package/honeymoon-package/honeymoon-package.component';
+import { OfficialTripPackageComponent } from './package/official-trip-package/official-trip-package.component';
+import { SchoolTripPackageComponent } from './package/school-trip-package/school-trip-package.component';
+
+import { CollegeTripPackageComponent } from './package/college-trip-package/college-trip-package.component';
+import { PackageDetailsComponent } from './package/package-details/package-details.component';
 const routes: Routes = [
   {
 
@@ -44,11 +51,19 @@ const routes: Routes = [
       { path: 'search-list', component: SearchListComponent },
       { path: 'ticket-print', component: TicketPrintComponent},
       {path:'terms-conditions',component:TermsConditionsComponent},
-      {path:'search-result',component:SearchResultComponent}
+      {path:'search-result',component:SearchResultComponent},
+      {path:'package/family-package',component:FamilyPackageComponent},
+      {path:'package/honeymoon-package',component:HoneymoonPackageComponent},
+      {path:'package/official-trip-package',component:OfficialTripPackageComponent},
+      {path:'package/school-trip-package',component:SchoolTripPackageComponent},
+      {path:'package/college-trip-package',component:CollegeTripPackageComponent},
+      {path:'package/package-details',component:PackageDetailsComponent},
 
 
     ]
   },
+ 
+  
  /*  { path: '**', redirectTo: '' } */
 ];
 
@@ -72,7 +87,15 @@ const config: ExtraOptions = {
     LayoutComponent,
     TicketPrintComponent,
     TermsConditionsComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    FamilyPackageComponent,
+    HoneymoonPackageComponent,
+    OfficialTripPackageComponent,
+    SchoolTripPackageComponent,
+   
+    CollegeTripPackageComponent,
+   
+    PackageDetailsComponent
   
   ],
   imports: [

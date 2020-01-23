@@ -47,7 +47,7 @@
     <div class="container">
       <div class="nav-header">
         <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
-        <h1 id="fh5co-logo"><a href="Default.aspx"><b style="color:green">Himachal Travels</b></a></h1>
+        <h1 id="fh5co-logo"><a href="/"><b style="color:green">Himachal Travels</b></a></h1>
         <!-- START #fh5co-menu-wrap -->
         <nav id="fh5co-menu-wrap" role="navigation">
           <ul class="sf-menu" id="fh5co-primary-menu">
@@ -56,11 +56,11 @@
             <li>
               <a href="#" class="fh5co-sub-ddown">Volvo Package</a>
               <ul class="fh5co-sub-menu">
-                <li><a href="#">Family Package</a></li>
-                <li><a href="#">Honeymoon Package</a></li>
-                <li><a href="#">Official Trip Package</a></li>
-                <li><a href="#">School Trip Package</a></li>
-                <li><a href="#">College/Uni. Trip Package</a></li>
+                <li><a [routerLink]="['/package/family-package']">Family Package</a></li>
+                <li><a [routerLink]="['/package/honeymoon-package']">Honeymoon Package</a></li>
+                <li><a [routerLink]="['/package/official-trip-package']">Official Trip Package</a></li>
+                <li><a [routerLink]="['/package/school-trip-package']">School Trip Package</a></li>
+                <li><a [routerLink]="['/package/college-trip-package']">College/Uni. Trip Package</a></li>
               </ul>
             </li>
             <li><a href="#">Hotel</a></li>

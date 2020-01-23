@@ -6,7 +6,8 @@ import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
 export function getBaseUrl() {
-  return 'http://ht.bathuasoft.in/';//document.getElementsByTagName('base')[0].href;
+    return document.getElementsByTagName('base')[0].href; //'http://ht.bathuasoft.in/'
+    //return 'http://himachaltravels.co.in/';
 }
 
 const providers = [

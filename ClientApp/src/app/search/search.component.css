@@ -6,3 +6,11 @@
 {
     font-size: 18px!important;
 }
+.nav-tabs .active a
+{
+    background-color: #004F9E!important;
+}
+.btn-primary
+{
+    background-color: #004F9E!important;
+}

@@ -32,7 +32,7 @@
 	};
 
 	//Date Picker
-	$('#date-start, #date-end').datepicker();
+	//$('#date-start, #date-end').datepicker();
   
 
    [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {  
@@ -171,6 +171,11 @@ function isNumber(evt) {
             }
         });
     }
+
+	$(window).on('popstate', function() {
+		location.reload(true);
+	 });
+
 
 
 	// Document on load.

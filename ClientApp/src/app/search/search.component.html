@@ -1,20 +1,20 @@
 <form id="form12">
-    <div class="fh5co-hero">
+    <div class="fh5co-hero" style=" height: 550px;">
       <div></div>
       <div class="fh5co-cover" data-stellar-background-ratio="0.5"
-        style="background-image: url(assets/images/Banner1.jpeg);">
+        style="background-image: url(assets/images/Banner1.jpeg);height: 550px;">
         <div class="desc">
           <div class="container">
 
 
             <div class="row">
-              <div class="col-sm-5 col-md-5">
-                <div class="tabulation animate-box">
+              <div class="col-sm-4 col-md-4">
+                <div class="tabulation animate-box" style="border-radius: 45px;">
 
                   <!-- Nav tabs -->
-                  <ul class="nav nav-tabs" role="tablist">
+                  <ul class="nav nav-tabs" role="tablist" style="background-color: 004F9E!important;">
                     <li role="presentation" class="active" style="width: 100%!important;text-align: center;">
-                      <a href="#Tickets" aria-controls="Tickets" data-toggle="tab" style="font:25px;">Online Bus
+                      <a href="#Tickets" aria-controls="Tickets" data-toggle="tab" style="font:25px;border-radius: 45px;">Online Bus
                         Ticket Booking</a>
                     </li>
 
@@ -68,7 +68,7 @@
 
 
                         <div class="col-xs-12">
-                          <input type="button" (click)="OpenPage()" class="btn btn-primary btn-block"
+                          <input type="button" (click)="OpenPage()" class="btn btn-primary btn-block" style="border-radius: 45px;"
                             value="Search Ticket">
                         </div>
                       </div>
@@ -115,7 +115,7 @@
               <span>5 Nights, 6 Days +  Volvo Ticket + Hotel + Foods</span>
               <span>Privacy...</span>
               <span class="price">Rs. 25,000-60,000</span>
-              <a class="btn btn-primary btn-outline" href="#">Read More... <i class="icon-arrow-right22"></i></a>
+              <a class="btn btn-primary btn-outline" [routerLink]="['/package/honeymoon-package']">Read More... <i class="icon-arrow-right22"></i></a>
             </div>
           </div>
         </div>
@@ -128,7 +128,7 @@
               <span>5 Nights, 6 Days +  Volvo Bus Ticket + Hotel + Foods</span>
               <span>Husband & Wife + 2 Childs </span>
               <span class="price">Rs. 30,000-70,000</span>
-              <a class="btn btn-primary btn-outline" href="#">Read More... <i class="icon-arrow-right22"></i></a>
+              <a class="btn btn-primary btn-outline" [routerLink]="['/package/family-package']">Read More... <i class="icon-arrow-right22"></i></a>
             </div>
           </div>
         </div>
@@ -158,7 +158,7 @@
               <span>26 - 50 Members</span>
               <span>2 Nights, 3 days +  Volvo Bus + Hotel + Foods</span>
               <span class="price">Rs. 100,000-250,000</span>
-              <a class="btn btn-primary btn-outline" href="#">Read More... <i class="icon-arrow-right22"></i></a>
+              <a class="btn btn-primary btn-outline"  [routerLink]="['/package/official-trip-package']">Read More... <i class="icon-arrow-right22"></i></a>
             </div>
           </div>
         </div>
@@ -175,7 +175,7 @@
               <span>100 - 250 Students</span>
               <span>2 Nights, 3 days +  Volvo Bus + Hotel + Foods</span>
               <span class="price">Rs. 150,000-330,000</span>
-              <a class="btn btn-primary btn-outline" href="#">Read More... <i class="icon-arrow-right22"></i></a>
+              <a class="btn btn-primary btn-outline" [routerLink]="['/package/school-trip-package']">Read More... <i class="icon-arrow-right22"></i></a>
             </div>
           </div>
         </div>
@@ -189,7 +189,7 @@
               <span>251 - 500 Students</span>
               <span>2 Nights, 3 days +  Volvo Bus + Hotel + Foods</span>
               <span class="price">Rs. 300,000-700,000</span>
-              <a class="btn btn-primary btn-outline" href="#">Read More... <i class="icon-arrow-right22"></i></a>
+              <a class="btn btn-primary btn-outline" [routerLink]="['/package/school-trip-package']">Read More... <i class="icon-arrow-right22"></i></a>
             </div>
           </div>
         </div>
@@ -207,7 +207,7 @@
               <span>100 - 250 Students</span>
               <span>2 Nights, 3 days +  Volvo Bus + Hotel + Foods</span>
               <span class="price">Rs. 150,000-330,000</span>
-              <a class="btn btn-primary btn-outline" href="#">Read More... <i class="icon-arrow-right22"></i></a>
+              <a class="btn btn-primary btn-outline"  [routerLink]="['/package/college-trip-package']">Read More... <i class="icon-arrow-right22"></i></a>
             </div>
           </div>
         </div>
@@ -221,7 +221,7 @@
               <span>251 - 500 Students</span>
               <span>2 Nights, 3 days +  Volvo Bus + Hotel + Foods</span>
               <span class="price">Rs. 300,000-700,000</span>
-              <a class="btn btn-primary btn-outline" href="#">Read More... <i class="icon-arrow-right22"></i></a>
+              <a class="btn btn-primary btn-outline"  [routerLink]="['/package/college-trip-package']">Read More... <i class="icon-arrow-right22"></i></a>
             </div>
           </div>
         </div>

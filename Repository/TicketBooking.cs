@@ -150,27 +150,27 @@ namespace KanakHolidays.Repository
                     // Add Pickup Point
                     if (ds != null && ds.Tables[3].Rows.Count > 0)
                     {
-                        if (!string.IsNullOrEmpty(ds.Tables[2].Rows[0]["Point1"].ToString()))
+                        if (!string.IsNullOrEmpty(ds.Tables[3].Rows[0]["Point1"].ToString()))
                         {
                             models.PickUpPointList.Add(new SelectListItem
                             {
                                 Value = "1",
-                                Text = ds.Tables[2].Rows[0]["Point1"].ToString()
+                                Text = ds.Tables[3].Rows[0]["Point1"].ToString()
                             });
                             models.PickUpPointList.Add(new SelectListItem
                             {
                                 Value = "2",
-                                Text = ds.Tables[2].Rows[0]["Point2"].ToString()
+                                Text = ds.Tables[3].Rows[0]["Point2"].ToString()
                             });
                             models.PickUpPointList.Add(new SelectListItem
                             {
                                 Value = "3",
-                                Text = ds.Tables[2].Rows[0]["Point3"].ToString()
+                                Text = ds.Tables[3].Rows[0]["Point3"].ToString()
                             });
                             models.PickUpPointList.Add(new SelectListItem
                             {
                                 Value = "4",
-                                Text = ds.Tables[2].Rows[0]["Point4"].ToString()
+                                Text = ds.Tables[3].Rows[0]["Point4"].ToString()
                             });
                         }
 
@@ -185,22 +185,22 @@ namespace KanakHolidays.Repository
                             models.DropPointList.Add(new SelectListItem
                             {
                                 Value = "1",
-                                Text = ds.Tables[3].Rows[0]["Point1"].ToString()
+                                Text = ds.Tables[4].Rows[0]["Point1"].ToString()
                             });
                             models.DropPointList.Add(new SelectListItem
                             {
                                 Value = "2",
-                                Text = ds.Tables[3].Rows[0]["Point2"].ToString()
+                                Text = ds.Tables[4].Rows[0]["Point2"].ToString()
                             });
                             models.DropPointList.Add(new SelectListItem
                             {
                                 Value = "3",
-                                Text = ds.Tables[3].Rows[0]["Point3"].ToString()
+                                Text = ds.Tables[4].Rows[0]["Point3"].ToString()
                             });
                             models.DropPointList.Add(new SelectListItem
                             {
                                 Value = "4",
-                                Text = ds.Tables[3].Rows[0]["Point4"].ToString()
+                                Text = ds.Tables[4].Rows[0]["Point4"].ToString()
                             });
                         }
 
