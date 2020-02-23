@@ -17,10 +17,6 @@ namespace KanakHolidays.Controllers
 
         public readonly ICommon _Repository;
         public readonly ITicketBooking _TicketBooking;
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
 
         private readonly ILogger<SampleDataController> _logger;
 
@@ -48,7 +44,7 @@ namespace KanakHolidays.Controllers
             models = _TicketBooking.GetBusSeat(RouteID, JourneyDate, SourceID, DestinationID, SeatTempate);
 
 
-
+         
             //   var resp = _Repository.SaveEnquery(models);
 
             return new OkObjectResult(new { models, models.BusList[0].SeatList, });

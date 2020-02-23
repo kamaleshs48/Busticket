@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { LOCAL_STORAGE,WebStorageService,SESSION_STORAGE } from 'angular-webstorage-service';
+import { LOCAL_STORAGE, WebStorageService, SESSION_STORAGE } from 'angular-webstorage-service';
 
 declare var $: any;
 const now = new Date();
@@ -22,26 +22,27 @@ export class SearchListComponent implements OnInit {
   SourceID: any = 6;
   DestinationID: any = 13;
   JournyDate: any;
-  JournyDateModels:any;
-  TicketNo:any;
+  JournyDateModels: any;
+  TicketNo: any;
 
-  SeatList = [];
+  SeatList: any = [];
   BusSeatList = [];
   TSeatPrice = 0;
   TDiscount = 0;
   GST = 0;
   TotalFare = 0;
-  TravelInsurance = 0;
+  TravelInsuranceAmount = 0;
   IsBindSeat = false;
   IsOpenSeatChart = false;
   SourceList: any = [];
   BusList: any = [];
   SelectedSeat1: any;
   isShowPersonalDetails: boolean = false;
-  PickUpPoint: any='0';
-  DropPoint: any='0';
+  PickUpPoint: any = '0';
+  DropPoint: any = '0';
   TravelInsurancerance: any = 0;
   SeatTempate: any = ""
+  IsTravelInsurance: boolean = false;
   constructor(private router: Router, private http: HttpClient, @Inject('BASE_URL') private baseUrl: string,
     private activatedRoute: ActivatedRoute,
     @Inject(SESSION_STORAGE) private storage: WebStorageService
@@ -54,11 +55,15 @@ export class SearchListComponent implements OnInit {
       this.DestinationID = params['Destination'];
       this.JournyDate = params["JournyDate"];
       // $("#JournyDate").val(this.JournyDate);
-      this.JournyDateModels = { year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate() };
+      this.JournyDateModels = { year: now.getFullYear(), month: now.getMonth(), day: now.getDate() };
+      //this.JournyDateModels = this.JournyDate;
+
+      const date1: any = new Date(parseInt(this.JournyDate.split('/')[2]), parseInt(this.JournyDate.split('/')[1]), parseInt(this.JournyDate.split('/')[0]));
+      this.JournyDateModels = { year: date1.getFullYear(), month: date1.getMonth(), day: date1.getDate() };
 
       // console.log('JournyDate  ' +this.JournyDate.spilt('/')[2]);
     });
-    http.get<any>(baseUrl + 'api/GetBusList?SourceID='+this.SourceID+'&DestinationID='+this.DestinationID+'&JourneyDate='+ this.JournyDate).subscribe(result => {
+    http.get<any>(baseUrl + 'api/GetBusList?SourceID=' + this.SourceID + '&DestinationID=' + this.DestinationID + '&JourneyDate=' + this.JournyDate).subscribe(result => {
       // console.log(result);
       this.SourceList = result.SourceList;
       this.BusList = result.BusList;
@@ -70,7 +75,7 @@ export class SearchListComponent implements OnInit {
     }, error => console.error(error));
   }
   ngOnInit() {
-
+    localStorage.removeItem('IsTicketPageReload') 
   }
 
   CloseBusSeatDetails(i) {
@@ -81,7 +86,12 @@ export class SearchListComponent implements OnInit {
   OpenSeat(a, b, c) {
     //alert(a);
     this.RouteID = this.BusList[a].RouteID;
-    this.SeatTempate=this.BusList[a].SeatTempate;
+    this.SeatTempate = this.BusList[a].SeatTempate;
+
+    this.JournyDate = ("0" + this.JournyDateModels.day).slice(-2) + "/" + ("0" + this.JournyDateModels.month).slice(-2) + "/" + this.JournyDateModels.year;
+
+   
+
     this.http.get<any>(this.baseUrl + 'api/GetBusSeatList?RouteID=' + this.BusList[a].RouteID + '&DestinationID=' + this.DestinationID + '&JourneyDate=' + this.JournyDate +
       '&SourceID=' + this.SourceID + '&SeatTempate=' + this.SeatTempate).subscribe(result => {
         console.log(result);
@@ -92,9 +102,9 @@ export class SearchListComponent implements OnInit {
         console.log(result.models.PickUpPointList);
         this.PickUPPointList = result.models.PickUpPointList;
         this.DropPointList = result.models.DropPointList;
-        this.TicketNo=result.models.TicketNo;
-        this.storage.set('TicketNo',this.TicketNo);
-//this.PickUpPoint=1;
+        this.TicketNo = result.models.TicketNo;
+        this.storage.set('TicketNo', this.TicketNo);
+        //this.PickUpPoint=1;
 
 
 
@@ -105,7 +115,7 @@ export class SearchListComponent implements OnInit {
   SelectSeat(seat, index) {
 
 
-    if ($("#" + index + "_S" + seat).hasClass(this.SeatTempate+ '_SeatHold')) {
+    if ($("#" + index + "_S" + seat).hasClass(this.SeatTempate + '_SeatHold')) {
       return false;
     }
 
@@ -115,9 +125,9 @@ export class SearchListComponent implements OnInit {
       $("#" + index + "_S" + seat).removeClass('BookSeat');
       this.TSeatPrice = this.TSeatPrice - parseInt(this.BusSeatList[seat].SeatPrice);
       this.TDiscount = this.TDiscount - parseInt(this.BusSeatList[seat].SeatDiscount);
-     // this.SelectedSeat.pop(seat);
+      // this.SelectedSeat.pop(seat);
 
-     this.SelectedSeat=this.arrayRemove( this.SelectedSeat,seat );
+      this.SelectedSeat = this.arrayRemove(this.SelectedSeat, seat);
 
     }
     else {
@@ -139,13 +149,13 @@ export class SearchListComponent implements OnInit {
 
   }
 
-   arrayRemove(arr, value) {
+  arrayRemove(arr, value) {
 
-    return arr.filter(function(ele){
-        return ele != value;
+    return arr.filter(function (ele) {
+      return ele != value;
     });
- 
- }
+
+  }
 
   OpenPersonalDetails() {
     this.isShowPersonalDetails = true;
@@ -202,8 +212,7 @@ export class SearchListComponent implements OnInit {
         _Flag = false;
         //  break;
       }
-      else
-      {
+      else {
         $("#" + i + "_Name").removeClass('required');
       }
       if (this.SeatList[i].Age == '') {
@@ -211,32 +220,27 @@ export class SearchListComponent implements OnInit {
         _Flag = false;
         //   break;
       }
-      else
-      {
+      else {
         $("#" + i + "_Age").removeClass('required');
       }
-     // this.SeatList.push({ 'SeatNo': this.SelectedSeat[i], 'Gender': 'Male' });
+      // this.SeatList.push({ 'SeatNo': this.SelectedSeat[i], 'Gender': 'Male' });
     }
 
-   if( $("#" + "txtEmail").val()=='')
-   {
-    $("#" +  "txtEmail").addClass('required');
-    _Flag = false;
-   }
-   else
-   {
-    $("#" +  "txtEmail").removeClass('required');
-   }
+    if ($("#" + "txtEmail").val() == '') {
+      $("#" + "txtEmail").addClass('required');
+      _Flag = false;
+    }
+    else {
+      $("#" + "txtEmail").removeClass('required');
+    }
 
-   if( $("#" + "MobileNo").val()=='')
-   {
-    $("#" +  "MobileNo").addClass('required');
-    _Flag = false;
-   }
-   else
-   {
-    $("#" +  "MobileNo").removeClass('required');
-   }
+    if ($("#" + "MobileNo").val() == '') {
+      $("#" + "MobileNo").addClass('required');
+      _Flag = false;
+    }
+    else {
+      $("#" + "MobileNo").removeClass('required');
+    }
 
 
 
@@ -248,7 +252,7 @@ export class SearchListComponent implements OnInit {
     if (this.ValidateForm() == false) {
       // $("#btnPay").click();
       alert('Please Fill all details.');
-     return;
+      return;
     }
     // return;
     //  alert($("#JourneyDate").val());
@@ -283,7 +287,7 @@ export class SearchListComponent implements OnInit {
     this.frm.JourneyDate = this.JournyDate;
     this.frm.MobileCountryCode = $("#MobileCountryCode").val();
     this.frm.RouteID = this.RouteID;
-    this.frm.TravelInsuranceAmount = this.TravelInsurance;
+    this.frm.TravelInsuranceAmount = this.TravelInsuranceAmount;
     this.frm.IsTravelInsurance = parseInt(this.TravelInsurancerance) > 0 ? 1 : 0;
     this.frm.GSTAmount = this.TSeatPrice * 5 / 100;
     this.frm.TotalPayableAmount = this.TotalFare;
@@ -309,10 +313,10 @@ export class SearchListComponent implements OnInit {
 
     this.http.post<any>(this.baseUrl + "api/SaveTicket", this.frm, { headers: config }).subscribe(r => {
       //console.log(r);
-this.storage.set('amount',this.TotalFare*100);
-this.storage.set('UName',$("#0_Name").val());
-this.storage.set('UEmail',$("#txtEmail").val());
-this.storage.set('UMobile',$("#MobileNo").val());
+      this.storage.set('amount', this.TotalFare * 100);
+      this.storage.set('UName', $("#0_Name").val());
+      this.storage.set('UEmail', $("#txtEmail").val());
+      this.storage.set('UMobile', $("#MobileNo").val());
 
       $("#btnPay").click();
     }
@@ -328,25 +332,79 @@ this.storage.set('UMobile',$("#MobileNo").val());
     //  console.log(JSON.stringify(this.frm));
   }
 
-  UpdateDate() {
-    setTimeout(function () {
-      this.$apply(function () {
-        this.frm.DateOfBirth = $("#DateOfBirth").val();
-        this.frm.EstimatedDueDate = $("#EstimatedDueDate").val();
-        this.frm.LastPeriodDate = $("#LastPeriodDate").val();
-      });
-    }, 1000);
+  checkTravelIinsurance() {
+    this.IsTravelInsurance=! this.IsTravelInsurance;
+    if (this.IsTravelInsurance) {
+      this.TravelInsuranceAmount = this.SeatList.length * 20;
+      this.TotalFare = this.TotalFare+this.TravelInsuranceAmount;
+     
+    }
+    else
+    {
+      this.TravelInsuranceAmount = 0;
+      this.TotalFare = this.TotalFare-(this.SeatList.length * 20);
+    }
   }
+
+
+
   Swap() {
 
-  }
+    var temp = this.SourceID;
+    this.SourceID = this.DestinationID;
+    this.DestinationID = temp;
+   }
   Modify() {
 
+
+    this.JournyDate = ("0" + this.JournyDateModels.day).slice(-2) + "/" + ("0" + this.JournyDateModels.month).slice(-2) + "/" + this.JournyDateModels.year;
+
+   this. http.get<any>(this.baseUrl + 'api/GetBusList?SourceID=' + this.SourceID + '&DestinationID=' + this.DestinationID + '&JourneyDate=' + this.JournyDate).subscribe(result => {
+      // console.log(result);
+      this.SourceList = result.SourceList;
+      this.BusList = result.BusList;
+      console.log(this.SourceList);
+      //console.clear();
+      //alert(JSON.stringify(result.SeatList))
+      this.BusSeatList = result.SeatList;
+      console.log(this.BusList);
+    }, error => console.error(error));
   }
 
+  PreviousDate() {
+
+   // this.JournyDateModels.day - 1;
+    //console.log(this.JournyDateModels);
+    //this.JournyDateModels = { year: this.JournyDateModels.year, month: this.JournyDateModels.month, day: this.JournyDateModels.day-1};
+    //this.JournyDateModels = { ...this.JournyDateModels, day: this.JournyDateModels.day + 1 };
+
+    const date1: Date = new Date(parseInt(this.JournyDateModels.year), parseInt(this.JournyDateModels.month), parseInt(this.JournyDateModels.day));
+
+    date1.setDate(date1.getDate() - 1);
+
+    this.JournyDateModels = { year: date1.getFullYear(), month: date1.getMonth(), day: date1.getDate() };
 
 
+    this.Modify();
+  }
 
+  NextDate() {
+  //  this.JournyDateModels = { year: this.JournyDateModels.year, month: this.JournyDateModels.month, day: this.JournyDateModels.day + 1 };
+    //this.JournyDateModels = { year: this.JournyDateModels.getFullYear(), month: this.JournyDateModels.getMonth(), day: this.JournyDateModels.getDate() + 1 };
+   // this.JournyDateModels.day + 1;
+
+  
+  //  this.JournyDateModels = { ...this.JournyDateModels, day: this.JournyDateModels.day + 1 };
+
+    const date1: Date = new Date(parseInt(this.JournyDateModels.year), parseInt(this.JournyDateModels.month), parseInt(this.JournyDateModels.day));
+
+    date1.setDate(date1.getDate() +1);
+
+    this.JournyDateModels = { year: date1.getFullYear(), month: date1.getMonth(), day: date1.getDate() };
+
+
+   this.Modify();
+  }
 
 
 }

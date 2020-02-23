@@ -22,7 +22,6 @@ namespace KanakHolidays.Models
         public List<SelectListItem> DropPointList = new List<SelectListItem>();
         public List<SelectListItem> SourceList = new List<SelectListItem>();
 
-
     }
 
     public class BusModels

@@ -10,6 +10,7 @@ import { LOCAL_STORAGE,WebStorageService,SESSION_STORAGE } from 'angular-webstor
 })
 export class TicketPrintComponent implements OnInit {
   TicketNo:any;
+  isLoad:boolean=false;
   frm:any={};
   constructor(private router: Router, private http: HttpClient, @Inject('BASE_URL') private baseUrl: string,
   private activatedRoute: ActivatedRoute,@Inject(SESSION_STORAGE) private storage: WebStorageService) { 
@@ -41,6 +42,13 @@ export class TicketPrintComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (!localStorage.getItem('IsTicketPageReload')) { 
+      localStorage.setItem('IsTicketPageReload', 'no reload') 
+     // location.reload() 
+    } else {
+      localStorage.removeItem('IsTicketPageReload') 
+    }
+   
   }
 
 }

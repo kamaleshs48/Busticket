@@ -1649,13 +1649,13 @@ div.cs-select span {
   color: #fff !important;
 }
 
-.btn {
+.btn:not(.ngb-dp-arrow-btn){
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
 }
 
-.btn {
+.btn:not(.ngb-dp-arrow-btn) {
   text-transform: uppercase;
   letter-spacing: 1px;
   -webkit-transition: 0.3s;
@@ -1691,12 +1691,15 @@ div.cs-select span {
   color: #fff !important;
 }
 
-.tab-content .btn {
+.tab-content .btn :not(.ngb-dp-arrow-btn) {
   letter-spacing: 0;
   text-transform: none;
   font-weight: bold;
   font-size: 18px;
 }
+
+
+
 
 .js .animate-box {
   opacity: 0;

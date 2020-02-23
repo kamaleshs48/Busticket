@@ -7,17 +7,17 @@
           {{s.Text}}
         </option>
       </select>
-      <span style="position: absolute; right: 25px; top: 15px; color: rgb(102, 102, 102);">✕</span>
+      
     </div>
     <div class="swap-ico" (click)="Swap()"><span></span><span></span></div>
     <div style="position: relative; width: 25%;">
       <select class="form-control ty-text " [(ngModel)]="DestinationID" name="DestinationID"
-              style="border-width: 0px 1px 0px 0px;">
+              style="border-width: 0px 1px 0px 0px;padding-left:16px">
         <option *ngFor="let s of SourceList; let i = index" value="{{s.Value}}">
           {{s.Text}}
         </option>
       </select>
-      <span style="position: absolute; right: 15px; top: 15px; color: rgb(102, 102, 102);">✕</span>
+     
     </div>
     <div class="mo-inp">
       <div class="SingleDatePicker SingleDatePicker_1 SingleDatePicker__block SingleDatePicker__block_2">
@@ -52,8 +52,8 @@
 
   </div>
   <div class="mod-down">
-    <div>Delhi to Manali on Wed, 12 Dec 19</div>
-    <div><a href="#">Previous Day</a> | <a href="#">Next Day</a></div>
+    
+    <div><a href="javascript: void(0);" (click)="PreviousDate()">Previous Day</a> | <a href="javascript: void(0);" (click)="NextDate()">Next Day</a></div>
   </div>
 </section>
 <section class="sort-bar" style="margin-bottom: 20px;">
@@ -72,7 +72,7 @@
 <div class="container" *ngFor="let l of BusList; let i = index">
   <div class="srch-card" style="width:100%">
     <div class="srch-names">
-      <div>kanak holidays</div>
+      <div>Himachal Travels</div>
       <div>{{l.BusName}}</div>
       <div>
         <span style="position: relative; color: rgb(85, 77, 161); cursor: pointer;">Policy</span>&nbsp;&nbsp;
@@ -128,7 +128,7 @@
       <div *ngIf="IsBindSeat==true">
         <div style="display: flex; padding: 5px 0px;">
           <div style="border-bottom: 2px solid rgb(85, 77, 161); border-top-color: rgb(85, 77, 161); border-right-color: rgb(85, 77, 161); border-left-color: rgb(85, 77, 161); color: rgb(0, 0, 0); padding: 5px 10px; cursor: pointer;">
-            All
+            All 
           </div>
 
         </div>
@@ -159,7 +159,7 @@
                 <div ngbTooltip="Seat N 11 | ₹{{BusSeatList[11].SeatPrice}}" tooltipClass="tooltip-class" [ngClass]="BusSeatList[11].CssClass" style="left: 124px" (click)="SelectSeat('11',i)" id="{{i}}_S11"> <span class="SeatBirthLocation"></span>11</div>
                 <div ngbTooltip="Seat N 15 | ₹{{BusSeatList[15].SeatPrice}}" tooltipClass="tooltip-class" [ngClass]="BusSeatList[15].CssClass" style="left: 186px" (click)="SelectSeat('15',i)" id="{{i}}_S16"> <span class="SeatBirthLocation"></span>15</div>
                 <div ngbTooltip="Seat N 19 | ₹{{BusSeatList[19].SeatPrice}}" tooltipClass="tooltip-class" [ngClass]="BusSeatList[19].CssClass" style="left: 248px" (click)="SelectSeat('19',i)" id="{{i}}_S20"> <span class="SeatBirthLocation"></span>19</div>
-                <div ngbTooltip="Seat N 23 | ₹{{BusSeatList[23].SeatPrice}}" tooltipClass="tooltip-class" [ngClass]="BusSeatList[23].CssClass" style="left: 310px" (click)="SelectSeat('23',i)" id="{{i}}_S24"> <span class="SeatBirthLocation"></span>21</div>
+                <div ngbTooltip="Seat N 23 | ₹{{BusSeatList[23].SeatPrice}}" tooltipClass="tooltip-class" [ngClass]="BusSeatList[23].CssClass" style="left: 310px" (click)="SelectSeat('23',i)" id="{{i}}_S24"> <span class="SeatBirthLocation"></span>23</div>
                 <div ngbTooltip="Seat N 27 | ₹{{BusSeatList[27].SeatPrice}}" tooltipClass="tooltip-class" [ngClass]="BusSeatList[27].CssClass" style="left: 372px" (click)="SelectSeat('27',i)" id="{{i}}_S28"> <span class="SeatBirthLocation"></span>27</div>
                 <div ngbTooltip="Seat N 31 | ₹{{BusSeatList[31].SeatPrice}}" tooltipClass="tooltip-class" [ngClass]="BusSeatList[31].CssClass" style="left: 434px" (click)="SelectSeat('31',i)" id="{{i}}_S32"> <span class="SeatBirthLocation"></span>31</div>
                 <div ngbTooltip="Seat N 35 | ₹{{BusSeatList[35].SeatPrice}}" tooltipClass="tooltip-class" [ngClass]="BusSeatList[35].CssClass" style="left: 496px" (click)="SelectSeat('35',i)" id="{{i}}_S36"> <span class="SeatBirthLocation"></span>35</div>
@@ -581,7 +581,7 @@
 
                 <div ngbTooltip="Seat N 3 | ₹{{BusSeatList[3].SeatPrice}}" tooltipClass="tooltip-class" [ngClass]="BusSeatList[3].CssClass" style="left: 0px" (click)="SelectSeat('3',i)" id="{{i}}_S3"><span class="SeatBirthLocation"></span>3</div>
                 <div ngbTooltip="Seat N 7 | ₹{{BusSeatList[7].SeatPrice}}" tooltipClass="tooltip-class" [ngClass]="BusSeatList[7].CssClass" style="left: 42px" (click)="SelectSeat('7',i)" id="{{i}}_S7"><span class="SeatBirthLocation"></span>7</div>
-                <div ngbTooltip="Seat N 11 | ₹{{BusSeatList[11].SeatPrice}}" tooltipClass="tooltip-class" [ngClass]="BusSeatList[11].CssClass" style="left: 84px" (click)="SelectSeat('11',i)" id="{{i}}_S11"><span class="SeatBirthLocation"></span>77</div>
+                <div ngbTooltip="Seat N 11 | ₹{{BusSeatList[11].SeatPrice}}" tooltipClass="tooltip-class" [ngClass]="BusSeatList[11].CssClass" style="left: 84px" (click)="SelectSeat('11',i)" id="{{i}}_S11"><span class="SeatBirthLocation"></span>11</div>
                 <div ngbTooltip="Seat N 15 | ₹{{BusSeatList[15].SeatPrice}}" tooltipClass="tooltip-class" [ngClass]="BusSeatList[15].CssClass" style="left: 126px" (click)="SelectSeat('15',i)" id="{{i}}_S15"><span class="SeatBirthLocation"></span>15</div>
                 <div ngbTooltip="Seat N 19 | ₹{{BusSeatList[19].SeatPrice}}" tooltipClass="tooltip-class" [ngClass]="BusSeatList[19].CssClass" style="left: 168px" (click)="SelectSeat('19',i)" id="{{i}}_S19"><span class="SeatBirthLocation"></span>19</div>
                 <div ngbTooltip="Seat N 23 | ₹{{BusSeatList[23].SeatPrice}}" tooltipClass="tooltip-class" [ngClass]="BusSeatList[23].CssClass" style="left: 210px" (click)="SelectSeat('23',i)" id="{{i}}_S23"><span class="SeatBirthLocation"></span>23</div>
@@ -1429,11 +1429,11 @@
                 <input type="email" class="form-control" placeholder="Enter email" id="txtEmail">
               </div>
               <div class="form-group col-md-6">
-                <label for="pwd">Mobile Number:</label>
+                <label for="pwd">Mobile Number1:</label>
                 <input type="text" class="form-control" placeholder="Mobile No" id="MobileNo">
               </div>
               <div class="form-group col-md-6">
-                <label for="pwd">Alternate Mobile Number:</label>
+                <label for="pwd">Mobile Number2:</label>
                 <input type="text" class="form-control" placeholder="Mobile No" id="MobileNo1">
               </div>
 
@@ -1493,7 +1493,7 @@
 
               <div class="col-md-10">
                 <label style="padding: 1px 5px; position: relative;">
-                  <input type="checkbox" ng-click="checkTravelIinsurance()" id="chkTravelinsurance">
+                  <input type="checkbox" (change)="checkTravelIinsurance()" id="chkTravelinsurance" [(ngModel)]="TravelIinsurance">
                   I would like to purchase a Travel Insurance
                   for this purchase (Charge Rs. 20 per person)
                 </label>
@@ -1502,14 +1502,12 @@
 
               </div>
               <div class="col-md-2">
-                <label for="exampleInputPassword1" style="text-align:right">{{TravelInsurance}}</label>
+                <label for="exampleInputPassword1" style="text-align:right">{{TravelInsuranceAmount}}</label>
 
 
               </div>
             </div>
             <div class="form-row">
-
-
               <div class="col-md-10">
                 <label for="exampleInputPassword1">Total Fare:</label>
 
@@ -1541,7 +1539,7 @@
           <div class="col-md-4 pull-right text-right">
             <input type="button" class="btn btn-primary" value="Continue to Pay" (click)="submitForm()" />
           </div>
-          <input type="button" id="btnPay" value="Pay" style="width: 0px;height: 0px;"
+          <input type="button" id="btnPay" value="Pay" style="width: 0px;height: 0px;display: none;"
                  onclick="OpenPaymentPopUP()" />
         </div>
       </div>

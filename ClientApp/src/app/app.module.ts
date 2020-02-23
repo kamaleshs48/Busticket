@@ -32,6 +32,9 @@ import { SchoolTripPackageComponent } from './package/school-trip-package/school
 
 import { CollegeTripPackageComponent } from './package/college-trip-package/college-trip-package.component';
 import { PackageDetailsComponent } from './package/package-details/package-details.component';
+
+import { DataService } from "./API/data.service";
+
 const routes: Routes = [
   {
 
@@ -95,7 +98,8 @@ const config: ExtraOptions = {
    
     CollegeTripPackageComponent,
    
-    PackageDetailsComponent
+    PackageDetailsComponent,
+    
   
   ],
   imports: [
@@ -117,7 +121,7 @@ const config: ExtraOptions = {
 
     BrowserAnimationsModule
   ],
-  providers: [{ provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter }],
+  providers: [DataService,{ provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

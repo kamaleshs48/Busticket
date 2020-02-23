@@ -51,7 +51,7 @@
     <link rel="stylesheet" href="assets/css/cs-select.css">
     <link rel="stylesheet" href="assets/css/cs-skin-border.css">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=1">
 
 
     <!-- Modernizr JS -->
@@ -107,7 +107,7 @@
             "image": "",
             "handler": function (response) {
                 UpdatePaymentStatus(response.razorpay_payment_id)
-
+                $('body').removeClass('stop-scrolling')
                 $("#GoToPrintTicket")[0].click();
 
                 // alert('Payment Success')
@@ -119,9 +119,9 @@
                 }
             },
             "prefill": {
-                "name": sessionStorage.getItem('UName'),
-                "email": sessionStorage.getItem('UEmail'),
-                "contact": sessionStorage.getItem('UMobile'),
+                "name": sessionStorage.getItem('UName').replace(/"/g,''),
+                "email": sessionStorage.getItem('UEmail').replace(/"/g,''),
+                "contact": sessionStorage.getItem('UMobile').replace(/"/gi,''),
             },
 
             "theme": {
@@ -168,4 +168,16 @@
     }
 
 
+</script>
+<script>
+  function PrintTicket() {
+    var divContents = document.getElementById("divPrint").innerHTML;
+    var a = window.open();
+    a.document.write('<html>');
+    a.document.write('<body>');
+    a.document.write(divContents);
+    a.document.write('</body></html>');
+    a.document.close();
+    a.print();
+  }
 </script>

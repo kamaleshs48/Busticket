@@ -1,17 +1,32 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject , Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { DataService } from "../API/data.service";
 @Component({
   selector: 'app-fetch-data',
   templateUrl: './fetch-data.component.html'
 })
 export class FetchDataComponent {
   public forecasts: WeatherForecast[];
+  @Input() myinputMsg:string;  
+  @Input() b:string; 
+  message:string;
+  @Output() myOutput:EventEmitter<any>= new EventEmitter();  
+  outputMessage:string="I am child component." 
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe(result => {
-      this.forecasts = result;
-    }, error => console.error(error));
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string,private data: DataService) {
+   
+  }
+  ngOnInit() {  
+    console.log(this.myinputMsg);  
+    this.data.currentMessage.subscribe(message => this.message = message)
+    } 
+    sendValues(){  
+      console.log(this.outputMessage)
+      this.myOutput.emit(this.outputMessage);  
+   } 
+   newMessage() {
+    console.log('Hello from Sibling')
+    this.data.changeMessage(this.outputMessage)
   }
 }
 

@@ -205,14 +205,6 @@ namespace KanakHolidays.Repository
                         }
 
                     }
-
-
-
-
-
-
-
-
                 }
 
 
@@ -277,29 +269,28 @@ namespace KanakHolidays.Repository
                 }
                 SqlParameter[] arParms = new SqlParameter[]
                   {
-                           new SqlParameter("@Name",models.Name),
-                           new SqlParameter("@Email",models.Email),
-                          new SqlParameter("@SourceID",models.SourceID),
-                           new SqlParameter("@DestinationID",models.DestinationID),
-                           new SqlParameter("@MobileCountryCode",models.MobileCountryCode),
-                           new SqlParameter("@MobileNo",models.MobileNo),
-                           new SqlParameter("@Source",models.Source),
-                           new SqlParameter("@Destination",models.Destination),
-                           new SqlParameter("@JourneyDate",CommonFunction.ConvertToDateTime( models.JourneyDate,"dd/MM/yyyy")),
-                           new SqlParameter("@TicketNo",models.TicketNo),
-                           new SqlParameter("@TotalAmount",models.TotalAmount),
-                           new SqlParameter("@RouteID",models.RouteID),
-                           new SqlParameter("@PassengerDetails",Qry),
-                           new SqlParameter("@TravelInsuranceAmount",models.TravelInsuranceAmount),
-                           new SqlParameter("@IsTravelInsurance",models.IsTravelInsurance),
-                           new SqlParameter("@GSTAmount",models.GSTAmount),
-                           new SqlParameter("@TotalPayableAmount",models.TotalPayableAmount),
-                            new SqlParameter("@PickUpPoint",models.PickUpPoint),
-                            new SqlParameter("@DropPoint",models.DropPoint),
-
-
-
-                           new SqlParameter("@Mode", "SaveTicket")
+                        new SqlParameter("@Name",models.Name),
+                        new SqlParameter("@Email",models.Email),
+                        new SqlParameter("@SourceID",models.SourceID),
+                        new SqlParameter("@DestinationID",models.DestinationID),
+                        new SqlParameter("@MobileCountryCode",models.MobileCountryCode),
+                        new SqlParameter("@MobileNo",models.MobileNo),
+                        new SqlParameter("@Source",models.Source),
+                        new SqlParameter("@Destination",models.Destination),
+                        new SqlParameter("@JourneyDate",CommonFunction.ConvertToDateTime( models.JourneyDate,"dd/MM/yyyy")),
+                        new SqlParameter("@TicketNo",models.TicketNo),
+                        new SqlParameter("@TotalAmount",models.TotalAmount),
+                        new SqlParameter("@RouteID",models.RouteID),
+                        new SqlParameter("@PassengerDetails",Qry),
+                        new SqlParameter("@TravelInsuranceAmount",models.TravelInsuranceAmount),
+                        new SqlParameter("@IsTravelInsurance",models.IsTravelInsurance),
+                        new SqlParameter("@GSTAmount",models.GSTAmount),
+                        new SqlParameter("@TotalPayableAmount",models.TotalPayableAmount),
+                        new SqlParameter("@PickUpPoint",models.PickUpPoint),
+                        new SqlParameter("@TotalSeat",models.PassengerList.Count),
+                        new SqlParameter("@DropPoint",models.DropPoint),
+                        new SqlParameter("@BookedBy","Users"),
+                        new SqlParameter("@Mode", "SaveTicket")
                   };
 
 

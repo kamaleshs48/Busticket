@@ -58,7 +58,7 @@
                             
                          
                             <input class="form-control" placeholder="DD/MM/YYYY"
-                                               name="dp" [(ngModel)]="SearchForm.JournyDate" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()">
+                                               name="dp" [(ngModel)]="SearchForm.JournyDate" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" [minDate]="minDate" >
                                         
                          
                           </div>
@@ -68,7 +68,7 @@
 
 
                         <div class="col-xs-12">
-                          <input type="button" (click)="OpenPage()" class="btn btn-primary btn-block" style="border-radius: 45px;"
+                          <input type="button" (click)="OpenPage()" class="btn btn-primary btn-block Searchbtn" style="border-radius: 45px;"
                             value="Search Ticket">
                         </div>
                       </div>
@@ -83,7 +83,7 @@
                 <div class="">
                   <h1>
                     <h2 style="color:green"><b>Himachal Travels</b></h2>
-                    <h3 style="color:black"><b> A Compleet Travel Solutions</b></h3>
+                    <h3 style="color:black"><b> A Complete Travel Solutions</b></h3>
                   </h1>
                 </div>
               </div>

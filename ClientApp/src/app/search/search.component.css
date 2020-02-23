@@ -14,3 +14,10 @@
 {
     background-color: #004F9E!important;
 }
+.ngb-dp-arrow-btn
+{
+  letter-spacing: 0;
+  text-transform: none;
+  
+  font-size: 5px!important;
+}
