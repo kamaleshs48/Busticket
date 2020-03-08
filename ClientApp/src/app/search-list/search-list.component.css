@@ -1199,7 +1199,7 @@ span
         border: 1px solid #ddd;
         border-radius: 50%;
         top: 3px;
-        left: calc(25% - 15px);
+        left: calc(35% - 15px);
         cursor: pointer;
         z-index: 1
     }
@@ -2862,6 +2862,10 @@ span
     opacity: 1;
     user-select: none;
     cursor: not-allowed;
+}
+.mod-down a:hover
+{
+    color: #F78536!important;
 }
 .AC_SeatBirth {
     position: absolute;

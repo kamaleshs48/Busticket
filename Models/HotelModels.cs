@@ -66,24 +66,29 @@ namespace KanakHolidays.Models
 
 
 
-   
+
     public class PackageModels
+
     {
+
+      
+
         private bool _IsActive = true;
         public string PackageID { get; set; }
-        public string Package_Name { get; set; }
-        public string Duration { get; set; }
-        public string Bus_Type { get; set; }
-        public string Description { get; set; }
-        public string Season_Cost { get; set; }
-        public string Off_Season_Cost { get; set; }
-        public string Festivals_Days_Cost { get; set; }
-        public string Pickup_Point { get; set; }
-        public string Drop_Point { get; set; }
-        public string Covered_Destinations { get; set; }
-        public string Schedules { get; set; }
-        public string Inclusions { get; set; }
-        public string Exclusions { get; set; }
+        public string Package_Title { get; set; }
+        public string Package_Code { get; set; }
+
+        public string Package_TypeID { get; set; }
+      
+
+        public string Package_Description { get; set; }
+        public string Line1 { get; set; }
+        public string Line2 { get; set; }
+        public string Line3 { get; set; }
+        public string Line4 { get; set; }
+        public string Line5 { get; set; }
+
+        public string Price { get; set; }
         public string Pic1 { get; set; }
         public string Pic2 { get; set; }
         public string Pic3 { get; set; }

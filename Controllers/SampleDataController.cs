@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using KanakHolidays.Models;
 using KanakHolidays.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 
 namespace KanakHolidays.Controllers
@@ -66,27 +67,31 @@ namespace KanakHolidays.Controllers
         public IActionResult GetBusList(string SourceID, string DestinationID, string JourneyDate, string ReturnDate)
         {
 
-
             ICommon _Repository = new Common();
-
-
-            SearchListModels models = new SearchListModels();
-
-            List<SeatModel> _List = new List<SeatModel>();
-            models = _TicketBooking.GetSearchList(SourceID, DestinationID, JourneyDate, ReturnDate);
-
             IndexModel models1 = new IndexModel();
             models1 = _Repository.BindHomePage();
+            SearchListModels models = new SearchListModels();
+            try
+            {
 
-            //   var resp = _Repository.SaveEnquery(models);
-            return new OkObjectResult(new { models, models.BusList, models1.SourceList, models.PickUpPointList, models.DropPointList, models.BusList[0].SeatList });
-            //  var response = Request.CreateResponse(HttpStatusCode.OK, models);
-            //   return response;
+                List<SeatModel> _List = new List<SeatModel>();
+                models = _TicketBooking.GetSearchList(SourceID, DestinationID, JourneyDate, ReturnDate);
+
+
+
+                //   var resp = _Repository.SaveEnquery(models);
+                return new OkObjectResult(new { models, models.BusList, models1.SourceList, models.PickUpPointList, models.DropPointList, models.BusList[0].SeatList });
+                //  var response = Request.CreateResponse(HttpStatusCode.OK, models);
+                //   return response;
+            }
+            catch (Exception ex)
+            {
+                return new OkObjectResult(new { models, BusList=new List<BusModels>(), SourceList =new List<SelectListItem>()});
+            }
 
         }
 
 
-   
 
 
 
@@ -101,7 +106,8 @@ namespace KanakHolidays.Controllers
 
 
 
-public class WeatherForecast
+
+        public class WeatherForecast
         {
             public string DateFormatted { get; set; }
             public int TemperatureC { get; set; }

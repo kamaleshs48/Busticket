@@ -35,6 +35,9 @@ export class SearchListComponent implements OnInit {
   IsBindSeat = false;
   IsOpenSeatChart = false;
   SourceList: any = [];
+  _SourceList: any = [];
+  _DestinationList: any = [];
+
   BusList: any = [];
   SelectedSeat1: any;
   isShowPersonalDetails: boolean = false;
@@ -43,6 +46,9 @@ export class SearchListComponent implements OnInit {
   TravelInsurancerance: any = 0;
   SeatTempate: any = ""
   IsTravelInsurance: boolean = false;
+  IsLoading: boolean = true;
+  IsFindRecord: boolean = false;
+
   constructor(private router: Router, private http: HttpClient, @Inject('BASE_URL') private baseUrl: string,
     private activatedRoute: ActivatedRoute,
     @Inject(SESSION_STORAGE) private storage: WebStorageService
@@ -63,19 +69,38 @@ export class SearchListComponent implements OnInit {
 
       // console.log('JournyDate  ' +this.JournyDate.spilt('/')[2]);
     });
+    this.IsLoading = true;
     http.get<any>(baseUrl + 'api/GetBusList?SourceID=' + this.SourceID + '&DestinationID=' + this.DestinationID + '&JourneyDate=' + this.JournyDate).subscribe(result => {
       // console.log(result);
+      this.IsLoading = false;
       this.SourceList = result.SourceList;
       this.BusList = result.BusList;
-      console.log(this.SourceList);
+      if (this.BusList.length > 0) {
+        this.IsFindRecord = true;
+      }
+      else {
+        this.IsFindRecord = false;
+      }
+
+      //console.log(this.SourceList);
+      this._DestinationList = this.SourceList;
+      this._SourceList = this.SourceList;
       //console.clear();
       //alert(JSON.stringify(result.SeatList))
       this.BusSeatList = result.SeatList;
       console.log(this.BusList);
     }, error => console.error(error));
   }
+  BindSource() {
+    this._SourceList = this.SourceList.filter(x => x.Value != this.DestinationID)
+
+  }
+  BindDestination() {
+    this._DestinationList = this.SourceList.filter(x => x.Value != this.SourceID)
+  }
+
   ngOnInit() {
-    localStorage.removeItem('IsTicketPageReload') 
+    localStorage.removeItem('IsTicketPageReload')
   }
 
   CloseBusSeatDetails(i) {
@@ -90,7 +115,7 @@ export class SearchListComponent implements OnInit {
 
     this.JournyDate = ("0" + this.JournyDateModels.day).slice(-2) + "/" + ("0" + this.JournyDateModels.month).slice(-2) + "/" + this.JournyDateModels.year;
 
-   
+
 
     this.http.get<any>(this.baseUrl + 'api/GetBusSeatList?RouteID=' + this.BusList[a].RouteID + '&DestinationID=' + this.DestinationID + '&JourneyDate=' + this.JournyDate +
       '&SourceID=' + this.SourceID + '&SeatTempate=' + this.SeatTempate).subscribe(result => {
@@ -102,6 +127,8 @@ export class SearchListComponent implements OnInit {
         console.log(result.models.PickUpPointList);
         this.PickUPPointList = result.models.PickUpPointList;
         this.DropPointList = result.models.DropPointList;
+        this.DropPoint = this.DropPointList[0].Value;
+        this.PickUpPoint = this.PickUPPointList[0].Value;
         this.TicketNo = result.models.TicketNo;
         this.storage.set('TicketNo', this.TicketNo);
         //this.PickUpPoint=1;
@@ -167,8 +194,9 @@ export class SearchListComponent implements OnInit {
     for (var i = 0; i < this.SelectedSeat.length; i++) {
       this.SeatList.push({ 'SeatNo': this.SelectedSeat[i], 'Gender': 'Male', Name: '', Age: '' });
     }
+this.GST=this.TSeatPrice*5/100;
 
-    this.TotalFare = this.TSeatPrice + (this.TDiscount * 5 / 100);
+    this.TotalFare = (this.TSeatPrice +this.GST)  - (this.TDiscount);
 
 
     $("#divPersonalDetails").show();
@@ -207,7 +235,7 @@ export class SearchListComponent implements OnInit {
     var _Flag = true;
 
     for (var i = 0; i < this.SeatList.length; i++) {
-      if (this.SeatList[i].Name == '') {
+      if (this.SeatList[i].Name.trim() == '') {
         $("#" + i + "_Name").addClass('required');
         _Flag = false;
         //  break;
@@ -215,7 +243,7 @@ export class SearchListComponent implements OnInit {
       else {
         $("#" + i + "_Name").removeClass('required');
       }
-      if (this.SeatList[i].Age == '') {
+      if (this.SeatList[i].Age.trim() == '') {
         $("#" + i + "_Age").addClass('required');
         _Flag = false;
         //   break;
@@ -226,7 +254,7 @@ export class SearchListComponent implements OnInit {
       // this.SeatList.push({ 'SeatNo': this.SelectedSeat[i], 'Gender': 'Male' });
     }
 
-    if ($("#" + "txtEmail").val() == '') {
+    if ($("#" + "txtEmail").val().trim() == '') {
       $("#" + "txtEmail").addClass('required');
       _Flag = false;
     }
@@ -234,7 +262,7 @@ export class SearchListComponent implements OnInit {
       $("#" + "txtEmail").removeClass('required');
     }
 
-    if ($("#" + "MobileNo").val() == '') {
+    if ($("#" + "MobileNo").val().trim() == '') {
       $("#" + "MobileNo").addClass('required');
       _Flag = false;
     }
@@ -333,16 +361,15 @@ export class SearchListComponent implements OnInit {
   }
 
   checkTravelIinsurance() {
-    this.IsTravelInsurance=! this.IsTravelInsurance;
+    this.IsTravelInsurance = !this.IsTravelInsurance;
     if (this.IsTravelInsurance) {
       this.TravelInsuranceAmount = this.SeatList.length * 20;
-      this.TotalFare = this.TotalFare+this.TravelInsuranceAmount;
-     
+      this.TotalFare = this.TotalFare + this.TravelInsuranceAmount ;
+
     }
-    else
-    {
+    else {
       this.TravelInsuranceAmount = 0;
-      this.TotalFare = this.TotalFare-(this.SeatList.length * 20);
+      this.TotalFare = this.TotalFare - (this.SeatList.length * 20) ;
     }
   }
 
@@ -353,27 +380,45 @@ export class SearchListComponent implements OnInit {
     var temp = this.SourceID;
     this.SourceID = this.DestinationID;
     this.DestinationID = temp;
-   }
+  }
   Modify() {
-
+    this.IsLoading = true;
 
     this.JournyDate = ("0" + this.JournyDateModels.day).slice(-2) + "/" + ("0" + this.JournyDateModels.month).slice(-2) + "/" + this.JournyDateModels.year;
 
-   this. http.get<any>(this.baseUrl + 'api/GetBusList?SourceID=' + this.SourceID + '&DestinationID=' + this.DestinationID + '&JourneyDate=' + this.JournyDate).subscribe(result => {
+    this.http.get<any>(this.baseUrl + 'api/GetBusList?SourceID=' + this.SourceID + '&DestinationID=' + this.DestinationID + '&JourneyDate=' + this.JournyDate).subscribe(result => {
       // console.log(result);
-      this.SourceList = result.SourceList;
+
+
+
+
+
+      // this.SourceList = result.SourceList;
       this.BusList = result.BusList;
-      console.log(this.SourceList);
+      this.IsLoading = false;
+      if (this.BusList.length > 0) {
+        this.IsFindRecord = true;
+
+      }
+      else {
+        this.IsFindRecord = false;
+      }
+
+      // console.log(this.SourceList);
       //console.clear();
       //alert(JSON.stringify(result.SeatList))
       this.BusSeatList = result.SeatList;
-      console.log(this.BusList);
+      //console.log(this.BusList);
+
+
+
+
     }, error => console.error(error));
   }
 
   PreviousDate() {
 
-   // this.JournyDateModels.day - 1;
+    // this.JournyDateModels.day - 1;
     //console.log(this.JournyDateModels);
     //this.JournyDateModels = { year: this.JournyDateModels.year, month: this.JournyDateModels.month, day: this.JournyDateModels.day-1};
     //this.JournyDateModels = { ...this.JournyDateModels, day: this.JournyDateModels.day + 1 };
@@ -389,21 +434,21 @@ export class SearchListComponent implements OnInit {
   }
 
   NextDate() {
-  //  this.JournyDateModels = { year: this.JournyDateModels.year, month: this.JournyDateModels.month, day: this.JournyDateModels.day + 1 };
+    //  this.JournyDateModels = { year: this.JournyDateModels.year, month: this.JournyDateModels.month, day: this.JournyDateModels.day + 1 };
     //this.JournyDateModels = { year: this.JournyDateModels.getFullYear(), month: this.JournyDateModels.getMonth(), day: this.JournyDateModels.getDate() + 1 };
-   // this.JournyDateModels.day + 1;
+    // this.JournyDateModels.day + 1;
 
-  
-  //  this.JournyDateModels = { ...this.JournyDateModels, day: this.JournyDateModels.day + 1 };
+
+    //  this.JournyDateModels = { ...this.JournyDateModels, day: this.JournyDateModels.day + 1 };
 
     const date1: Date = new Date(parseInt(this.JournyDateModels.year), parseInt(this.JournyDateModels.month), parseInt(this.JournyDateModels.day));
 
-    date1.setDate(date1.getDate() +1);
+    date1.setDate(date1.getDate() + 1);
 
     this.JournyDateModels = { year: date1.getFullYear(), month: date1.getMonth(), day: date1.getDate() };
 
 
-   this.Modify();
+    this.Modify();
   }
 
 

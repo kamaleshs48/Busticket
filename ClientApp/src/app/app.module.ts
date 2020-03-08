@@ -32,7 +32,7 @@ import { SchoolTripPackageComponent } from './package/school-trip-package/school
 
 import { CollegeTripPackageComponent } from './package/college-trip-package/college-trip-package.component';
 import { PackageDetailsComponent } from './package/package-details/package-details.component';
-
+import { TicketSearchComponent } from './ticket-search/ticket-search.component';
 import { DataService } from "./API/data.service";
 
 const routes: Routes = [
@@ -61,6 +61,8 @@ const routes: Routes = [
       {path:'package/school-trip-package',component:SchoolTripPackageComponent},
       {path:'package/college-trip-package',component:CollegeTripPackageComponent},
       {path:'package/package-details',component:PackageDetailsComponent},
+      {path:'search-ticket',component:TicketSearchComponent},
+
 
 
     ]
@@ -95,7 +97,7 @@ const config: ExtraOptions = {
     HoneymoonPackageComponent,
     OfficialTripPackageComponent,
     SchoolTripPackageComponent,
-   
+    TicketSearchComponent,
     CollegeTripPackageComponent,
    
     PackageDetailsComponent,

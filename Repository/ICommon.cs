@@ -13,13 +13,6 @@ namespace KanakHolidays.Repository
     {
         ResponseModels AddHotel(HotelModels models);
         ResponseModels SaveEnquery(EnquiryModels models);
-
-
-
-        ResponseModels SavePackage(PackageModels models);
-
-        PackageModels BindPackage(int PackageID);
-
         List<HotelModels> HotelList();
         List<PackageModels> PackageList();
         List<EnquiryModels> EnquiryList();
@@ -49,9 +42,9 @@ namespace KanakHolidays.Repository
         ResponseModels Quick_search(IndexModel models);
 
 
-        ResponseModels Add_Coach(Coachmaster models,string status);
+        ResponseModels Add_Coach(Coachmaster models, string status);
 
-      ResponseModels Show_TableCoach(string Id=null,string del=null);
+        ResponseModels Show_TableCoach(string Id = null, string del = null);
         CityModels BindCityModelsByID(string CityID);
     }
 }

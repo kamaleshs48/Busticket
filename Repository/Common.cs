@@ -185,29 +185,29 @@ Select  * from tbl_PickUP_DropPointMaster Order by SourceDestination
             if (ds != null && ds.Tables[0].Rows.Count > 0)
             {
 
-                foreach (DataRow dr in ds.Tables[0].Rows)
-                {
-                    models.HotelList.Add(new HotelViewModels
-                    {
-                        HotelID = dr["ID"].ToString(),
-                        HotelImage = dr["Pic1"].ToString(),
-                        HotelName = dr["Hotel"].ToString(),
-                        HotelPrice = dr["Season_Cost"].ToString()
-                    });
+                //foreach (DataRow dr in ds.Tables[0].Rows)
+                //{
+                //    models.HotelList.Add(new HotelViewModels
+                //    {
+                //        HotelID = dr["ID"].ToString(),
+                //        HotelImage = dr["Pic1"].ToString(),
+                //        HotelName = dr["Hotel"].ToString(),
+                //        HotelPrice = dr["Season_Cost"].ToString()
+                //    });
 
-                }
-                foreach (DataRow dr in ds.Tables[1].Rows)
-                {
-                    models.PackageList.Add(new PackageViewModels
-                    {
-                        PackageID = dr["ID"].ToString(),
-                        PackageDescription = dr["Description"].ToString(),
-                        PackageImage = dr["Pic1"].ToString(),
-                        PackageName = dr["Package_Name"].ToString(),
-                        PackagePrice = dr["Season_Cost"].ToString()
-                    });
+                //}
+                //foreach (DataRow dr in ds.Tables[1].Rows)
+                //{
+                //    models.PackageList.Add(new PackageViewModels
+                //    {
+                //        PackageID = dr["ID"].ToString(),
+                //        PackageDescription = dr["Description"].ToString(),
+                //        PackageImage = dr["Pic1"].ToString(),
+                //        PackageName = dr["Package_Name"].ToString(),
+                //        PackagePrice = dr["Season_Cost"].ToString()
+                //    });
 
-                }
+                //}
 
 
                 foreach (DataRow dr in ds.Tables[2].Rows)
@@ -298,43 +298,7 @@ Select  * from tbl_PickUP_DropPointMaster Order by SourceDestination
         }
 
 
-        public ResponseModels SavePackage(PackageModels models)
-        {
-            ResponseModels resp = new ResponseModels();
-            try
-            {
-                SqlParameter[] arParms = new SqlParameter[]
-           {
-                 new SqlParameter("@PackageID", models.PackageID),
-               new SqlParameter("@Package_Name", models.Package_Name),
-                new SqlParameter("@Duration", models.Duration),
-                new SqlParameter("@Bus_Type", models.Bus_Type),
-                new SqlParameter("@Description", models.Description),
-                new SqlParameter("@Season_Cost", models.Season_Cost),
-                new SqlParameter("@Off_Season_Cost", models.Off_Season_Cost),
-                new SqlParameter("@Festivals_Days_Cost", models.Festivals_Days_Cost),
-                new SqlParameter("@Pickup_Point", models.Pickup_Point),
-                new SqlParameter("@Drop_Point", models.Drop_Point),
-                new SqlParameter("@Covered_Destinations", models.Covered_Destinations),
-                new SqlParameter("@Schedules", models.Schedules),
-                new SqlParameter("@Inclusions", models.Inclusions),
-                new SqlParameter("@Exclusions", models.Exclusions),
-                new SqlParameter("@Mode", models.ActionMode),
-           };
-                DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.ConnectionStr(), CommandType.StoredProcedure, "sp_PackageManagment", arParms);
-                resp.Status = ResponseStatus.Success;
-                resp.ResultDS = ds;
-
-
-            }
-            catch (Exception ex)
-            {
-                resp.Status = ResponseStatus.Fail;
-                resp.ErrorMessage = ex.Message;
-            }
-            return resp;
-
-        }
+       
 
 
 
@@ -412,19 +376,7 @@ Select  * from tbl_PickUP_DropPointMaster Order by SourceDestination
                         {
 
                             PackageID = dr["ID"].ToString(),
-                            Package_Name = dr["Package_Name"].ToString(),
-                            Duration = dr["Duration"].ToString(),
-                            Bus_Type = dr["Bus_Type"].ToString(),
-                            Description = dr["Description"].ToString(),
-                            Season_Cost = dr["Season_Cost"].ToString(),
-                            Off_Season_Cost = dr["Off_Season_Cost"].ToString(),
-                            Festivals_Days_Cost = dr["Festivals_Days_Cost"].ToString(),
-                            Pickup_Point = dr["Pickup_Point"].ToString(),
-                            Drop_Point = dr["Drop_Point"].ToString(),
-                            Covered_Destinations = dr["Covered_Destinations"].ToString(),
-                            Schedules = dr["Schedules"].ToString(),
-                            Inclusions = dr["Inclusions"].ToString(),
-                            Exclusions = dr["Exclusions"].ToString(),
+                           
 
                         });
                     }
@@ -592,57 +544,7 @@ Select  * from tbl_PickUP_DropPointMaster Order by SourceDestination
         }
 
 
-        public PackageModels BindPackage(int PackageID)
-        {
-            PackageModels models = new PackageModels();
-
-            try
-            {
-                SqlParameter[] arParms = new SqlParameter[]
-           {
-                new SqlParameter("@PackageID",PackageID),
-                new SqlParameter("@Mode", "PackageDetailsByID"),
-           };
-                DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.ConnectionStr(), CommandType.StoredProcedure, "sp_PackageManagment", arParms);
-
-                if (ds != null && ds.Tables[0].Rows.Count > 0)
-                {
-
-                    models.PackageID = ds.Tables[0].Rows[0]["ID"].ToString();
-                    models.Package_Name = ds.Tables[0].Rows[0]["Package_Name"].ToString();
-                    models.Duration = ds.Tables[0].Rows[0]["Duration"].ToString();
-                    models.Bus_Type = ds.Tables[0].Rows[0]["Bus_Type"].ToString();
-                    models.Description = ds.Tables[0].Rows[0]["Description"].ToString();
-                    models.Season_Cost = ds.Tables[0].Rows[0]["Season_Cost"].ToString();
-                    models.Off_Season_Cost = ds.Tables[0].Rows[0]["Off_Season_Cost"].ToString();
-                    models.Festivals_Days_Cost = ds.Tables[0].Rows[0]["Festivals_Days_Cost"].ToString();
-                    models.Pickup_Point = ds.Tables[0].Rows[0]["Pickup_Point"].ToString();
-                    models.Drop_Point = ds.Tables[0].Rows[0]["Drop_Point"].ToString();
-                    models.Covered_Destinations = ds.Tables[0].Rows[0]["Covered_Destinations"].ToString();
-                    models.Schedules = ds.Tables[0].Rows[0]["Schedules"].ToString();
-                    models.Inclusions = ds.Tables[0].Rows[0]["Inclusions"].ToString();
-                    models.Exclusions = ds.Tables[0].Rows[0]["Exclusions"].ToString();
-                    models.Pic1 = ds.Tables[0].Rows[0]["PIC1"].ToString();
-                    models.Pic2 = ds.Tables[0].Rows[0]["PIC2"].ToString();
-                    models.Pic3 = ds.Tables[0].Rows[0]["PIC3"].ToString();
-                    models.Pic4 = ds.Tables[0].Rows[0]["PIC4"].ToString();
-                    models.Pic5 = ds.Tables[0].Rows[0]["PIC5"].ToString();
-                    models.ImageList.Add(ds.Tables[0].Rows[0]["PIC1"].ToString());
-                    models.ImageList.Add(ds.Tables[0].Rows[0]["PIC2"].ToString());
-                    models.ImageList.Add(ds.Tables[0].Rows[0]["PIC3"].ToString());
-                    models.ImageList.Add(ds.Tables[0].Rows[0]["PIC4"].ToString());
-                    models.ImageList.Add(ds.Tables[0].Rows[0]["PIC5"].ToString());
-
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-            return models;
-        }
+       
 
 
         public ResponseModels AddRoute(RouteModels models)

@@ -30,9 +30,10 @@ namespace KanakHolidays
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            services.AddSingleton<ICommon, Common>();
+            services. AddSingleton<ICommon, Common>();
             services.AddSingleton(typeof(ICommon), typeof(Common));
             services.AddSingleton<ITicketBooking, TicketBooking>();
+            services.AddSingleton<IPackage, Package>();
             services.AddSingleton(typeof(ITicketBooking), typeof(TicketBooking));
 
             services

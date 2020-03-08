@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { LOCAL_STORAGE, WebStorageService, SESSION_STORAGE } from 'angular-webstorage-service';
+
 
 @Component({
   selector: 'app-family-package',
@@ -6,8 +10,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./family-package.component.css']
 })
 export class FamilyPackageComponent implements OnInit {
+  PackageList:any=[];
+  IsShow: any=[];
+  constructor(private router: Router, private http: HttpClient, @Inject('BASE_URL') private baseUrl: string,
+  private activatedRoute: ActivatedRoute,@Inject(SESSION_STORAGE) private storage: WebStorageService) { 
 
-  constructor() { }
+   
+      http.get<any>(baseUrl + 'api/GetPackageList?PackageTypeID=1').subscribe(result => {
+         console.log(result);
+    
+        //console.clear();
+        //alert(JSON.stringify(result.SeatList))
+      this.PackageList = result.PackageList;
+        
+      }, error => console.error(error));
+        
+
+  }
 
   ngOnInit() {
   }

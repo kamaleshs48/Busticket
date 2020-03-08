@@ -17,14 +17,16 @@ namespace KanakHolidays.Controllers
 
         public readonly ICommon _Repository;
         public readonly ITicketBooking _TicketBooking;
+        public readonly IPackage _Package;
 
         private readonly ILogger<SampleDataController> _logger;
 
-        public KanakController(ILogger<SampleDataController> logger, ICommon tempRep, ITicketBooking Itb)
+        public KanakController(ILogger<SampleDataController> logger, ICommon tempRep, ITicketBooking Itb, IPackage package)
         {
             _logger = logger;
             _Repository = tempRep;
             _TicketBooking = Itb;
+            _Package = package;
         }
 
 
@@ -72,6 +74,16 @@ namespace KanakHolidays.Controllers
             models = _TicketBooking.BindTicketForPrint(TicketNo);
             return Ok(models);
         }
+
+        [Route("GetPackageList")]
+        [HttpGet]
+        public IActionResult GetPackageList(int PackageTypeID)
+        {
+            PackageModels models = new PackageModels();
+            models.PackageList = _Package.GetPackagesList(PackageTypeID);
+            return Ok(models);
+        }
+
 
     }
 }
