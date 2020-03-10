@@ -48,13 +48,18 @@ export class SearchListComponent implements OnInit {
   IsTravelInsurance: boolean = false;
   IsLoading: boolean = true;
   IsFindRecord: boolean = false;
-
+  minDate: any;
   constructor(private router: Router, private http: HttpClient, @Inject('BASE_URL') private baseUrl: string,
     private activatedRoute: ActivatedRoute,
     @Inject(SESSION_STORAGE) private storage: WebStorageService
 
   ) {
-
+    const current = new Date();
+    this.minDate = {
+      year: current.getFullYear(),
+      month: current.getMonth() + 1,
+      day: current.getDate()
+    };
 
     this.activatedRoute.queryParams.subscribe(params => {
       this.SourceID = params['Source'];
@@ -112,7 +117,9 @@ export class SearchListComponent implements OnInit {
     //alert(a);
     this.RouteID = this.BusList[a].RouteID;
     this.SeatTempate = this.BusList[a].SeatTempate;
-
+    this.SelectedSeat = [];
+    this.TSeatPrice = 0;
+    this.TDiscount = 0;
     this.JournyDate = ("0" + this.JournyDateModels.day).slice(-2) + "/" + ("0" + this.JournyDateModels.month).slice(-2) + "/" + this.JournyDateModels.year;
 
 

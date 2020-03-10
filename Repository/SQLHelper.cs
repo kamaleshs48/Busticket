@@ -151,7 +151,7 @@ namespace KanakHolidays.Repository
         #region get Connection string
         public static string ConnectionStr()
         {
-            //return ConfigurationManager.ConnectionStrings["Con_Str"].ConnectionString.ToString();
+           // return ConfigurationManager.ConnectionStrings["Con_Str"].ConnectionString.ToString();
             // return "Data Source=.; database=Kanak;user id=sa; password=priyanka;";
             //return configuration.GetConnectionString("DefaultConnection");
            return "Data Source=43.255.152.26; database=MegaMind_KanakHolidays;user id=MegaMind_KanakHolidays; password=KanakHolidays@2019BSPVT;";

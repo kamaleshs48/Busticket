@@ -22,7 +22,7 @@ namespace KanakHolidays.Repository
         public static string GetTicketNo()
         {
             Random _rdm = new Random();
-            return "HT-" + DateTime.Now.ToString("ddMMyy") + _rdm.Next(1000, 9999).ToString();
+            return "HT-" +  DateTime.Now.ToString("yyddMMyy") + _rdm.Next(1000, 9999).ToString();
         }
 
     }

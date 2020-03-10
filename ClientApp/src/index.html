@@ -134,19 +134,30 @@
         e.preventDefault();
     }
     function UpdatePaymentStatus(PID) {
-
-
-
-
-
-
-
-
-        //  window.location.href = '@Url.Action("PaymentStatus", "Home")';
+       //  window.location.href = '@Url.Action("PaymentStatus", "Home")';
         var _data = {
-            TicketNo: sessionStorage.getItem('TicketNo'),
+            TicketNo: sessionStorage.getItem('TicketNo').replace(/"/g,''),
             PaymentID: PID
         };
+
+
+       $.ajax({
+            url: document.getElementsByTagName('base')[0].href +'\\api\\UpdatePaymentStatus\\',
+            data: _data,
+            beforeSend: function () {
+                //$("#cover").show();
+            },
+            complete: function () {
+               // $("#cover").hide();
+            },
+            success: function (data) {
+               
+               
+            }
+        });
+
+
+
 
 
     }

@@ -15,9 +15,7 @@ namespace KanakHolidays.Repository
 
         int SaveStopage(int RouteID, int SourceID, string Time1, string Time2, string Time3, string Time4);
         int DeleteStopage(int stopageID);
-
-
-
+      
         PrintTicketModels BindTicketForPrint(string TicketNo);
         TicketBookingModels GetTicketBookingList();
 

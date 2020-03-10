@@ -7,6 +7,8 @@ using System.Data;
 using System.Data.SqlClient;
 using KanakHolidays.Areas.Admin.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using IGSUtilites;
+using System.Reflection;
 
 namespace KanakHolidays.Repository
 {
@@ -64,7 +66,7 @@ namespace KanakHolidays.Repository
                             Start_Time = dr["Start_Time"].ToString(),
                             End_Time = dr["End_Time"].ToString(),
                             Travel_Time = dr["TravelTime"].ToString(),
-                            SeatLeft = "38",
+                            SeatLeft = dr["SeatLeft"].ToString(),
                             Total_Fare = dr["TicketPrice"].ToString(),
                             Discount = dr["Discount"].ToString(),
                             SeatTempate = dr["SeatTempate"].ToString(),
@@ -81,7 +83,7 @@ namespace KanakHolidays.Repository
             }
             catch (Exception ex)
             {
-
+               // ////IGSFunction.ErrorLog1(ex, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
             }
 
             return models;
@@ -112,7 +114,7 @@ namespace KanakHolidays.Repository
                 if (ds != null && ds.Tables[0].Rows.Count > 0)
                 {
 
-                    string TicketFare = ds.Tables[0].Rows[0]["TicketPrice"].ToString();
+                    string TicketFare = ds.Tables[0].Rows[0]["FinalPrice"].ToString();
                     string Discount = ds.Tables[0].Rows[0]["Discount"].ToString();
 
                     List<SeatModel> _List = new List<SeatModel>();
@@ -157,16 +159,25 @@ namespace KanakHolidays.Repository
                                 Value = "1",
                                 Text = ds.Tables[3].Rows[0]["Point1"].ToString()
                             });
+                        }
+                        if (!string.IsNullOrEmpty(ds.Tables[3].Rows[0]["Point2"].ToString()))
+                        {
                             models.PickUpPointList.Add(new SelectListItem
                             {
                                 Value = "2",
                                 Text = ds.Tables[3].Rows[0]["Point2"].ToString()
                             });
+                        }
+                        if (!string.IsNullOrEmpty(ds.Tables[3].Rows[0]["Point3"].ToString()))
+                        {
                             models.PickUpPointList.Add(new SelectListItem
                             {
                                 Value = "3",
                                 Text = ds.Tables[3].Rows[0]["Point3"].ToString()
                             });
+                        }
+                        if (!string.IsNullOrEmpty(ds.Tables[3].Rows[0]["Point4"].ToString()))
+                        {
                             models.PickUpPointList.Add(new SelectListItem
                             {
                                 Value = "4",
@@ -175,8 +186,6 @@ namespace KanakHolidays.Repository
                         }
 
                     }
-
-
                     // Add Drop Point
                     if (ds != null && ds.Tables[4].Rows.Count > 0)
                     {
@@ -187,16 +196,25 @@ namespace KanakHolidays.Repository
                                 Value = "1",
                                 Text = ds.Tables[4].Rows[0]["Point1"].ToString()
                             });
+                        }
+                        if (!string.IsNullOrEmpty(ds.Tables[3].Rows[0]["Point2"].ToString()))
+                        {
                             models.DropPointList.Add(new SelectListItem
                             {
                                 Value = "2",
                                 Text = ds.Tables[4].Rows[0]["Point2"].ToString()
                             });
+                        }
+                        if (!string.IsNullOrEmpty(ds.Tables[3].Rows[0]["Point3"].ToString()))
+                        {
                             models.DropPointList.Add(new SelectListItem
                             {
                                 Value = "3",
                                 Text = ds.Tables[4].Rows[0]["Point3"].ToString()
                             });
+                        }
+                        if (!string.IsNullOrEmpty(ds.Tables[3].Rows[0]["Point4"].ToString()))
+                        {
                             models.DropPointList.Add(new SelectListItem
                             {
                                 Value = "4",
@@ -212,7 +230,7 @@ namespace KanakHolidays.Repository
             }
             catch (Exception ex)
             {
-
+                ////IGSFunction.ErrorLog1(ex, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
             }
             return models;
 
@@ -303,6 +321,7 @@ namespace KanakHolidays.Repository
             }
             catch (Exception ex)
             {
+                ////IGSFunction.ErrorLog1(ex, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
                 _respModel.Status = ResponseStatus.Fail;
             }
             return _respModel;
@@ -321,6 +340,7 @@ namespace KanakHolidays.Repository
             }
             catch (Exception ex)
             {
+                ////IGSFunction.ErrorLog1(ex, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
                 respModels.Result = ResponseStatus.Fail;
             }
             return respModels;
@@ -391,7 +411,7 @@ tbl_PickUP_DropPointMaster RM ON RM.ID=RMS.SourceID  WHERE RMS.Route_ID=" + Rout
         {
             string _Qry = @"Delete From tbl_Route_Stoppage_Map Where ID=" + stopageID;
 
-            return SqlHelper.ExecuteNonQuery(SqlHelper.ConnectionStr(), CommandType.Text, _Qry); ;
+            return SqlHelper.ExecuteNonQuery(SqlHelper.ConnectionStr(), CommandType.Text, _Qry); 
         }
 
 
@@ -455,16 +475,11 @@ tbl_PickUP_DropPointMaster RM ON RM.ID=RMS.SourceID  WHERE RMS.Route_ID=" + Rout
 
                         });
                     }
-
-
-
-
-
                 }
             }
             catch (Exception ex)
             {
-
+                ////IGSFunction.ErrorLog1(ex, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
             }
 
             return models;
@@ -481,9 +496,9 @@ tbl_PickUP_DropPointMaster RM ON RM.ID=RMS.SourceID  WHERE RMS.Route_ID=" + Rout
 
 
                 string _Qry = @"select PD.SourceDestination Source,PD1.SourceDestination Destination, TB.* from tbl_TicketBookingDetails TB Inner Join 
-tbl_PickUP_DropPointMaster PD ON PD.ID=TB.SourceID
-Inner Join tbl_PickUP_DropPointMaster PD1 ON PD1.ID=TB.DestinationID
-";
+                      tbl_PickUP_DropPointMaster PD ON PD.ID=TB.SourceID
+                      Inner Join tbl_PickUP_DropPointMaster PD1 ON PD1.ID=TB.DestinationID
+                      ";
 
 
                 DataSet ds = SqlHelper.ExecuteDataset(SqlHelper.ConnectionStr(), CommandType.Text, _Qry);
@@ -512,12 +527,12 @@ Inner Join tbl_PickUP_DropPointMaster PD1 ON PD1.ID=TB.DestinationID
             }
             catch (Exception ex)
             {
-
+                ////IGSFunction.ErrorLog1(ex, MethodBase.GetCurrentMethod().DeclaringType.Name, MethodBase.GetCurrentMethod().Name);
             }
 
             return models;
         }
-
+        
     }
 }
 

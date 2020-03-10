@@ -27,6 +27,9 @@ namespace KanakHolidays.Controllers
             _Repository = tempRep;
             _TicketBooking = Itb;
             _Package = package;
+
+
+
         }
 
 
@@ -36,6 +39,8 @@ namespace KanakHolidays.Controllers
         public IActionResult GetBusSeatList(int RouteID, string JourneyDate, string SourceID, string DestinationID, string SeatTempate)
         {
 
+
+            
 
             ICommon _Repository = new Common();
 
@@ -53,7 +58,15 @@ namespace KanakHolidays.Controllers
 
         }
 
+        [Route("UpdatePaymentStatus")]
+        [HttpGet]
+        public IActionResult UpdatePaymentStatus(string TicketNo, string PaymentID)
+        {
+            var x = _TicketBooking.UpdatePaymentStatus(TicketNo.Replace(@"\",""), PaymentID);
+           
+            return new OkObjectResult(x);
 
+        }
 
         [Route("SaveTicket")]
         [HttpPost]

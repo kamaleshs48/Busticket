@@ -27,11 +27,13 @@ export class SearchComponent implements OnInit {
       day: current.getDate()
     };
 
-
-
     http.get<any>(baseUrl + 'api/GetSourceList').subscribe(result => {
       console.log(result.SourceList);
       this.SourceList = result.SourceList;
+      this.SearchForm.Source = this.SourceList[0].Value;
+      this.SearchForm.Destination = this.SourceList[this.SourceList.length - 1].Value;
+
+
     }, error => console.error(error));
   }
 
@@ -52,6 +54,12 @@ export class SearchComponent implements OnInit {
   OpenPage() {
     //alert(JSON.stringify(this.SearchForm.JournyDate)); ("0" + myNumber).slice(-2)
     let _Date: any = this.SearchForm.JournyDate
+
+    if (!this.SearchForm.JournyDate) {
+      alert('Please Select Date')
+    }
+
+
     let _JDate = ("0" + _Date.day).slice(-2) + "/" + ("0" + _Date.month).slice(-2) + "/" + _Date.year;
 
 

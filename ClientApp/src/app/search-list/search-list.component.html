@@ -25,13 +25,12 @@
         <div>
           <div
             class="SingleDatePickerInput SingleDatePickerInput_1 SingleDatePickerInput__block SingleDatePickerInput__block_2">
-
             <div
               class="SingleDatePickerInput SingleDatePickerInput_1 SingleDatePickerInput__block SingleDatePickerInput__block_2">
               <div class="DateInput DateInput_1 DateInput__block DateInput__block_2">
                 <div class="input-group">
                   <input class="form-control" placeholder="yyyy-mm-dd" id="JournyDate" name="dp"
-                    [(ngModel)]="JournyDateModels" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()">
+                    [(ngModel)]="JournyDateModels" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" [minDate]="minDate">
 
                 </div>
 
@@ -122,7 +121,7 @@
         <div class="discountTag">₹{{l.Discount}} Off</div>
         <button style="background: rgb(241, 90, 34); border: 1px solid; color: rgb(255, 255, 255);"
           (click)="OpenSeat(i,'','','')" [disabled]="IsOpenSeatChart" class="btn btn-primary">
-          SELECT
+          SELECT 
         </button>
 
       </div>
@@ -133,8 +132,7 @@
         <span>&nbsp;</span>
         <div *ngIf="IsBindSeat==true">
           <div style="display: flex; padding: 5px 0px;">
-            <div
-              style="border-bottom: 2px solid rgb(85, 77, 161); border-top-color: rgb(85, 77, 161); border-right-color: rgb(85, 77, 161); border-left-color: rgb(85, 77, 161); color: rgb(0, 0, 0); padding: 5px 10px; cursor: pointer;">
+            <div style="border-bottom: 2px solid rgb(85, 77, 161); border-top-color: rgb(85, 77, 161); border-right-color: rgb(85, 77, 161); border-left-color: rgb(85, 77, 161); color: rgb(0, 0, 0); padding: 5px 10px; cursor: pointer;">
               All
             </div>
 
@@ -144,7 +142,7 @@
               <div
                 style="position: relative; display: flex; flex-direction: column-reverse; background: rgb(255, 255, 255); padding: 10px 5px 10px 60px; margin-bottom: 10px; box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 2px; border-radius: 3px; overflow: auto;">
 
-                <span class="seatchart-label">Driver</span><img src="assets/Images/operator.svg" alt="driver">
+                <span class="seatchart-label">Driver </span><img src="assets/Images/operator.svg" alt="driver">
 
                 <div style="position: relative; display: flex; height: 40px;">
                   <!-- 4 Row -->
@@ -192,22 +190,22 @@
                     id="{{i}}_S11"> <span class="SeatBirthLocation"></span>11</div>
                   <div ngbTooltip="Seat N 15 | ₹{{BusSeatList[15].SeatPrice}}" tooltipClass="tooltip-class"
                     [ngClass]="BusSeatList[15].CssClass" style="left: 186px" (click)="SelectSeat('15',i)"
-                    id="{{i}}_S16"> <span class="SeatBirthLocation"></span>15</div>
+                    id="{{i}}_S15"> <span class="SeatBirthLocation"></span>15</div>
                   <div ngbTooltip="Seat N 19 | ₹{{BusSeatList[19].SeatPrice}}" tooltipClass="tooltip-class"
                     [ngClass]="BusSeatList[19].CssClass" style="left: 248px" (click)="SelectSeat('19',i)"
-                    id="{{i}}_S20"> <span class="SeatBirthLocation"></span>19</div>
+                    id="{{i}}_S19"> <span class="SeatBirthLocation"></span>19</div>
                   <div ngbTooltip="Seat N 23 | ₹{{BusSeatList[23].SeatPrice}}" tooltipClass="tooltip-class"
                     [ngClass]="BusSeatList[23].CssClass" style="left: 310px" (click)="SelectSeat('23',i)"
-                    id="{{i}}_S24"> <span class="SeatBirthLocation"></span>23</div>
+                    id="{{i}}_S23"> <span class="SeatBirthLocation"></span>23</div>
                   <div ngbTooltip="Seat N 27 | ₹{{BusSeatList[27].SeatPrice}}" tooltipClass="tooltip-class"
                     [ngClass]="BusSeatList[27].CssClass" style="left: 372px" (click)="SelectSeat('27',i)"
-                    id="{{i}}_S28"> <span class="SeatBirthLocation"></span>27</div>
+                    id="{{i}}_S27"> <span class="SeatBirthLocation"></span>27</div>
                   <div ngbTooltip="Seat N 31 | ₹{{BusSeatList[31].SeatPrice}}" tooltipClass="tooltip-class"
                     [ngClass]="BusSeatList[31].CssClass" style="left: 434px" (click)="SelectSeat('31',i)"
-                    id="{{i}}_S32"> <span class="SeatBirthLocation"></span>31</div>
+                    id="{{i}}_S31"> <span class="SeatBirthLocation"></span>31</div>
                   <div ngbTooltip="Seat N 35 | ₹{{BusSeatList[35].SeatPrice}}" tooltipClass="tooltip-class"
                     [ngClass]="BusSeatList[35].CssClass" style="left: 496px" (click)="SelectSeat('35',i)"
-                    id="{{i}}_S36"> <span class="SeatBirthLocation"></span>35</div>
+                    id="{{i}}_S35"> <span class="SeatBirthLocation"></span>35</div>
                   <div ngbTooltip="Seat N 40 | ₹{{BusSeatList[40].SeatPrice}}" tooltipClass="tooltip-class"
                     [ngClass]="BusSeatList[40].CssClass" style="left: 558px" (click)="SelectSeat('40',i)"
                     id="{{i}}_S40"> <span class="SeatBirthLocation"></span>40</div>
@@ -1738,7 +1736,7 @@
 
 
                   <div
-                    style="position: relative; width: 35px; height: 35px; font-size: 0.7rem; display: flex; align-items: center; justify-content: center; padding-bottom: 4px; border: 1px solid rgb(30, 178, 75);">
+                    style="position: relative; width: 35px; height: 35px; font-size: 12px; display: flex; align-items: center; justify-content: center; padding-bottom: 4px; border: 1px solid rgb(30, 178, 75);">
                     {{k.SeatNo}}<span
                       style="position: absolute; bottom: 0px; left: 5px; width: 23px; height: 4px; background: rgb(30, 178, 75);"></span>
                   </div>
@@ -1905,4 +1903,4 @@
 
   </div>
 </div>
-<a id="GoToPrintTicket" [routerLink]="['/ticket-print']"></a>
+<a id="GoToPrintTicket" [routerLink]="['/ticket-print']" [queryParams]="{TicketNo: TicketNo}"></a>

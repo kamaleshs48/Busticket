@@ -83,6 +83,7 @@ namespace KanakHolidays
                     spa.UseAngularCliServer(npmScript: "start");
                 }
             });
+            
         }
     }
 }
