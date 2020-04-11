@@ -1,13 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material';
-
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes, ExtraOptions } from '@angular/router';
-
-
-import { StorageServiceModule} from 'angular-webstorage-service'
+import { StorageServiceModule } from 'angular-webstorage-service'
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -17,10 +14,10 @@ import { SearchComponent } from './search/search.component';
 import { SearchListComponent } from './search-list/search-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { LayoutComponent } from './shared/layout/layout.component';
-import {TicketPrintComponent} from './ticket-print/ticket-print.component'
-import {NgbModule, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
-import {TermsConditionsComponent} from './terms-conditions/terms-conditions.component';
-import {SearchResultComponent} from './search-result/search-result.component'
+import { TicketPrintComponent } from './ticket-print/ticket-print.component'
+import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
+import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
+import { SearchResultComponent } from './search-result/search-result.component'
 
 import { from } from 'rxjs';
 import { NgbDateCustomParserFormatter } from './dateformat';
@@ -44,7 +41,7 @@ const routes: Routes = [
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-    
+
     ],
   },
   {
@@ -52,33 +49,29 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: 'search-list', component: SearchListComponent },
-      { path: 'ticket-print', component: TicketPrintComponent},
-      {path:'terms-conditions',component:TermsConditionsComponent},
-      {path:'search-result',component:SearchResultComponent},
-      {path:'package/family-package',component:FamilyPackageComponent},
-      {path:'package/honeymoon-package',component:HoneymoonPackageComponent},
-      {path:'package/official-trip-package',component:OfficialTripPackageComponent},
-      {path:'package/school-trip-package',component:SchoolTripPackageComponent},
-      {path:'package/college-trip-package',component:CollegeTripPackageComponent},
-      {path:'package/package-details',component:PackageDetailsComponent},
-      {path:'search-ticket',component:TicketSearchComponent},
+      { path: 'ticket-print', component: TicketPrintComponent },
+      { path: 'terms-conditions', component: TermsConditionsComponent },
+      { path: 'search-result', component: SearchResultComponent },
+      { path: 'package/family-package', component: FamilyPackageComponent },
+      { path: 'package/honeymoon-package', component: HoneymoonPackageComponent },
+      { path: 'package/official-trip-package', component: OfficialTripPackageComponent },
+      { path: 'package/school-trip-package', component: SchoolTripPackageComponent },
+      { path: 'package/college-trip-package', component: CollegeTripPackageComponent },
+      { path: 'package/package-details', component: PackageDetailsComponent },
+      { path: 'search-ticket', component: TicketSearchComponent },
 
 
 
     ]
   },
- 
-  
- /*  { path: '**', redirectTo: '' } */
+
+
+  /*  { path: '**', redirectTo: '' } */
 ];
 
 const config: ExtraOptions = {
   useHash: true,
 };
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,10 +92,10 @@ const config: ExtraOptions = {
     SchoolTripPackageComponent,
     TicketSearchComponent,
     CollegeTripPackageComponent,
-   
+
     PackageDetailsComponent,
-    
-  
+
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -123,7 +116,7 @@ const config: ExtraOptions = {
 
     BrowserAnimationsModule
   ],
-  providers: [DataService,{ provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter }],
+  providers: [DataService, { provide: NgbDateParserFormatter, useClass: NgbDateCustomParserFormatter }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

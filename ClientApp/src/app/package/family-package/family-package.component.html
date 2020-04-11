@@ -1,13 +1,13 @@
+
+
+
 <div id="fh5co-tours" class="fh5co-section-gray">
-  <div class="container" style="padding-top:-50;">
+  <div class="container" style="padding-top:-50px;">
     <div class="row">
       <div class="col-md-8 col-md-offset-2 text-center heading-section">
-        <h3>Manali Honeymoon Packages</h3>
-        <p>Season Period : 16th April to 15th July, 19th December to 5th January.
-        </p>
-        <p>
-          Off Season Period : 6th January to 15th April, 16th July to 18th December.
-        </p>
+        <h3>Top Family-Package</h3>
+
+        <button class="btn btn-outline-primary mb-2 mr-2" (click)="openBackDropCustomClass(contentm)">Modal with backdrop custom class</button>
 
       </div>
     </div>
@@ -15,7 +15,7 @@
     <div class="panel panel-success">
       <div class="panel-body">
         <div *ngFor="let Pac of PackageList; index as i;">
-          <hr/>
+          <hr />
           <div class="row">
 
             <table class="table">
@@ -45,7 +45,7 @@
               </tbody>
             </table>
           </div>
-         
+
           <div class="row">
             <div class="col-md-6 col-sm-6">
               <div class="offers_image_container">
@@ -100,7 +100,7 @@
 
               <div class="panel panel-success">
                 <div class="panel-heading"> <strong>Package Details :</strong></div>
-               
+
                 <div class="panel-body">
                   <div [innerHTML]="Pac.Package_Description"></div>
                 </div>
@@ -115,3 +115,24 @@
 
     </div>
   </div>
+</div>
+
+
+
+<ng-template #contentm let-modal>
+
+  <h1>Helllllllllllllllllllllll</h1>
+
+  <div class="modal-header">
+    <h4 class="modal-title">Modal title</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>One fine body&hellip;</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

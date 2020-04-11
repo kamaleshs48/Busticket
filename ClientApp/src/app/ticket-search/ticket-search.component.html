@@ -10,9 +10,9 @@
 
                 <div class="form-inline">
                     <label for="email">Enter PNR:</label>
-                    <input type="text" id="txtPnr" placeholder="HT00001" name="txtPnr">
+                    <input type="text" id="txtPnr" placeholder="HT00001" name="txtPnr" [(ngModel)]="TicketNo">
 
-                    <button type="submit">Submit</button>
+                    <button type="button" (click)="BindTicket()" >Submit</button>
                 </div>
 
 
